@@ -153,6 +153,7 @@ AB_OTA_PARTITIONS += \
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_KERNEL_CMDLINE += rcu_nocbs=all rcutree.enable_rcu_lazy=1
 BOARD_KERNEL_CMDLINE += androidboot.serialconsole=0
+BOARD_KERNEL_CMDLINE += log_buf_len=1024K
 
 BOARD_BOOT_HEADER_VERSION := 4
 
