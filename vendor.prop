@@ -408,6 +408,7 @@ ro.surface_flinger.supports_background_blur=1
 ro.surface_flinger.uclamp.min=328
 ro.surface_flinger.use_color_management=true
 ro.surface_flinger.wcg_composition_dataspace=143261696
+debug.sf.enable_egl_image_tracker=0
 
 # TEE
 ro.vendor.mtk_microtrust_tee_support=1
