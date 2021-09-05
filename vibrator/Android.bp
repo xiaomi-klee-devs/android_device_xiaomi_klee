@@ -20,7 +20,6 @@ cc_binary {
         "libbase",
         "libbinder_ndk",
         "liblog",
-        "libqtivibratoreffect.rodin",
         "android.hardware.vibrator-V1-ndk",
     ],
 }
