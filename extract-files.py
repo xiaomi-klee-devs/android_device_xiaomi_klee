@@ -211,6 +211,8 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libsilkybrightnesscore.so',
     ): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+    'odm/etc/init/vendor.xiaomi.sensor.citsensorservice.aidl.rc': blob_fixup()
+        .add_line_if_missing('    task_profiles ServiceCapacityLow'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
