@@ -30,3 +30,6 @@ ro.product.marketname=POCO X8 Pro
 
 # F2FS
 persist.fsck.disable_linear_lookup=on
+
+# FUSE passthrough
+persist.sys.fuse.passthrough.enable=true
