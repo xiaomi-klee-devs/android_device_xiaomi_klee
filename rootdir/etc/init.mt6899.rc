@@ -1266,6 +1266,9 @@ on property:sys.boot_completed=1 && property:ro.build.type=user && property:ro.d
     chmod 0755 /sys/kernel/tracing
     setprop persist.dbg.keep_debugfs_mounted true
 
+on property:sys.boot_completed=1
+    restart android-hardware-media-c2-hal
+
 service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     override
     class hal
