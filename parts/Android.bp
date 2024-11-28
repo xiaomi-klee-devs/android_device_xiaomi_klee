@@ -18,4 +18,15 @@ android_app {
         "vendor.xiaomi.hardware.displayfeature_aidl-V2-java",
         "vendor.xiaomi.hw.touchfeature-V1-java",
     ],
+
+    required: [
+        "privapp_whitelist_com.xiaomi.settings.xml",
+    ],
+}
+
+prebuilt_etc {
+    name: "privapp_whitelist_com.xiaomi.settings.xml",
+    src: "permissions/privapp_whitelist_com.xiaomi.settings.xml",
+    sub_dir: "permissions",
+    system_ext_specific: true,
 }
