@@ -31,6 +31,10 @@ AB_OTA_PARTITIONS += \
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
 
+# Bootconfig
+BOARD_BOOTCONFIG += \
+    androidboot.serialconsole=0
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := rodin
 TARGET_NO_BOOTLOADER := true
@@ -152,7 +156,6 @@ AB_OTA_PARTITIONS += \
 
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_KERNEL_CMDLINE += rcupdate.rcu_expedited=1 rcu_nocbs=all rcutree.enable_rcu_lazy
-BOARD_KERNEL_CMDLINE += androidboot.serialconsole=0
 BOARD_KERNEL_CMDLINE += log_buf_len=1024K
 BOARD_KERNEL_CMDLINE += sysctl.kernel.sched_pelt_multiplier=4
 BOARD_KERNEL_CMDLINE += cgroup.memory=nokmem
