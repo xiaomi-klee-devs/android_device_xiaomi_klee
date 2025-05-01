@@ -149,3 +149,6 @@
 
 # Touchboost
 /(vendor|system/vendor)/bin/touch_boost      u:object_r:touch_boost_exec:s0
+
+# Process and system statistics files
+/proc/stat                                                                                                                                                u:object_r:proc_stat:s0
