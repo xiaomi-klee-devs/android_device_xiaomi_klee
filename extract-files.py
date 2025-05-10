@@ -115,7 +115,9 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.hardware.sensors-V2-ndk.so', 'android.hardware.sensors-V3-ndk.so'),
     ('odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl', 'odm/lib64/hw/displayfeature.default.so'): blob_fixup()
         .replace_needed('android.hardware.sensors-V2-ndk.so', 'android.hardware.sensors-V3-ndk.so')
-        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so')
+        .binary_regex_replace(b'A2dpsuspendonly', b'A2dpSuspended\x00\x00')
+        .binary_regex_replace(b'BTAudiosuspend', b'A2dpSuspended\x00'),
     (
         'vendor/bin/hw/mt6899/android.hardware.graphics.allocator-V2-service-mediatek.mt6899',
         'vendor/lib64/libaimemc.so',
