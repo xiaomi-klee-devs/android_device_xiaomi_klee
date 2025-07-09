@@ -258,6 +258,13 @@ else
         vendor.camera.aux.packagelist=org.lineageos.aperture
 endif
 
+# MM
+PRODUCT_PACKAGES += \
+    init.zram.rc
+
+PRODUCT_COPY_FILES += \
+    hardware/google/pixel/mm/fstab.zram.40p:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.zram
+
 # NFC
 PRODUCT_PACKAGES += \
     android.hardware.nfc-service.nxp \

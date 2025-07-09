@@ -11,6 +11,7 @@ import /vendor/etc/init/hw/init.aee.rc
 import /vendor/etc/init/hw/init.volte.rc
 import /vendor/etc/init/hw/init.mal.rc
 import /vendor/etc/init/hw/init.sensor_2_0.rc
+import /vendor/etc/init/hw/init.zram.rc
 
 # init.modem.rc must be the LAST rc file because vold.post_fs_data_done is set in it
 import /vendor/etc/init/hw/init.modem.rc
@@ -193,12 +194,6 @@ on post-fs-data
 
     # multi-gen LRU
     write /sys/kernel/mm/lru_gen/enabled y
-
-    # zram
-    write /sys/block/zram0/comp_algorithm lz4
-    write /proc/sys/vm/page-cluster 3
-    write /proc/sys/vm/swappiness 100
-    write /sys/kernel/mm/swap/vma_ra_enabled false
 
     # boot time fs tune
     write /sys/block/mmcblk0/queue/iostats 0
@@ -1134,10 +1129,6 @@ on property:sys.boot_completed=1
     write /sys/block/dm-3/queue/read_ahead_kb 128
     write /sys/block/dm-4/queue/read_ahead_kb 128
     write /sys/block/dm-5/queue/read_ahead_kb 128
-
-    # zram writeback
-    setprop persist.sys.zram_enabled 1
-    swapon_all /vendor/etc/fstab.mt6899
 
 on property:sys.boot_completed=1
 
