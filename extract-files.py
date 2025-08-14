@@ -196,7 +196,7 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libdlbdsservice.so': blob_fixup()
         .replace_needed("libstagefright_foundation.so", "libstagefright_foundation-v33.so"),
     'vendor/bin/hw/mtkfusionrild': blob_fixup()
-        .add_needed('libutils-v32.so'),
+        .add_needed('libutils-v33.so'),
     "odm/bin/hw/vendor.xiaomi.hw.touchfeature-service": blob_fixup()
         .replace_needed('android.hardware.sensors-V2-ndk.so', 'android.hardware.sensors-V3-ndk.so')
         .replace_needed('vendor.xiaomi.hw.touchfeature-V1-ndk.so', 'vendor.xiaomi.hw.touchfeature-V1-ndk-prebuilt.so'),
