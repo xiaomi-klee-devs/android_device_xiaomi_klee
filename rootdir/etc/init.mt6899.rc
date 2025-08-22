@@ -890,7 +890,6 @@ on early-boot
     chown system system /sys/class/leds/lcd-backlight1/logic_max_brightness
 
 on boot
-    stop console
     write /proc/bootprof "INIT:boot"
 
     write /proc/sys/vm/dirty_writeback_centisecs 300
