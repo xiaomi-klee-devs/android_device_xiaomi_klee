@@ -1,3 +1,4 @@
+binder_call(audioserver, hal_mediaeventgatherservice_service)
 allow audioserver hal_sensors_default:binder call;
 
 allow audioserver sysfs_fsm_re25:file rw_file_perms;

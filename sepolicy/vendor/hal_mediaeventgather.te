@@ -1,0 +1,8 @@
+type hal_mediaeventgatherservice_default, domain;
+type hal_mediaeventgatherservice_default_exec, file_type, exec_type, vendor_file_type;
+binder_call(hal_mediaeventgatherservice_service, audioserver)
+binder_call(hal_mediaeventgatherservice_service, hal_audio_default)
+binder_call(hal_mediaeventgatherservice_server, hal_mediaeventgatherservice_client)
+binder_call(hal_mediaeventgatherservice_client hal_mediaeventgatherservice_server)
+
+allow hal_mediaeventgatherservice_default hal_mediaeventgatherservice_default_exec:file { read getattr map execute open entrypoint };

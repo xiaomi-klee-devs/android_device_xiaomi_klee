@@ -16,6 +16,9 @@ vendor.xiaomi.hardware.fx.tunnel.IMiFxTunnel/default                    u:object
 # Mlipay
 vendor.xiaomi.hardware.mlipay.IMlipayService/default        u:object_r:hal_mlipay_service:s0
 
+# Media
+vendor.xiaomi.hardware.mediaeventgatherservice.IMediaGather/default                       u:object_r:hal_mediaeventgatherservice_service:s0
+
 # Mtdservice
 vendor.xiaomi.hardware.aidl.mtdservice.IMTService/default        u:object_r:hal_mtdservice_service:s0
 
