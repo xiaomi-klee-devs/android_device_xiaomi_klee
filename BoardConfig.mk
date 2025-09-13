@@ -249,3 +249,4 @@ BOARD_AVB_VENDOR_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
 
 # Inherit the proprietary files
 include vendor/xiaomi/rodin/BoardConfigVendor.mk
+-include device/xiaomi/rodin-miuicamera/BoardConfig.mk
