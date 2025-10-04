@@ -1392,7 +1392,7 @@ vendor/etc/vintf/manifest/manifest_vendor.dolby.hardware.dms.xml|c8095f649de19b8
 vendor/lib64/soundfx/libswdap.so|02a18b9e31988a2b00ae04b8c6a8f156fc5627f8
 vendor/lib64/libdapparamstorage.so|82c8a048c3c1efebb6e9a8bde1b5dab0a21a44f0
 vendor/lib64/libdeccfg.so|7e489f73c8edf514ec2ffd7a7cc4aae5dc95632c
-vendor/lib64/libdlbdsservice.so|c5aac3610291b22906fb3089ce1e0b80ae94a6f1
+vendor/lib64/libdlbdsservice.so|c5aac3610291b22906fb3089ce1e0b80ae94a6f1|e3a7973b4cf36ce98998ecb4cb7a049d60de32e5
 vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so|d0cf6b19fdcdbb1015a68ef90e3e32d40cf7253e
 vendor/lib64/vendor.dolby.hardware.dms@2.0.so|c97a8e87354a36f7fbacd783d403a8e8a89e5c38
 
