@@ -25,7 +25,6 @@ vendor/lib64/hw/audio.primary.mediatek.so:vendor/lib64/hw/audio.primary.mt6899.s
 vendor/lib64/hw/audio.r_submix.mediatek.so:vendor/lib64/hw/audio.r_submix.mt6899.so;FIX_SONAME
 vendor/lib64/hw/sound_trigger.primary.default.so
 vendor/lib64/libMtkSpeechEnh.so
-vendor/lib64/libMtkSpeechEnh_swb.so
 vendor/lib64/lib_iir.so
 vendor/lib64/libalsautils.so:vendor/lib64/libalsautils-v34.so;FIX_SONAME
 vendor/lib64/libaudio_param_parser-vnd.so
@@ -55,7 +54,6 @@ vendor/lib64/libmsbc_mtk.so
 vendor/lib64/libmtklimiter_vendor.so
 vendor/lib64/libmtkshifter_vendor.so
 vendor/lib64/libmtkspparser.so
-vendor/lib64/libmtkspparser_swb.so
 vendor/lib64/librt_extamp_intf.so
 vendor/lib64/libspeech_enh_lib.so;FIX_SONAME
 vendor/lib64/libspeechparser_vendor.so
