@@ -1929,7 +1929,9 @@ vendor/lib64/hw/sensors.mediatek.V2.0.so:vendor/lib64/hw/sensors.mt6899.so;FIX_S
 vendor/lib64/libhfmanager.so
 vendor/lib64/libhfmanagerwrapper.so
 vendor/lib64/libhidparser.so
-vendor/lib64/libnotifyaudiohal.so;FIX_SONAME
+
+# Sensor (Proximity) - from rothko OS2.0.16.0.VNNEUXM
+vendor/lib64/libnotifyaudiohal.so;FIX_SONAME|a02f3e44bb5e84760925722ae3e9c66957e94c9d|fe4ea475de5a45ee1c1ebb0f4c05c2a6827b53f8
 
 # Sensors (Configs)
 odm/etc/sensors/lightSensorCali.json
