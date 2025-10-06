@@ -108,6 +108,7 @@ PRODUCT_PACKAGES += \
     audio.usb.default
 
 PRODUCT_PACKAGES += \
+    MtkInCallService \
     XiaomiDolby
 
 PRODUCT_COPY_FILES += \
