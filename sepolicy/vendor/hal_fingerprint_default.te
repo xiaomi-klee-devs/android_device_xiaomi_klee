@@ -1,4 +1,5 @@
 add_service(hal_fingerprint_default, vendor_hal_fingerprint_service_xiaomi)
+add_hwservice(hal_fingerprint_default, vendor_hal_fingerprint_hwservice_xiaomi)
 binder_call(hal_fingerprint_default, hal_touchfeature_xiaomi_default)
 binder_call(hal_fingerprint_default, hal_graphics_composer_default)
 

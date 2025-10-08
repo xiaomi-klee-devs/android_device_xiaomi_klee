@@ -151,6 +151,11 @@
         <version>1</version>
         <fqname>IXiaomiFingerprint/default</fqname>
     </hal>
+    <hal format="hidl">
+        <name>vendor.xiaomi.hardware.fx.tunnel</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IMiFxTunnel/default</fqname>
+    </hal>
     <hal format="aidl">
         <name>vendor.xiaomi.hardware.fx.tunnel</name>
         <version>1</version>
