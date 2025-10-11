@@ -1,5 +1,7 @@
 type hal_aidlbgservice_service, hal_service_type, protected_service, service_manager_type;
 
+binder_call(hal_aidlbgservice, platform_app)
+
 allow hal_aidlbgservice_client hal_aidlbgservice_server:binder { call transfer };
 allow hal_aidlbgservice_client hal_aidlbgservice_server:binder transfer;
 allow hal_aidlbgservice_client hal_aidlbgservice_server:fd *;

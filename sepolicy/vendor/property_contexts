@@ -4,6 +4,9 @@ persist.vendor.accelerate.charge u:object_r:vendor_batterysecret_prop:s0
 # Camera
 vendor.camera.             u:object_r:vendor_mtk_camera_prop:s0
 persist.vendor.camera.     u:object_r:vendor_mtk_camera_prop:s0
+persist.vendor.cameraid.totalnum u:object_r:vendor_mtk_camera_prop:s0
+persist.vendor.EnableP3ColorSpace u:object_r:vendor_mtk_camera_prop:s0
+persist.vendor.XDRVersion u:object_r:vendor_mtk_camera_prop:s0
 
 # Camera (MiuiCamera)
 ro.vendor.audio.us.proximity             u:object_r:vendor_us_proximity_prop:s0 exact bool
