@@ -142,6 +142,8 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed("libstagefright_foundation.so", "libstagefright_foundation-v33.so"),
     'vendor/bin/hw/mtkfusionrild': blob_fixup()
         .add_needed('libutils-v32.so'),
+    "vendor/etc/init/android.hardware.wifi-service-lazy-mediatek.rc": blob_fixup()
+        .regex_replace("lazy", "lazy-mediatek"),
 }  # fmt: skip
 
 module = ExtractUtilsModule(

@@ -141,5 +141,8 @@
 # Vibrator
 /(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.rodin u:object_r:hal_vibrator_default_exec:s0
 
+# WiFi
+/(vendor|system/vendor)/bin/hw/android\.hardware\.wifi-service-lazy-mediatek           u:object_r:hal_wifi_default_exec:s0
+
 # Touchboost
 /(vendor|system/vendor)/bin/touch_boost      u:object_r:touch_boost_exec:s0
