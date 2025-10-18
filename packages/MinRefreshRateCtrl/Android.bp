@@ -1,0 +1,19 @@
+android_app {
+    name: "MinRefreshRateCtrl",
+    srcs: ["src/**/*.java"],
+    platform_apis: true,
+    certificate: "platform",
+    privileged: true,
+    system_ext_specific: true,
+
+    required: [
+        "privapp_org.lineageos.minrefreshrate.xml",
+    ],
+}
+
+prebuilt_etc {
+    name: "privapp_org.lineageos.minrefreshrate.xml",
+    src: "permissions/privapp_org.lineageos.minrefreshrate.xml",
+    sub_dir: "permissions",
+    system_ext_specific: true,
+}
