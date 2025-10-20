@@ -528,6 +528,12 @@
       "Value": "101"
     },
     {
+      "PowerHint": "LAUNCH",
+      "Node": "GpuPwrLevel",
+      "Duration": 0,
+      "Value": "6"
+    },
+    {
       "PowerHint": "CAMERA_LAUNCH",
       "Node": "CAMUClampBoost",
       "Duration": 1000,
