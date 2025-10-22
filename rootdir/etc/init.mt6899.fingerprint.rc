@@ -3,8 +3,6 @@ on boot
     #GOODIX
     chmod 0666 /dev/goodix_fp
     chown system system /dev/goodix_fp
-    # Force enable fod_enable status for activating SoFOD
-    write /sys/devices/platform/goodix_ts.0/fod_enable 1
     #fpc
     chown system system /sys/bus/platform/devices/fingerprint/clk_enable
     chmod 0660 /sys/bus/platform/devices/fingerprint/clk_enable
