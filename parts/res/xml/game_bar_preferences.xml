@@ -50,18 +50,6 @@
             android:defaultValue="false" />
 
         <SwitchPreferenceCompat
-            android:key="game_bar_gpu_usage_enable"
-            android:title="GPU Usage"
-            android:summary="Show GPU usage percentage"
-            android:defaultValue="false" />
-
-        <SwitchPreferenceCompat
-            android:key="game_bar_gpu_clock_enable"
-            android:title="GPU Clock Speed"
-            android:summary="Show current GPU clock frequency"
-            android:defaultValue="false" />
-
-        <SwitchPreferenceCompat
             android:key="game_bar_gpu_temp_enable"
             android:title="GPU Temperature"
             android:summary="Show current GPU temperature"
