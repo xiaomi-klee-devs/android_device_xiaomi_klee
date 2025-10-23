@@ -497,6 +497,16 @@
          meanings. -->
     <integer name="config_defaultNotificationVibrationIntensity">3</integer>
 
+    <!-- The fixed keyboard vibration strength in [0,1], or -1 to indicate the strength not fixed
+         and should depend on the touch feedback intensity user setting -->
+    <item name="config_keyboardHapticFeedbackFixedAmplitude" type="dimen">0.62</item>
+
+    <!-- Indicating if keyboard vibration settings supported or not. -->
+    <bool name="config_keyboardVibrationSettingsSupported">true</bool>
+
+    <!-- Indicating if ringtone vibration settings supported or not. -->
+    <bool name="config_ringtoneVibrationSettingsSupported">true</bool>
+
     <!-- Whether or not wcg (wide color gamut) should be enabled on this device,
          we only enabled it while the device has ability of mixed color spaces composition -->
     <bool name="config_enableWcgMode">true</bool>
