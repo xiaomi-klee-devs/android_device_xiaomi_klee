@@ -47,6 +47,7 @@ genfscon sysfs /devices/platform/charger_gl/power_supply/mtk-slv-div-chg        
 genfscon sysfs /devices/platform/charger_gl/power_supply/mtk-slv-hvdiv-chg                                u:object_r:sysfs_power_supply:s0
 genfscon sysfs /devices/platform/charger_gl/power_supply/usb                                              u:object_r:sysfs_power_supply:s0
 genfscon sysfs /devices/platform/pd-adapter/Charging_Adapter/pd_adapter/                                  u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/soc/11f01000.i2c/i2c-5/5-0034/11f01000.i2c:mt6375@34:chg/power_supply/primary_chg u:object_r:sysfs_power_supply:s0
 
 # Trusted Execution Environment (TEE)
 genfscon proc /mitee_log 									 u:object_r:proc_mitee_log:s0
