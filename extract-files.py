@@ -39,6 +39,7 @@ def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
     ('vendor.xiaomi.hw.touchfeature-V1-ndk'): lib_fixup_vendor_suffix,
+    ('vendor.xiaomi.hardware.fingerprintextension-V1-ndk'): lib_fixup_vendor_suffix,
 }
 
 blob_fixups: blob_fixups_user_type = {

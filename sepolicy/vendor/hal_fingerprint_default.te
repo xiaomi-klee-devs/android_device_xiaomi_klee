@@ -1,3 +1,7 @@
+type fpsensor_socket, file_type;
+
+allow init fpsensor_socket:sock_file create_file_perms;
+
 add_service(hal_fingerprint_default, vendor_hal_fingerprint_service_xiaomi)
 add_hwservice(hal_fingerprint_default, vendor_hal_fingerprint_hwservice_xiaomi)
 binder_call(hal_fingerprint_default, hal_touchfeature_xiaomi_default)
