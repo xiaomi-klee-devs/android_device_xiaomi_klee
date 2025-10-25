@@ -38,8 +38,6 @@ import android.view.Display.HdrCapabilities;
 import org.lineageos.settings.doze.DozeUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
 import org.lineageos.settings.refreshrate.RefreshUtils;
-import org.lineageos.settings.touch.DoubleTapService;
-import org.lineageos.settings.touch.SoFodTouchService;
 import org.lineageos.settings.touchsampling.TouchSamplingService;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
@@ -86,10 +84,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // Start Touch Sampling Service
         context.startServiceAsUser(new Intent(context, TouchSamplingService.class), UserHandle.CURRENT);
-
-        // Start Touchfeature service   
-        context.startServiceAsUser(new Intent(context, DoubleTapService.class), UserHandle.CURRENT);
-        context.startServiceAsUser(new Intent(context, SoFodTouchService.class), UserHandle.CURRENT);
     }
     private void overrideHdrTypes(Context context) {
         try {
