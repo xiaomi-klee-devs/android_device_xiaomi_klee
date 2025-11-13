@@ -141,7 +141,7 @@ ro.vendor.gps.chrdev=gps_drv_dl_v051
 # Fingerprint
 persist.vendor.sys.fp.expolevel=0x88
 persist.vendor.fingerprint.type=udfps_optical
-persist.vendor.fingerprint.sensor_location=610|2442|114
+persist.vendor.fingerprint.sensor_location=610|2437|108
 ro.vendor.sensors.xiaomi.udfps=true
 
 # Graphics
