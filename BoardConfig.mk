@@ -187,12 +187,6 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     hardware/xiaomi/vintf/xiaomi_framework_compatibility_matrix.xml \
     hardware/mediatek/vintf/mediatek_framework_compatibility_matrix.xml
 
-ODM_MANIFEST_FILES   := \
-        $(DEVICE_PATH)/vintf/manifest_dsds.xml \
-        $(DEVICE_PATH)/vintf/manifest_qsqs.xml \
-        $(DEVICE_PATH)/vintf/manifest_ss.xml \
-        $(DEVICE_PATH)/vintf/manifest_tsts.xml
-
 # WiFi
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_mt66xx

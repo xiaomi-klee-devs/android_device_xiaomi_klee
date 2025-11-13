@@ -1916,7 +1916,9 @@ vendor/etc/virtual-spn-conf-by-efspn.xml
 vendor/etc/virtual-spn-conf-by-imsi.xml
 
 # Secure element
+vendor/bin/hw/android.hardware.secure_element@1.2-service-mediatek
 vendor/bin/hw/vendor.xiaomi.hardware.secure_element-service
+vendor/etc/init/android.hardware.secure_element@1.2-service-mediatek.rc
 vendor/etc/init/secure_element-service.rc
 
 # Sensors
