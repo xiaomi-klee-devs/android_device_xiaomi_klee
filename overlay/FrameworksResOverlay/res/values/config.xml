@@ -334,10 +334,13 @@
     <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.074743524</item>
 
     <!-- Fast brightness animation ramp rate in brightness units per second-->
-    <integer name="config_brightness_ramp_rate_fast" translatable="false">4932</integer>
+    <integer name="config_brightness_ramp_rate_fast" translatable="false">64</integer>
 
     <!-- Slow brightness animation ramp rate in brightness units per second-->
-    <integer name="config_brightness_ramp_rate_slow" translatable="false">3946</integer>
+    <integer name="config_brightness_ramp_rate_slow" translatable="false">64</integer>
+    
+    <integer name="config_screenBrightnessRampIncreaseMaxMillis">4000</integer>
+    <integer name="config_screenBrightnessRampDecreaseMaxMillis">4000</integer>
 
     <!-- Maximum screen brightness allowed by the power manager.
          -2 is invalid so setting will resort to int value specified above.
@@ -365,8 +368,8 @@
          when adapting to brighter or darker environments.  This parameter controls how quickly
          brightness changes occur in response to an observed change in light level that exceeds the
          hysteresis threshold. -->
-    <integer name="config_autoBrightnessBrighteningLightDebounce">1000</integer>
-    <integer name="config_autoBrightnessDarkeningLightDebounce">1000</integer>
+    <integer name="config_autoBrightnessBrighteningLightDebounce">1800</integer>
+    <integer name="config_autoBrightnessDarkeningLightDebounce">2500</integer>
 
     <!-- The default peak refresh rate for a given device. Change this value if you want to prevent
          the framework from using higher refresh rates, even if display modes with higher refresh
