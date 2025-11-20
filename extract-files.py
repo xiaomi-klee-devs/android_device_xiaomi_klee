@@ -23,6 +23,7 @@ from extract_utils.fixups_lib import (
 namespace_imports = [
     'device/xiaomi/rodin',
     'hardware/mediatek',
+    'hardware/mediatek/libaedv',
     'hardware/mediatek/libmtkperf_client',
     'hardware/lineage/compat',
     'hardware/xiaomi',
