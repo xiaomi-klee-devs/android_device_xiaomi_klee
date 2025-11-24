@@ -312,8 +312,8 @@
          * =====================================================================
         -->
         <library name="mtk_speech_enh"
-                 lib_path="/vendor/lib/libmtkspparser.so"
-                 lib64_path="/vendor/lib64/libmtkspparser.so"
+                 lib_path="/vendor/lib/libmtkspparser_swb.so"
+                 lib64_path="/vendor/lib64/libmtkspparser_swb.so"
                  param_path="/vendor/etc/audio_param"
                  lib_dump_path="AUTO"
                  adb_cmd_key="MTKSE">
