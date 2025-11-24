@@ -1999,7 +1999,6 @@ odm/etc/thermal-navigation.conf
 odm/etc/thermal-nolimits.conf
 odm/etc/thermal-normal.conf
 odm/etc/thermal-per-class0.conf
-odm/etc/thermal-per-normal.conf
 odm/etc/thermal-per-video.conf
 odm/etc/thermal-phone.conf
 odm/etc/thermal-tgame.conf
