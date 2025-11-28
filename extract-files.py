@@ -5,6 +5,8 @@
 #
 
 from extract_utils.fixups_blob import (
+    BlobFixupCtx,
+    File,
     blob_fixup,
     blob_fixups_user_type,
 )
@@ -20,6 +22,14 @@ from extract_utils.fixups_lib import (
     libs_clang_rt_ubsan,
 )
 
+from extract_utils.tools import (
+    llvm_objdump_path,
+)
+
+from extract_utils.utils import (
+    run_cmd,
+)
+
 namespace_imports = [
     'device/xiaomi/rodin',
     'hardware/mediatek',
@@ -28,6 +38,30 @@ namespace_imports = [
     'hardware/lineage/compat',
     'hardware/xiaomi',
 ]
+
+def blob_fixup_graphic_buffer_size(
+    ctx: BlobFixupCtx,
+    file: File,
+    file_path: str,
+    *args,
+    **kwargs,
+):
+    for line in run_cmd(
+        [
+            llvm_objdump_path,
+            '--disassemble-all',
+            file_path,
+        ]
+    ).splitlines():
+        line = line.split(maxsplit=5)
+        if len(line) != 6:
+            continue
+        # The size of GraphicBuffer changed from 0x100 to 0xd30
+        offset, _, instruction, register, value, _ = line
+        if instruction == 'mov' and register[:-1] == 'w0' and value == '#0x100':
+            with open(file_path, 'rb+') as f:
+                f.seek(int(offset[:-1], 16))
+                f.write(b'\x00\xa6\x81\x52')  # AArch64 mov w0, #0xd30
 
 lib_fixups: lib_fixups_user_type = {
     libs_clang_rt_ubsan: lib_fixup_remove_arch_suffix,
@@ -102,14 +136,16 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/vendor.xiaomi.hardware.camera.injection-service.so'
     ): blob_fixup()
         .replace_needed('android.hardware.camera.device-V1-ndk.so', 'android.hardware.camera.device-V2-ndk.so'),
-    ('vendor/lib64/libmicamera_hal_core.so',
-     'vendor/lib64/libcameraopt.so',
+    ('vendor/lib64/libcameraopt.so',
      'vendor/lib64/mt6899/libcam.hal3a.so',
      'vendor/lib64/mt6899/libcam.hal3a.ctrl.so',
-     'vendor/lib64/libmialgoengine.so',
      'vendor/lib64/mt6899/libmtkcam_taskmgr.so',
      'vendor/lib64/hw/hwcomposer.mtk_common.so'): blob_fixup()
         .add_needed('libprocessgroup_shim.so'),
+    ('vendor/lib64/libmicamera_hal_core.so',
+     'vendor/lib64/libmialgoengine.so'): blob_fixup()
+         .add_needed('libprocessgroup_shim.so')
+        .call(blob_fixup_graphic_buffer_size),
     ('vendor/lib64/mt6899/libneuralnetworks_sl_driver_mtk_prebuilt.so',
      'odm/lib64/libwa_widelens_undistort.so',
      'odm/lib64/libarcsoft_beautyshot.so',
