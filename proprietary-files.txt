@@ -2026,7 +2026,7 @@ odm/lib64/libtouchreport_hal.so
 odm/lib64/libtouchreport_sensor.so
 vendor/bin/touch_boost
 vendor/etc/init/touch_boost.rc
-vendor/lib64/vendor.xiaomi.hw.touchfeature-V1-ndk.so;DISABLE_CHECKELF
+vendor/lib64/vendor.xiaomi.hw.touchfeature-V1-ndk.so:vendor/lib64/vendor.xiaomi.hw.touchfeature-V1-ndk-prebuilt.so;FIX_SONAME
 
 # VPU
 vendor/lib64/libmvpu_cic_ci_compiler.so
