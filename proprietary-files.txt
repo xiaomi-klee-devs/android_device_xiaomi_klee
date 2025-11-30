@@ -2071,11 +2071,6 @@ vendor/lib64/libjpegdecoder.so:vendor/lib64/libjpegdecoder_rodin.so;FIX_SONAME
 vendor/lib64/libjpegencoder.so:vendor/lib64/libjpegencoder_rodin.so;FIX_SONAME
 vendor/lib64/libultrahdr.so:vendor/lib64/libultrahdr_rodin.so;FIX_SONAME
 
-# WiFi - hardware
-vendor/bin/hw/android.hardware.wifi-service-lazy:vendor/bin/hw/android.hardware.wifi-service-lazy-mediatek
-vendor/etc/init/android.hardware.wifi-service-lazy.rc:vendor/etc/init/android.hardware.wifi-service-lazy-mediatek.rc
-vendor/etc/vintf/manifest/android.hardware.wifi-service.xml:vendor/etc/vintf/manifest/android.hardware.wifi-service-mediatek.xml
-
 # WiFi
 vendor/bin/netdagent
 vendor/bin/wlan_assistant
