@@ -247,7 +247,14 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/media,$(TARGET_COPY_OUT_VENDOR)/etc)
 
 # MiuiCamera
-$(call inherit-product-if-exists, device/xiaomi/rodin-miuicamera/device.mk)
+ifeq ($(TARGET_SHIPS_MIUICAMERA), true)
+    $(call inherit-product, device/xiaomi/rodin-miuicamera/device.mk)
+    PRODUCT_VENDOR_PROPERTIES += \
+        vendor.camera.aux.packagelist=com.android.camera
+else
+    PRODUCT_VENDOR_PROPERTIES += \
+        vendor.camera.aux.packagelist=org.lineageos.aperture
+endif
 
 # NFC
 PRODUCT_PACKAGES += \

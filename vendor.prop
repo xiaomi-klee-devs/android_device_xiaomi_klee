@@ -103,7 +103,6 @@ vendor.camera.mdp.cz.enable=1
 vendor.camera.mdp.dre.enable=1
 vendor.mtk.camera.app.fd.video=1
 ro.vendor.camera3.zsl.default=260
-vendor.camera.aux.packagelist=org.lineageos.aperture
 
 # Charger
 persist.vendor.accelerate.charge=true
