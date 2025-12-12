@@ -22,7 +22,6 @@ vendor/lib64/vendor.mediatek.hardware.apuware.utils@2.0.so
 # Audio
 odm/lib64/libbarrage.so
 vendor/lib64/hw/audio.primary.mediatek.so;SYMLINK=vendor/lib64/hw/audio.primary.mt6899.so
-vendor/lib64/hw/audio.r_submix.mediatek.so;SYMLINK=vendor/lib64/hw/audio.r_submix.mt6899.so
 vendor/lib64/hw/sound_trigger.primary.default.so
 vendor/lib64/libMtkSpeechEnh.so
 vendor/lib64/lib_iir.so
