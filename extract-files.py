@@ -188,7 +188,8 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.hardware.audio.effect-V2-ndk.so', 'android.hardware.audio.effect-V3-ndk.so'),
     'vendor/lib64/hw/audio.primary.mediatek.so': blob_fixup()
         .replace_needed('libalsautils.so', 'libalsautils-v34.so')
-        .replace_needed('libxlog.so', 'libxlog_stub.so'),
+        .replace_needed('libxlog.so', 'libxlog_stub.so')
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     'vendor/lib64/libdlbdsservice.so': blob_fixup()
         .replace_needed("libstagefright_foundation.so", "libstagefright_foundation-v33.so"),
     'vendor/bin/hw/mtkfusionrild': blob_fixup()
@@ -196,6 +197,12 @@ blob_fixups: blob_fixups_user_type = {
     "odm/bin/hw/vendor.xiaomi.hw.touchfeature-service": blob_fixup()
         .replace_needed('android.hardware.sensors-V2-ndk.so', 'android.hardware.sensors-V3-ndk.so')
         .replace_needed('vendor.xiaomi.hw.touchfeature-V1-ndk.so', 'vendor.xiaomi.hw.touchfeature-V1-ndk-prebuilt.so'),
+    (
+        'vendor/lib64/hw/mt6899/vendor.mediatek.hardware.pq_aidl-impl.so',
+        'vendor/lib64/mt6899/libmmlpqImpl.so',
+        'vendor/lib64/libpqxmlparser.so'
+    ): blob_fixup()
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
