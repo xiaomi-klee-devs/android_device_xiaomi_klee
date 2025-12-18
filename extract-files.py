@@ -105,7 +105,6 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.hardware.sensors-V2-ndk.so', 'android.hardware.sensors-V3-ndk.so'),
     (
         'vendor/bin/hw/mt6899/android.hardware.graphics.allocator-V2-service-mediatek.mt6899',
-        'vendor/lib64/libcodec2_fsr.so',
         'vendor/lib64/libaimemc.so',
         'vendor/lib64/libcodec2_fsr.so',
         'vendor/lib64/libcodec2_vpp_AIMEMC_plugin.so',
@@ -121,6 +120,9 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/vendor.mediatek.hardware.pq_aidl-V4-ndk.so',
         'vendor/lib64/vendor.mediatek.hardware.pq_aidl-V7-ndk.so',
     ): blob_fixup()
+        .replace_needed('android.hardware.graphics.common-V5-ndk.so', 'android.hardware.graphics.common-V7-ndk.so'),
+    'vendor/lib64/libcodec2_fsr.so': blob_fixup()
+        .call(blob_fixup_graphic_buffer_size)
         .replace_needed('android.hardware.graphics.common-V5-ndk.so', 'android.hardware.graphics.common-V7-ndk.so'),
     (
         'vendor/lib64/vendor.xiaomi.hardware.camera.injection-client.so',
