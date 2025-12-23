@@ -6,16 +6,19 @@ add_service(hal_fingerprint_default, vendor_hal_fingerprint_service_xiaomi)
 add_hwservice(hal_fingerprint_default, vendor_hal_fingerprint_hwservice_xiaomi)
 binder_call(hal_fingerprint_default, hal_touchfeature_xiaomi_default)
 binder_call(hal_fingerprint_default, hal_graphics_composer_default)
+binder_call(hal_fingerprint_default, platform_app)
 
 rw_dir_file(hal_fingerprint_default, sysfs_therm)
 rw_dir_file(hal_fingerprint_default, vendor_displayfeature_sysfs)
 rw_dir_file(hal_fingerprint_default, vendor_fingerprint_sysfs)
+rw_dir_file(hal_fingerprint_default, persist_data_file)
 
 allow hal_fingerprint_default input_device:dir r_dir_perms;
 allow hal_fingerprint_default input_device:chr_file rw_file_perms;
 allow hal_fingerprint_default mnt_vendor_file:dir r_dir_perms;
 allow hal_fingerprint_default persist_data_file:dir create_dir_perms;
 allow hal_fingerprint_default persist_data_file:file rw_file_perms;
+allow hal_fingerprint_default persist_data_file:file create;
 allow hal_fingerprint_default vendor_displayfeature_device:chr_file rw_file_perms;
 allow hal_fingerprint_default vendor_touchfeature_device:chr_file rw_file_perms;
 

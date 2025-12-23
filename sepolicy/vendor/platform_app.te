@@ -12,3 +12,9 @@ allow platform_app privapp_data_file:file execute;
 
 get_prop(platform_app, vendor_display_type_prop)
 get_prop(platform_app, vendor_us_proximity_prop)
+
+# Fingerprint
+binder_call(platform_app, hal_fingerprint_default)
+get_prop(platform_app, vendor_fingerprint_prop)
+
+allow platform_app fingerprint_vendor_data_file:file { read };
