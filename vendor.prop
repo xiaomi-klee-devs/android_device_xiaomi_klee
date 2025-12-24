@@ -408,7 +408,6 @@ ro.surface_flinger.primary_display_orientation=ORIENTATION_0
 ro.surface_flinger.protected_contents=true
 ro.surface_flinger.set_idle_timer_ms=80
 ro.surface_flinger.supports_background_blur=1
-ro.surface_flinger.uclamp.min=328
 ro.surface_flinger.use_color_management=true
 ro.surface_flinger.wcg_composition_dataspace=143261696
 debug.sf.enable_egl_image_tracker=0
