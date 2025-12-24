@@ -9,7 +9,6 @@ ro.product.model_for_attestation=2412DPC0AG
 ro.product.brand_for_attestation=POCO
 ro.product.device_for_attestation=rodin
 ro.product.manufacturer_for_attestation=Xiaomi
-ro.product.marketname=POCO X7 Pro
 ro.product.odm.brand=POCO
 ro.product.odm.device=rodin
 ro.product.odm.manufacturer=Xiaomi
