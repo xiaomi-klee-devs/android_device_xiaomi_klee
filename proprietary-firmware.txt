@@ -13,6 +13,7 @@ mcf_ota.img;AB
 mcupm.img;AB
 modem.img;AB
 mvpu_algo.img;AB
+preloader_rodin.bin:preloader_raw.img;AB|9eabb9b69659841723c53de3a1d2626707772e5a
 pi_img.img;AB
 scp.img;AB
 spmfw.img;AB
