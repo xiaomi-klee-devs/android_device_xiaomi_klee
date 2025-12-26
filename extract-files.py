@@ -75,6 +75,15 @@ lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
     ('vendor.xiaomi.hw.touchfeature-V1-ndk'): lib_fixup_vendor_suffix,
     ('vendor.xiaomi.hardware.fingerprintextension-V1-ndk'): lib_fixup_vendor_suffix,
+    (
+        'libneuron_graph_delegate.mtk',
+        'libtflite_mtk',
+        'vendor.mediatek.hardware.apuware.apusys@2.0',
+        'vendor.mediatek.hardware.apuware.apusys@2.1',
+        'vendor.mediatek.hardware.apuware.hmp@1.0',
+        'vendor.mediatek.hardware.apuware.utils@2.0',
+        'vendor.mediatek.hardware.videotelephony@1.0',
+    ): lib_fixup_vendor_suffix,
 }
 
 blob_fixups: blob_fixups_user_type = {
