@@ -161,8 +161,6 @@ on early-boot
     chmod 664 /config/usb_gadget/g1/functions/uvc.0/streaming/mjpeg/m/bDefaultFrameIndex
     chmod 664 /config/usb_gadget/g1/functions/uvc.0/streaming/mjpeg/m/bmaControls
 
-    # mass_storage
-    mkdir /config/usb_gadget/g1/functions/mass_storage.0
 
     # chown file/folder permission
     chown system system /config/usb_gadget/
