@@ -1,0 +1,2 @@
+allow mtk_hal_usb sysfs_udc:dir search;
+allow mtk_hal_usb sysfs_udc:file r_file_perms;
