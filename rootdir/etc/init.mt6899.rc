@@ -126,6 +126,9 @@ on fs
     write /sys/kernel/tracing/trace_marker "E"
     write /proc/bootprof "INIT:Mount_END"
 
+    chown system system /dev/graphics/fb0
+    chown system system /dev/dri/card0
+
 on fs
 
    mount iso9660 loop@/vendor/etc/iAmCdRom.iso /mnt/cd-rom ro
