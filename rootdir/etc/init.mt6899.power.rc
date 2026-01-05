@@ -9,6 +9,14 @@ on init
     write /dev/blkio/blkio.prio.class none-to-rt
     write /dev/blkio/blkio.prio.class promote-to-rt
 
+    # F2FS
+    write /dev/sys/fs/by-name/userdata/data_io_flag 56
+    write /dev/sys/fs/by-name/userdata/node_io_flag 56
+
+    # Block
+    write /dev/sys/block/by-name/rootdisk/queue/iostats 0
+    write /dev/sys/block/by-name/rootdisk/queue/nr_requests 256
+
     write /dev/cpuset/foreground/cpus 0-5
     write /dev/cpuset/foreground_window/cpus 0-6
     write /dev/cpuset/background/cpus 0-1
@@ -151,7 +159,29 @@ on property:sys.boot_completed=1
     # Set GPU governor to simple_ondemand
     write /sys/devices/platform/soc/13000000.mali/devfreq/13000000.mali/governor "simple_ondemand"
 
+    # F2FS
+    write /dev/sys/fs/by-name/userdata/data_io_flag 8
+    write /dev/sys/fs/by-name/userdata/node_io_flag 8
+    write /dev/sys/fs/by-name/userdata/max_io_bytes 524288
+    write /dev/sys/fs/by-name/userdata/min_hot_blocks 0
+
+    # Block
+    write /dev/sys/block/by-name/rootdisk/queue/iostats 1
+    write /dev/sys/block/by-name/rootdisk/queue/nr_requests 128
+    write /dev/sys/block/by-name/rootdisk/queue/rq_affinity 2
+
 on charger
+    # F2FS
+    write /dev/sys/fs/by-name/userdata/data_io_flag 8
+    write /dev/sys/fs/by-name/userdata/node_io_flag 8
+    write /dev/sys/fs/by-name/userdata/max_io_bytes 524288
+    write /dev/sys/fs/by-name/userdata/min_hot_blocks 0
+
+    # Block
+    write /dev/sys/block/by-name/rootdisk/queue/iostats 1
+    write /dev/sys/block/by-name/rootdisk/queue/nr_requests 128
+    write /dev/sys/block/by-name/rootdisk/queue/rq_affinity 2
+
     chmod 0664 /sys/class/Charging_Adapter/pd_adapter/usbpd_verifed
     chmod 0664 /sys/class/Charging_Adapter/pd_adapter/request_vdm_cmd
     chmod 0664 /sys/class/Charging_Adapter/pd_adapter/verify_process
