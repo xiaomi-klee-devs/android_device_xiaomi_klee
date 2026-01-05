@@ -463,6 +463,12 @@
     },
     {
       "PowerHint": "LAUNCH",
+      "Node": "CPUBigClusterMinFreq",
+      "Duration": 2000,
+      "Value": "9999999"
+    },
+    {
+      "PowerHint": "LAUNCH",
       "Node": "CPUMidClusterMinFreq",
       "Duration": 2000,
       "Value": "9999999"
@@ -686,6 +692,54 @@
       "Node": "GpuPwrLevel",
       "Duration": 0,
       "Value": "3"
+    },
+    {
+      "PowerHint": "DISPLAY_CHANGE",
+      "Node": "CPUBigClusterMinFreq",
+      "Duration": 2000,
+      "Value": "2200000"
+    },
+    {
+      "PowerHint": "DISPLAY_CHANGE",
+      "Node": "CPUMidClusterMinFreq",
+      "Duration": 2000,
+      "Value": "2000000"
+    },
+    {
+      "PowerHint": "DISPLAY_CHANGE",
+      "Node": "CPULittleClusterMinFreq",
+      "Duration": 2000,
+      "Value": "1500000"
+    },
+    {
+      "PowerHint": "DISPLAY_CHANGE",
+      "Node": "MemFreq",
+      "Duration": 2000,
+      "Value": "9999999999"
+    },
+    {
+      "PowerHint": "DISPLAY_CHANGE",
+      "Node": "GpuPwrLevel",
+      "Duration": 2000,
+      "Value": "10"
+    },
+    {
+      "PowerHint": "LOW_POWER",
+      "Node": "CPUBigClusterMaxFreq",
+      "Duration": 0,
+      "Value": "2200000"
+    },
+    {
+      "PowerHint": "LOW_POWER",
+      "Node": "CPUMidClusterMaxFreq",
+      "Duration": 0,
+      "Value": "2000000"
+    },
+    {
+      "PowerHint": "LOW_POWER",
+      "Node": "GpuPwrLevel",
+      "Duration": 0,
+      "Value": "20"
     }
   ]
 }
