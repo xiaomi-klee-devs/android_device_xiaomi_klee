@@ -83,12 +83,7 @@ odm/etc/vintf/manifest/vendor.xiaomi.hardware.mediaeventgatherservice.xml
 odm/lib64/vendor.xiaomi.hardware.mediaeventgatherservice-V1-ndk.so
 
 # Audio (misound)
-vendor/lib64/libmis6.so
-vendor/lib64/libmisoundcrossfade.so
-vendor/lib64/libmisoundfpsop.so
-vendor/lib64/libmisoundfx_mtk_aidl_ext.so
 vendor/lib64/libmisoundparser.so
-vendor/lib64/libmisoundsa.so
 
 # Audio Configs
 vendor/etc/audio_param/AudioParamOptions_mgvi.xml
