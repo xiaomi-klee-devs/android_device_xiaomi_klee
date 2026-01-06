@@ -23,3 +23,6 @@ allow mtk_hal_camera hal_graphics_allocator_default_tmpfs:file { ioctl read writ
 allowxperm mtk_hal_camera hal_graphics_allocator_default_tmpfs:file ioctl { 0x6201 };
 allow mtk_hal_camera procfs_memory:file { ioctl read write getattr lock append map open watch watch_reads };
 allow mtk_hal_camera procfs_memory:dir search;
+
+# Neverallows
+dontaudit mtk_hal_camera default_prop:file { read write };
