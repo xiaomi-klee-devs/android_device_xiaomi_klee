@@ -35,9 +35,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.Display.HdrCapabilities;
 
-import org.lineageos.settings.doze.DozeUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
-import org.lineageos.settings.refreshrate.RefreshUtils;
 import org.lineageos.settings.touchsampling.TouchSamplingService;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
@@ -66,9 +64,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         overrideHdrTypes(context);
 
         // Call LineageOS functionalities
-        DozeUtils.onBootCompleted(context);
         ThermalUtils.startService(context);
-        RefreshUtils.startService(context);
         } catch (Exception e) {
             Log.e(TAG, "Error during locked boot completed processing", e);
         }
