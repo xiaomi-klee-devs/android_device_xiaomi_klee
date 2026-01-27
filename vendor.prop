@@ -134,11 +134,6 @@ ro.vendor.mtk_dre30_support=1
 ro.vendor.mtk_sdr_adaptive_support=0
 ro.vendor.mtk_svp_on_mtee_support=1
 
-# Dolby
-ro.vendor.audio.device.dbcom=dolby_common
-ro.vendor.dolby.dax.version=DAX3_3.6.0.12_r1
-ro.vendor.audio.dolby.dax.support=true
-
 # DRM
 drm.service.enabled=true
 ro.netflix.bsp_rev=MTK6899-37606-1

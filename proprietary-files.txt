@@ -1194,18 +1194,6 @@ odm/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.mfidoca.xml
 odm/lib64/libmfido_mitee.so
 vendor/lib64/vendor.xiaomi.hardware.mfidoca-V1-ndk.so
 
-# Dolby - from tanzanite OS2.0.207.0.VOGEUXM
-vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service|f456fd256d6adc69dc15cbfe2bba88fd7955f0f1
-vendor/etc/dolby/dax-default.xml|3f6b68bdc3421d85ec20e44822840659498d63fc
-vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc|29296ebfe89b2697fec573be73cc3757fd97bed6
-vendor/etc/vintf/manifest/manifest_vendor.dolby.hardware.dms.xml|c8095f649de19b80271fb429b4b6b439297a0678
-vendor/lib64/soundfx/libswdap.so|02a18b9e31988a2b00ae04b8c6a8f156fc5627f8
-vendor/lib64/libdapparamstorage.so|82c8a048c3c1efebb6e9a8bde1b5dab0a21a44f0
-vendor/lib64/libdeccfg.so|7e489f73c8edf514ec2ffd7a7cc4aae5dc95632c
-vendor/lib64/libdlbdsservice.so|c5aac3610291b22906fb3089ce1e0b80ae94a6f1|e3a7973b4cf36ce98998ecb4cb7a049d60de32e5
-vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so|d0cf6b19fdcdbb1015a68ef90e3e32d40cf7253e
-vendor/lib64/vendor.dolby.hardware.dms@2.0.so|c97a8e87354a36f7fbacd783d403a8e8a89e5c38
-
 # Fingerprint
 odm/app/JVFactoryTest/JVFactoryTest.apk
 odm/app/goodix_sz_rodin/goodix_sz_rodin.apk

@@ -3,7 +3,3 @@ attribute hal_touchfeature_xiaomi;
 attribute hal_touchfeature_xiaomi_client;
 attribute hal_touchfeature_xiaomi_server;
 
-# Dolby
-attribute hal_dms;
-attribute hal_dms_client;
-attribute hal_dms_server;
