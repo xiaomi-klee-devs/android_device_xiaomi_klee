@@ -23,7 +23,6 @@ $(call inherit-product-if-exists, hardware/dolby/dolby.mk)
 
 # Rootdir
 PRODUCT_PACKAGES += \
-    init.cgroup.rc \
     init.connectivity.rc \
     init.mi_thermald.rc \
     init.modem.rc \
