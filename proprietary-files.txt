@@ -72,15 +72,8 @@ vendor/lib64/libvow_ap_test_vaca_ha.so
 vendor/lib64/libvow_ap_test_vaca_hh.so
 vendor/lib64/libvow_ap_test_vaca_nn.so
 vendor/lib64/libvow_comp_test.so
-vendor/lib64/libxlog.so
 vendor/lib64/vendor.mediatek.hardware.audio@6.1.so
 vendor/lib64/vendor.mediatek.hardware.bluetooth.audio-V1-ndk.so
-
-# Audio (mediaeventgather)
-odm/bin/hw/vendor.xiaomi.hardware.mediaeventgatherservice-service
-odm/etc/init/vendor.xiaomi.hardware.mediaeventgatherservice.rc
-odm/etc/vintf/manifest/vendor.xiaomi.hardware.mediaeventgatherservice.xml
-odm/lib64/vendor.xiaomi.hardware.mediaeventgatherservice-V1-ndk.so
 
 # Audio Configs
 vendor/etc/audio_param/AudioParamOptions_mgvi.xml

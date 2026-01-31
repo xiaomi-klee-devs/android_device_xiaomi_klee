@@ -1,7 +1,6 @@
 # Audio
 /dev/socket/audio_hw_socket                                                                            u:object_r:audio_socket:s0
 /dev/elliptic[0-1]                                                                                     u:object_r:sensors_device:s0
-/dev/xlog                                                                                              u:object_r:sound_device:s0
 /dev/fs16xx(/.*)?                                                                                      u:object_r:fs16xx_device:s0
 
 # Batterysecret
@@ -96,9 +95,6 @@
 # Keymint
 /(vendor|system/vendor)/bin/hw/android.hardware.identity-service.mitee@5.0                             u:object_r:hal_identity_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android.hardware.security.keymint@3.0-service.mitee                     u:object_r:hal_keymint_default_exec:s0
-
-# Media
-/(odm|vendor/odm|system/vendor)/bin/hw/vendor.xiaomi.hardware.mediaeventgatherservice-service           u:object_r:hal_mediaeventgatherservice_default_exec:s0
 
 # Mlipay
 /(odm|vendor/odm|system/vendor)/bin/mlipayd_mitee                                                      u:object_r:hal_mlipay_default_exec:s0

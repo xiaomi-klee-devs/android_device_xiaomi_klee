@@ -183,7 +183,8 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.media.audio.common.types-V3-ndk.so', 'android.media.audio.common.types-V4-ndk.so')
         .replace_needed('android.hardware.audio.effect-V2-ndk.so', 'android.hardware.audio.effect-V3-ndk.so'),
     'vendor/lib64/hw/audio.primary.mediatek.so': blob_fixup()
-        .replace_needed('libalsautils.so', 'libalsautils-v34.so'),
+        .replace_needed('libalsautils.so', 'libalsautils-v34.so')
+        .replace_needed('libxlog.so', 'libxlog_stub.so'),
     'vendor/lib64/libdlbdsservice.so': blob_fixup()
         .replace_needed("libstagefright_foundation.so", "libstagefright_foundation-v33.so"),
     'vendor/bin/hw/mtkfusionrild': blob_fixup()
