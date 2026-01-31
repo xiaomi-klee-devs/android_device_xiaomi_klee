@@ -82,9 +82,6 @@ odm/etc/init/vendor.xiaomi.hardware.mediaeventgatherservice.rc
 odm/etc/vintf/manifest/vendor.xiaomi.hardware.mediaeventgatherservice.xml
 odm/lib64/vendor.xiaomi.hardware.mediaeventgatherservice-V1-ndk.so
 
-# Audio (misound)
-vendor/lib64/libmisoundparser.so
-
 # Audio Configs
 vendor/etc/audio_param/AudioParamOptions_mgvi.xml
 vendor/etc/audio_param/AudioParamOptions_vext.xml
