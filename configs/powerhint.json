@@ -427,7 +427,7 @@
       "Type": "Property"
     }
   ],
-  "Actions": [
+"Actions": [
     {
       "PowerHint": "INTERACTION",
       "Node": "CPULittleClusterMinFreq",
@@ -481,6 +481,18 @@
       "Node": "UclampTAMin",
       "Duration": 2000,
       "Value": "100"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "GPUBlockBoost",
+      "Duration": 5000,
+      "Value": "101"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "GpuPwrLevel",
+      "Duration": 5000,
+      "Value": "6"
     },
     {
       "PowerHint": "FIXED_PERFORMANCE",
@@ -537,22 +549,22 @@
       "Value": "9999999999"
     },
     {
-      "PowerHint": "LAUNCH",
-      "Node": "GPUBlockBoost",
-      "Duration": 5000,
-      "Value": "101"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "GpuPwrLevel",
-      "Duration": 0,
-      "Value": "6"
-    },
-    {
       "PowerHint": "CAMERA_LAUNCH",
       "Node": "CAMUClampBoost",
       "Duration": 1000,
       "Value": "100"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH",
+      "Node": "MemFreq",
+      "Duration": 1000,
+      "Value": "9999999999"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH",
+      "Node": "CPUBigClusterMinFreq",
+      "Duration": 1000,
+      "Value": "2200000"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -564,7 +576,7 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GpuPwrLevel",
       "Duration": 0,
-      "Value": "0"
+      "Value": "10"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -576,13 +588,13 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "CPUBigClusterMinFreq",
       "Duration": 0,
-      "Value": "9999999"
+      "Value": "2200000"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
-      "Node": "CPULittleClusterMinFreq",
+      "Node": "CPUMidClusterMinFreq",
       "Duration": 0,
-      "Value": "9999999"
+      "Value": "2000000"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -658,19 +670,19 @@
       "PowerHint": "GAME",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 0,
-      "Value": "2000000"
+      "Value": "1500000"
     },
     {
       "PowerHint": "GAME",
       "Node": "CPUMidClusterMinFreq",
       "Duration": 0,
-      "Value": "3000000"
+      "Value": "2000000"
     },
     {
       "PowerHint": "GAME",
       "Node": "CPUBigClusterMinFreq",
       "Duration": 0,
-      "Value": "3100000"
+      "Value": "2200000"
     },
     {
       "PowerHint": "GAME",
@@ -706,7 +718,7 @@
       "PowerHint": "DISPLAY_CHANGE",
       "Node": "GpuPwrLevel",
       "Duration": 2000,
-      "Value": "10"
+      "Value": "12"
     },
     {
       "PowerHint": "LOW_POWER",
