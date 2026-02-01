@@ -37,7 +37,7 @@ public final class ThermalUtils {
     protected static final int STATE_GAMING = 5;
     protected static final int STATE_STREAMING = 6;
 
-    private static final String THERMAL_STATE_DEFAULT   = "50";   // thermal-per-normal.conf
+    private static final String THERMAL_STATE_DEFAULT   = "0";   // thermal-normal.conf
     private static final String THERMAL_STATE_BENCHMARK = "6";   // thermal-nolimits.conf
     private static final String THERMAL_STATE_BROWSER   = "8";   // thermal-youtube.conf
     private static final String THERMAL_STATE_CAMERA    = "15";  // thermal-camera.conf
