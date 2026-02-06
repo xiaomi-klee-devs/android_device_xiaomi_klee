@@ -1,0 +1,14 @@
+# DisplayFeature
+hal_client_domain(system_app, vendor_hal_displayfeature)
+binder_call(system_app, vendor_hal_displayfeature)
+
+# TouchFeature
+hal_client_domain(system_app, hal_touchfeature_xiaomi)
+binder_call(system_app, hal_touchfeature_xiaomi)
+allow system_app hal_touchfeature_xiaomi_service:service_manager find;
+
+# Thermal
+rw_dir_file(system_app, sysfs_therm)
+
+# CPU
+allow system_app proc_stat:file { read open getattr };

@@ -1,2 +1,0 @@
-# Bluetooth
-allow platform_app bluetooth_lea_prop:file { read getattr open map };
