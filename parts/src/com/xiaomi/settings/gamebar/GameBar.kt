@@ -16,12 +16,16 @@
 
 package com.xiaomi.settings.gamebar
 
+
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.PixelFormat
 import android.graphics.drawable.GradientDrawable
+import android.os.BatteryManager
 import android.os.Handler
 import android.os.Looper
 import android.util.TypedValue
@@ -99,6 +103,8 @@ class GameBar private constructor(context: Context) {
     private var initialTouchX: Float = 0f
     private var initialTouchY: Float = 0f
 
+    private var mBatteryTemp: Float = 0f
+
     private val mLongPressRunnable = Runnable {
         if (mPressActive) {
             openOverlaySettings()
@@ -111,6 +117,15 @@ class GameBar private constructor(context: Context) {
             if (mIsShowing) {
                 updateStats()
                 mHandler.postDelayed(this, mUpdateIntervalMs.toLong())
+            }
+        }
+    }
+
+    private val mBatteryReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            if (Intent.ACTION_BATTERY_CHANGED == intent.action) {
+                val tempTenths = intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0)
+                mBatteryTemp = tempTenths / 10f
             }
         }
     }
@@ -285,6 +300,16 @@ class GameBar private constructor(context: Context) {
 
         mWindowManager.addView(mOverlayView, mLayoutParams)
         mIsShowing = true
+        
+        // Register Battery Receiver
+        val filter = IntentFilter(Intent.ACTION_BATTERY_CHANGED)
+        val intent = mContext.registerReceiver(mBatteryReceiver, filter)
+        // Get initial value immediately
+        if (intent != null) {
+            val tempTenths = intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0)
+            mBatteryTemp = tempTenths / 10f
+        }
+
         startUpdates()
 
         // Start the FPS meter if using the new API method.
@@ -300,6 +325,14 @@ class GameBar private constructor(context: Context) {
             mWindowManager.removeView(mOverlayView)
             mOverlayView = null
         }
+        
+        // Unregister Battery Receiver
+        try {
+            mContext.unregisterReceiver(mBatteryReceiver)
+        } catch (e: IllegalArgumentException) {
+            // Receiver not registered
+        }
+
         mIsShowing = false
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
             GameBarFpsMeter.getInstance(mContext).stop()
@@ -323,15 +356,7 @@ class GameBar private constructor(context: Context) {
         // 2) Battery temp
         var batteryTempStr = "N/A"
         if (isShowBatteryTemp) {
-            val tmp = readLine(BATTERY_TEMP_PATH)
-            if (tmp != null && !tmp.isEmpty()) {
-                try {
-                    val raw = Integer.parseInt(tmp.trim())
-                    val c = raw / 10f
-                    batteryTempStr = String.format(Locale.getDefault(), "%.1f", c)
-                } catch (ignored: NumberFormatException) {
-                }
-            }
+            batteryTempStr = String.format(Locale.getDefault(), "%.1f", mBatteryTemp)
             statViews.add(createStatLine("Temp", "$batteryTempStr°C"))
         }
 
@@ -738,14 +763,6 @@ class GameBar private constructor(context: Context) {
         }
     }
 
-    private fun readLine(path: String): String? {
-        try {
-            BufferedReader(FileReader(path)).use { br -> return br.readLine() }
-        } catch (e: IOException) {
-            return null
-        }
-    }
-
     private fun openOverlaySettings() {
         try {
             val intent = Intent(mContext, GameBarSettingsActivity::class.java)
@@ -765,8 +782,6 @@ class GameBar private constructor(context: Context) {
         }
 
         private const val FPS_PATH = "/sys/class/drm/sde-crtc-0/measured_fps"
-        private const val BATTERY_TEMP_PATH = "/sys/class/power_supply/battery/temp"
-
         private const val PREF_KEY_X = "game_bar_x"
         private const val PREF_KEY_Y = "game_bar_y"
 
