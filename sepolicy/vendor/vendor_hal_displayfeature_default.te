@@ -8,6 +8,9 @@ binder_call(vendor_hal_displayfeature_default, mtk_hal_pq)
 
 hal_client_domain(vendor_hal_displayfeature_default, vendor_hal_displayfeature)
 hal_server_domain(vendor_hal_displayfeature_default, vendor_hal_displayfeature)
+hal_client_domain(vendor_hal_displayfeature_default, hal_allocator)
+
+add_service(vendor_hal_displayfeature_default, vendor_hal_displayfeature_service)
 
 r_dir_file(vendor_hal_displayfeature_default, mnt_vendor_file)
 r_dir_file(vendor_hal_displayfeature_default, sysfs_leds)

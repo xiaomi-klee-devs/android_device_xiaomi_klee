@@ -1807,28 +1807,6 @@ odm/lib64/libtida_mitee.so
 vendor/lib64/vendor.xiaomi.hardware.aidl.tidaservice-V1-ndk.so
 
 # Thermal
-odm/etc/thermal-4k.conf
-odm/etc/thermal-arvr.conf
-odm/etc/thermal-camera.conf
-odm/etc/thermal-cclassvideo.conf
-odm/etc/thermal-cgame.conf
-odm/etc/thermal-charge.conf
-odm/etc/thermal-chg-only.conf
-odm/etc/thermal-class0.conf
-odm/etc/thermal-hp-mgame.conf
-odm/etc/thermal-hp-normal.conf
-odm/etc/thermal-huanji.conf
-odm/etc/thermal-mgame.conf
-odm/etc/thermal-navigation.conf
-odm/etc/thermal-nolimits.conf
-odm/etc/thermal-normal.conf
-odm/etc/thermal-per-class0.conf
-odm/etc/thermal-per-video.conf
-odm/etc/thermal-phone.conf
-odm/etc/thermal-tgame.conf
-odm/etc/thermal-video.conf
-odm/etc/thermal-videochat.conf
-odm/etc/thermal-yuanshen.conf
 vendor/bin/mi_thermald
 vendor/etc/thermal-map.conf
 vendor/etc/thermald-devices.conf
