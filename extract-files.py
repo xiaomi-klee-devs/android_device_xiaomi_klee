@@ -70,6 +70,8 @@ lib_fixups: lib_fixups_user_type = {
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}-{partition}' if partition == 'vendor' else None
 
+def lib_fixup_odm_suffix(lib: str, partition: str, *args, **kwargs):
+    return f'{lib}-{partition}' if partition == 'odm' else None
 
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
@@ -84,6 +86,7 @@ lib_fixups: lib_fixups_user_type = {
         'vendor.mediatek.hardware.apuware.utils@2.0',
         'vendor.mediatek.hardware.videotelephony@1.0',
     ): lib_fixup_vendor_suffix,
+    ('odm/lib64/libMiVideoFilter.so'): lib_fixup_odm_suffix,
 }
 
 blob_fixups: blob_fixups_user_type = {
@@ -154,16 +157,17 @@ blob_fixups: blob_fixups_user_type = {
      'vendor/lib64/hw/hwcomposer.mtk_common.so'): blob_fixup()
         .add_needed('libprocessgroup_shim.so'),
     ('vendor/lib64/libmicamera_hal_core.so',
-     'vendor/lib64/libmialgoengine.so'): blob_fixup()
-         .add_needed('libprocessgroup_shim.so')
+     'vendor/lib64/libmialgoengine.so',
+     'vendor/lib64/libcom.xiaomi.grallocutils.so'): blob_fixup()
+        .add_needed('libprocessgroup_shim.so')
         .call(blob_fixup_graphic_buffer_size),
     ('vendor/lib64/mt6899/libneuralnetworks_sl_driver_mtk_prebuilt.so',
      'odm/lib64/libwa_widelens_undistort.so',
      'odm/lib64/libarcsoft_beautyshot.so',
-     'vendor/lib64/libMiPhotoFilter.so',
+     'odm/lib64/libMiPhotoFilter.so',
      'odm/lib64/libMiEmojiEffect.so',
      'vendor/lib64/mt6899/libneuron_adapter_mgvi.so',
-     'odm/lib64/libMiVideoFilter.so'): blob_fixup()
+     'system_ext/lib64/libMiVideoFilter.so'): blob_fixup()
         .clear_symbol_version('AHardwareBuffer_allocate')
         .clear_symbol_version('AHardwareBuffer_createFromHandle')
         .clear_symbol_version('AHardwareBuffer_describe')

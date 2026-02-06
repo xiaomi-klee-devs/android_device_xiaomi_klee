@@ -324,7 +324,7 @@ odm/lib64/camera/zsl/com.xiaomi.zsl.dsac.so
 odm/lib64/camera/zsl/com.xiaomi.zsl.hdr.so
 odm/lib64/libHISCppAlgos.so
 odm/lib64/libMiEmojiEffect.so
-odm/lib64/libMiVideoFilter.so
+odm/lib64/libMiVideoFilter.so;MODULE_SUFFIX=-odm
 odm/lib64/libalCFR.so
 odm/lib64/libanc_dc_base.so
 odm/lib64/libanc_single_bokeh.so
@@ -357,6 +357,7 @@ odm/lib64/libmpbase.so
 odm/lib64/libportrait_repair_apu.so
 odm/lib64/librfs_warp.so
 odm/lib64/libwa_widelens_undistort.so
+system_ext/lib64/libMiVideoFilter.so
 vendor/bin/crossbuild/DataSet/SQLiteModule/db/port_select.db;MAKE_COPY_RULE_ONLY
 vendor/bin/hw/vendor.xiaomi.hardware.dynamiccameraserver
 vendor/etc/vintf/manifest/manifest_aovservice.xml
@@ -1182,9 +1183,9 @@ vendor/lib64/vendor.xiaomi.hardware.mfidoca-V1-ndk.so
 # Fingerprint
 odm/app/JVFactoryTest/JVFactoryTest.apk
 odm/app/goodix_sz_rodin/goodix_sz_rodin.apk
-odm/lib64/hw/fingerprint.jiiov.so:odm/lib64/hw/fingerprint.jiiov.default.so;FIX_SONAME
-odm/lib64/hw/fingerprint.goodix_fod.so:odm/lib64/hw/fingerprint.goodix_fod.default.so;FIX_SONAME
 odm/lib64/anc.hal.so
+odm/lib64/hw/fingerprint.goodix_fod.so:odm/lib64/hw/fingerprint.goodix_fod.default.so;FIX_SONAME
+odm/lib64/hw/fingerprint.jiiov.so:odm/lib64/hw/fingerprint.jiiov.default.so;FIX_SONAME
 odm/lib64/libgf_hal.so
 vendor/lib64/vendor.xiaomi.hardware.fx.tunnel-V1-ndk.so
 
@@ -1365,8 +1366,8 @@ vendor/etc/gralloc/dpu.xml
 vendor/etc/gralloc/dpu_aeu.xml
 vendor/etc/gralloc/gpu.xml
 vendor/etc/gralloc/vpu.xml
-vendor/etc/init/arm.mali.platform-mediatek.rc
 vendor/etc/init/android.hardware.graphics.composer@3.3-service.rc
+vendor/etc/init/arm.mali.platform-mediatek.rc
 vendor/etc/init/gpuserv-default.rc
 vendor/etc/mali_platform.config
 vendor/etc/vintf/manifest/arm.mali.platform-mediatek.xml
@@ -1825,12 +1826,12 @@ odm/etc/thermal-per-class0.conf
 odm/etc/thermal-per-video.conf
 odm/etc/thermal-phone.conf
 odm/etc/thermal-tgame.conf
-odm/etc/thermal-videochat.conf
 odm/etc/thermal-video.conf
+odm/etc/thermal-videochat.conf
 odm/etc/thermal-yuanshen.conf
 vendor/bin/mi_thermald
-vendor/etc/thermald-devices.conf
 vendor/etc/thermal-map.conf
+vendor/etc/thermald-devices.conf
 
 # Tether Offload
 vendor/bin/hw/tetheroffloadservice
