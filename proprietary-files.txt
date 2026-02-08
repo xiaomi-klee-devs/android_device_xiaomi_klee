@@ -324,7 +324,7 @@ odm/lib64/camera/zsl/com.xiaomi.zsl.dsac.so
 odm/lib64/camera/zsl/com.xiaomi.zsl.hdr.so
 odm/lib64/libHISCppAlgos.so
 odm/lib64/libMiEmojiEffect.so
-odm/lib64/libMiVideoFilter.so;MODULE_SUFFIX=-odm
+odm/lib64/libMiVideoFilter.so
 odm/lib64/libalCFR.so
 odm/lib64/libanc_dc_base.so
 odm/lib64/libanc_single_bokeh.so
@@ -357,7 +357,6 @@ odm/lib64/libmpbase.so
 odm/lib64/libportrait_repair_apu.so
 odm/lib64/librfs_warp.so
 odm/lib64/libwa_widelens_undistort.so
-system_ext/lib64/libMiVideoFilter.so
 vendor/bin/crossbuild/DataSet/SQLiteModule/db/port_select.db;MAKE_COPY_RULE_ONLY
 vendor/bin/hw/vendor.xiaomi.hardware.dynamiccameraserver
 vendor/etc/vintf/manifest/manifest_aovservice.xml
@@ -1525,7 +1524,7 @@ system_ext/lib64/libmvpuop25_mtk_nn.mtk.so
 system_ext/lib64/libmvpuop_mtk_cv.mtk.so
 system_ext/lib64/libmvpuop_mtk_nn.mtk.so
 system_ext/lib64/libneuron_graph_delegate.mtk.so
-system_ext/lib64/libneuronusdk_adapter.mtk.so
+system_ext/lib64/libneuronusdk_adapter.mtk.so;FIX_SONAME
 system_ext/lib64/libnir_neon_driver_ndk.mtk.so
 system_ext/lib64/libtflite_mtk.mtk.so
 system_ext/lib64/vendor.mediatek.hardware.apuware.apusys-V5-ndk.so

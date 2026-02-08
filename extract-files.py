@@ -33,9 +33,7 @@ from extract_utils.utils import (
 namespace_imports = [
     'device/xiaomi/rodin',
     'hardware/mediatek',
-    'hardware/mediatek/libaedv',
     'hardware/mediatek/libmtkperf_client',
-    'hardware/lineage/compat',
     'hardware/xiaomi',
 ]
 
@@ -164,10 +162,10 @@ blob_fixups: blob_fixups_user_type = {
     ('vendor/lib64/mt6899/libneuralnetworks_sl_driver_mtk_prebuilt.so',
      'odm/lib64/libwa_widelens_undistort.so',
      'odm/lib64/libarcsoft_beautyshot.so',
-     'odm/lib64/libMiPhotoFilter.so',
+     'vendor/lib64/libMiPhotoFilter.so',
      'odm/lib64/libMiEmojiEffect.so',
      'vendor/lib64/mt6899/libneuron_adapter_mgvi.so',
-     'system_ext/lib64/libMiVideoFilter.so'): blob_fixup()
+     'odm/lib64/libMiVideoFilter.so'): blob_fixup()
         .clear_symbol_version('AHardwareBuffer_allocate')
         .clear_symbol_version('AHardwareBuffer_createFromHandle')
         .clear_symbol_version('AHardwareBuffer_describe')
