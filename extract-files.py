@@ -91,13 +91,12 @@ blob_fixups: blob_fixups_user_type = {
     ('odm/lib64/libmt_mitee.so', 'vendor/bin/hw/android.hardware.security.keymint@3.0-service.mitee'): blob_fixup()
         .replace_needed('android.hardware.security.keymint-V3-ndk.so', 'android.hardware.security.keymint-V3-ndk-v34.so'),
     'odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl': blob_fixup()
-        .add_needed('libui_shim.so'),
+        .add_needed('libui_shim.so')
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     (
         'vendor/bin/mnld',
         'vendor/lib64/mt6899/libpqconfig.so',
         'vendor/lib64/mt6899/libaalservice.so',
-        'odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl',
-        'odm/lib64/hw/displayfeature.default.so',
         'odm/lib64/libpaperMode.so',
         'odm/lib64/libmiBrightness.so',
         'odm/lib64/libmiSensorCtrl.so',
@@ -113,6 +112,9 @@ blob_fixups: blob_fixups_user_type = {
         'odm/lib64/libvideomode.so',
     ): blob_fixup()
         .replace_needed('android.hardware.sensors-V2-ndk.so', 'android.hardware.sensors-V3-ndk.so'),
+    ('odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl', 'odm/lib64/hw/displayfeature.default.so'): blob_fixup()
+        .replace_needed('android.hardware.sensors-V2-ndk.so', 'android.hardware.sensors-V3-ndk.so')
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     (
         'vendor/bin/hw/mt6899/android.hardware.graphics.allocator-V2-service-mediatek.mt6899',
         'vendor/lib64/libaimemc.so',
@@ -154,10 +156,13 @@ blob_fixups: blob_fixups_user_type = {
      'vendor/lib64/mt6899/libmtkcam_taskmgr.so',
      'vendor/lib64/hw/hwcomposer.mtk_common.so'): blob_fixup()
         .add_needed('libprocessgroup_shim.so'),
-    ('vendor/lib64/libmicamera_hal_core.so',
-     'vendor/lib64/libmialgoengine.so',
+    ('vendor/lib64/libmialgoengine.so',
      'vendor/lib64/libcom.xiaomi.grallocutils.so'): blob_fixup()
         .add_needed('libprocessgroup_shim.so')
+        .call(blob_fixup_graphic_buffer_size),
+    'vendor/lib64/libmicamera_hal_core.so': blob_fixup()
+        .add_needed('libprocessgroup_shim.so')
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so')
         .call(blob_fixup_graphic_buffer_size),
     ('vendor/lib64/mt6899/libneuralnetworks_sl_driver_mtk_prebuilt.so',
      'odm/lib64/libwa_widelens_undistort.so',
@@ -197,8 +202,13 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('vendor.xiaomi.hw.touchfeature-V1-ndk.so', 'vendor.xiaomi.hw.touchfeature-V1-ndk-prebuilt.so'),
     (
         'vendor/lib64/hw/mt6899/vendor.mediatek.hardware.pq_aidl-impl.so',
+        'vendor/lib64/hw/hwcomposer.mtk_common.so',
         'vendor/lib64/mt6899/libmmlpqImpl.so',
-        'vendor/lib64/libpqxmlparser.so'
+        'vendor/lib64/libaudiocloudctrl.so',
+        'vendor/lib64/libpqxmlflagparser.so',
+        'vendor/lib64/libpqxmlparser.so',
+        'vendor/lib64/librt_extamp_intf.so',
+        'vendor/lib64/libsilkybrightnesscore.so',
     ): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
 }  # fmt: skip
