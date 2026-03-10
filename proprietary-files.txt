@@ -75,6 +75,33 @@ vendor/lib64/libvow_comp_test.so
 vendor/lib64/vendor.mediatek.hardware.audio@6.1.so
 vendor/lib64/vendor.mediatek.hardware.bluetooth.audio-V1-ndk.so
 
+# Audio (calibration)
+system_ext/bin/spkcal_88263s
+system_ext/bin/spkcal_88263s_n12a
+system_ext/bin/spkcal_88263s_m9
+system_ext/bin/spkcal
+system_ext/bin/spkcal_tfa
+system_ext/bin/spkcal_88263s_m16
+system_ext/bin/spkcal_88263s_n12
+system_ext/bin/spkcal_88263s_o10
+system_ext/lib64/libtfa98xx_cal.so
+vendor/etc/spk_cal_silence.wav
+odm/etc/spk_cal_whitenoise.wav
+odm/etc/1khz.wav
+odm/etc/spk_hp.wav
+odm/etc/coverVibrationTest.wav
+odm/etc/rcv_pink.wav
+odm/etc/RES1K.wav
+odm/etc/spk.wav
+odm/etc/bottom_spk.wav
+odm/etc/stereo.wav
+odm/etc/spk_cal_silence.wav
+odm/etc/spk_cal_sweep.wav
+odm/etc/top_spk.wav
+odm/etc/rcv.wav
+odm/etc/ultrasound.wav
+odm/etc/bottom_spk_hp.wav
+
 # Audio Configs
 vendor/etc/audio_param/AudioParamOptions_mgvi.xml
 vendor/etc/audio_param/AudioParamOptions_vext.xml
@@ -1058,6 +1085,10 @@ vendor/etc/camera/mt6899/gma_custom.xml:vendor/etc/camera/mt6899/gma_custom.txt;
 # Chipinfo
 vendor/bin/chipinfo
 vendor/etc/init/chipinfo_init.rc
+
+# CIT
+product/app/MiuiCit/MiuiCit.apk
+odm/etc/cit_param_config.json
 
 # Connectivity
 vendor/bin/conninfra_loader
