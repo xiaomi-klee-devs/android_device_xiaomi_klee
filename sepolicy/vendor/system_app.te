@@ -1,3 +1,9 @@
+# Audio
+allow system_app fs16xx_device:chr_file rw_file_perms;
+allow system_app sysfs_fsm_re25:file rw_file_perms;
+allow system_app sysfs_fsm_f0:file rw_file_perms;
+rw_dir_file(system_app, vendor_cit_data_file)
+
 # Fingerprint
 get_prop(system_app, vendor_fingerprint_prop)
 

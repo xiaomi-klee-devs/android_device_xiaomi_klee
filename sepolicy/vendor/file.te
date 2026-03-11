@@ -14,6 +14,9 @@ type proc_c2ps, proc_type, fs_type;
 type proc_ppb, proc_type, fs_type;
 type procfs_memory, proc_type, fs_type;
 
+# CIT
+type vendor_cit_data_file, data_file_type, file_type;
+
 # Display
 type vendor_displayfeature_device, dev_type;
 type vendor_displayfeature_sysfs, fs_type, sysfs_type;

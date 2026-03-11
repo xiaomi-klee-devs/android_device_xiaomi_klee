@@ -70,6 +70,9 @@
 /vendor/lib(64)?/mt6899/libcam\.hal3a\.v3\.ai3a_v4l2\.so       u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/mt6899/libcam\.hal3a\.ctrl\.so                u:object_r:same_process_hal_file:s0
 
+# CIT
+/data/vendor/cit(/.*)? u:object_r:vendor_cit_data_file:s0
+
 # Display
 /(vendor|system/vendor)/bin/displayfeature                                                             u:object_r:vendor_displayfeature_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.xiaomi\.hardware\.displayfeature_aidl-service                   u:object_r:vendor_hal_displayfeature_default_exec:s0
