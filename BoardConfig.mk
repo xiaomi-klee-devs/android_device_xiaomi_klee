@@ -187,6 +187,8 @@ BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
 # SELinux
 include device/mediatek/sepolicy_vndr/SEPolicy.mk
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
+SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
 
 # VINTF
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
