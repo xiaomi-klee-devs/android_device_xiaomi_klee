@@ -217,7 +217,7 @@ class XiaomiRodinUdfpsHandler : public UdfpsHandler {
         set(FOD_STATUS_PATH, value);
     }
     void setFingerDown(bool pressed) {
-        mDevice->extCmd(mDevice, COMMAND_FOD_PRESS_STATUS, PARAM_FOD_PRESSED);
+        mDevice->extCmd(mDevice, COMMAND_FOD_PRESS_STATUS, pressed ? PARAM_FOD_PRESSED : PARAM_FOD_RELEASED);
         disp_local_hbm_req req;
         req.base.flag = 0;
         req.base.disp_id = MI_DISP_PRIMARY;
