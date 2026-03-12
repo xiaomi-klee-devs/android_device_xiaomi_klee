@@ -15,7 +15,7 @@ android_app {
     system_ext_specific: true,
     privileged: true,
 
-    overrides: ["MusicFX"],
+    overrides: ["MusicFX", "AudioFX"],
     static_libs: [
         "SettingsLib",
         "SpaLib",
@@ -25,4 +25,13 @@ android_app {
         "androidx.preference_preference",
         "org.lineageos.settings.resources",
     ],
+
+    required: ["preinstalled-packages-platform-dolby.xml"],
+}
+
+prebuilt_etc {
+    name: "preinstalled-packages-platform-dolby.xml",
+    src: "preinstalled-packages-platform-dolby.xml",
+    sub_dir: "sysconfig",
+    system_ext_specific: true,
 }
