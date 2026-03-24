@@ -141,10 +141,10 @@ on property:sys.boot_completed=1
     setprop vendor.powerhal.init 1
 
     # batterysecret
-    chmod 0664 /sys/class/Charging_Adapter/pd_adapter/usbpd_verifed
-    chmod 0664 /sys/class/Charging_Adapter/pd_adapter/request_vdm_cmd
-    chmod 0664 /sys/class/Charging_Adapter/pd_adapter/verify_process
-    chmod 0664 /sys/class/power_supply/usb/pd_authentication
+    chmod 0664 /sys/devices/platform/charger/power_supply/usb/pd_authentication
+    chmod 0664 /sys/devices/platform/soc/11280000.i2c/i2c-10/10-0055/power_supply/bms/authentic
+    chmod 0664 /sys/devices/platform/pd-adapter/Charging_Adapter/pd_adapter/request_vdm_cmd
+    chmod 0664 /sys/devices/platform/pd-adapter/Charging_Adapter/pd_adapter/verify_process
     start batterysecret
 
     # Adjust watermark level
@@ -182,10 +182,10 @@ on charger
     write /dev/sys/block/by-name/rootdisk/queue/nr_requests 128
     write /dev/sys/block/by-name/rootdisk/queue/rq_affinity 2
 
-    chmod 0664 /sys/class/Charging_Adapter/pd_adapter/usbpd_verifed
-    chmod 0664 /sys/class/Charging_Adapter/pd_adapter/request_vdm_cmd
-    chmod 0664 /sys/class/Charging_Adapter/pd_adapter/verify_process
-    chmod 0664 /sys/class/power_supply/usb/pd_authentication
+    chmod 0664 /sys/devices/platform/charger/power_supply/usb/pd_authentication
+    chmod 0664 /sys/devices/platform/soc/11280000.i2c/i2c-10/10-0055/power_supply/bms/authentic
+    chmod 0664 /sys/devices/platform/pd-adapter/Charging_Adapter/pd_adapter/request_vdm_cmd
+    chmod 0664 /sys/devices/platform/pd-adapter/Charging_Adapter/pd_adapter/verify_process
     start batterysecret
 
 service vendor.gralloc-v2 /vendor/bin/hw/android.hardware.graphics.allocator-V2-service-mediatek
