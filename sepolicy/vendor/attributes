@@ -1,7 +1,4 @@
 # Camera
-attribute hal_aidlbgservice;
-attribute hal_aidlbgservice_client;
-attribute hal_aidlbgservice_server;
 attribute hal_mtk_uievent;
 attribute hal_mtk_uievent_client;
 attribute hal_mtk_uievent_server;

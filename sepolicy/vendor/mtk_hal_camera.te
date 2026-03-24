@@ -15,7 +15,6 @@ allow mtk_hal_camera proc_c2ps:file r_file_perms;
 allowxperm mtk_hal_camera proc_c2ps:file ioctl { 0x671b 0x671c 0x671d 0x671e 0x671f 0x6720 0x6721 0x6722 0x6723 0x6724 0x6725 0x6726 };
 allow mtk_hal_camera proc_ppb:dir search;
 allow mtk_hal_camera proc_ppb:file { ioctl read write getattr lock append map open watch watch_reads };
-allow mtk_hal_camera hal_aidlbgservice_service:service_manager find;
 allow mtk_hal_camera hal_dynamic_camera_service:service_manager find;
 allow mtk_hal_camera mtk_hal_mali_platform_default_service:service_manager find;
 allow mtk_hal_camera hal_mtk_uievent_service:service_manager find;
