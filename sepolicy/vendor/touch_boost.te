@@ -1,7 +1,0 @@
-type touch_boost, domain;
-type proc_touch_boost, fs_type, proc_type;
-type touch_boost_exec, file_type, exec_type, vendor_file_type;
-
-allow touch_boost proc_perfmgr:dir r_dir_perms;
-allow touch_boost proc_perfmgr:file rw_file_perms;
-allowxperm touch_boost proc_perfmgr:file ioctl { 0x6701 };

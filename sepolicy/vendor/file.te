@@ -10,8 +10,6 @@ type sysfs_fsm_f0, fs_type, sysfs_type;
 type camera_persist_file, file_type;
 type vendor_camera_data_file, data_file_type, file_type;
 type vendor_camera_update_db_file, file_type, vendor_file_type;
-type proc_c2ps, proc_type, fs_type;
-type proc_ppb, proc_type, fs_type;
 type procfs_memory, proc_type, fs_type;
 
 # CIT
