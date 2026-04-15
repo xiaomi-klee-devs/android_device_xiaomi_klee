@@ -1923,7 +1923,3 @@ vendor/bin/wlan_assistant
 vendor/etc/init/init.wlan_drv.rc
 vendor/etc/init/wlan_assistant.rc
 vendor/etc/vintf/manifest/CommandService.xml
-vendor/lib64/libwifical.so
-vendor/lib64/libwifinvram.so
-vendor/lib64/libwifinvramdata.so
-vendor/lib64/libwpa_client.so
