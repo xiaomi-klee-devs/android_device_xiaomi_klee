@@ -21,6 +21,7 @@
         <Domain name="tv" enabled="false" />
         <Variant name="slow-cpu" enabled="false" />
     </Settings>
+    <Include href="media_codecs_dolby_audio.xml" />
     <Decoders>
         <MediaCodec name="c2.mtk.avc.decoder" type="video/avc">
             <Limit name="size" min="64x64" max="4096x2176" />

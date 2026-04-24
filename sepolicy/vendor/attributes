@@ -8,6 +8,11 @@ attribute vendor_hal_displayfeature;
 attribute vendor_hal_displayfeature_client;
 attribute vendor_hal_displayfeature_server;
 
+# Dolby
+attribute hal_aidl_dms;
+attribute hal_aidl_dms_client;
+attribute hal_aidl_dms_server;
+
 # Mlipay
 attribute hal_mlipay;
 attribute hal_mlipay_client;

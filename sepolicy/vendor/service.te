@@ -4,6 +4,9 @@ type hal_dynamic_camera_service, protected_service, service_manager_type, hal_se
 # Display
 type vendor_hal_displayfeature_service, protected_service, service_manager_type;
 
+# Dolby
+type hal_aidl_dms_service, protected_service, service_manager_type, hal_service_type;
+
 # Fido
 type hal_mfidoca_service, protected_service, service_manager_type;
 

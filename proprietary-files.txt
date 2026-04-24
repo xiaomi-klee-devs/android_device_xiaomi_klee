@@ -1230,6 +1230,32 @@ vendor/lib64/libheichal.so
 vendor/lib64/libmisight.so
 vendor/lib64/mt6899/libhdrvideo.so;SYMLINK=vendor/lib64/libhdrvideo.so
 
+# Dolby
+vendor/bin/hw/vendor.dolby.dms.service
+vendor/bin/hw/vendor.dolby.media.c2-default-service-dax
+vendor/etc/dolby/dax-fs19xx-spatializer.xml
+vendor/etc/dolby/dax-fs19xx.xml
+vendor/etc/init/dms-service.rc
+vendor/etc/init/vendor.dolby.media.c2-default-service-dax.rc
+vendor/etc/vintf/manifest/dms-service.xml
+vendor/etc/vintf/manifest/vendor.dolby.media.c2-default-service-dax.xml
+vendor/etc/media_codecs_dolby_audio.xml
+vendor/lib64/soundfx/libdlbvolaidl.so
+vendor/lib64/soundfx/libswdapaidl.so
+vendor/lib64/soundfx/libswgamedapaidl.so
+vendor/lib64/soundfx/libswspatializeraidl.so
+vendor/lib64/libcodec2_soft_ac4dec.so
+vendor/lib64/libcodec2_soft_ddpdec.so
+vendor/lib64/libcodec2_store_dolby.so
+vendor/lib64/libdapparamstorage.so
+vendor/lib64/libdeccfg.so
+vendor/lib64/libdlbdsservice.so
+vendor/lib64/libdlbpreg.so
+vendor/lib64/libdmshal.so
+vendor/lib64/libspatializerparamstorage.so
+vendor/lib64/vendor.dolby.dms-V1-ndk.so
+vendor/lib64/vendor.dolby.hardware.dms@2.0.so
+
 # DRM (Widevine)
 vendor/apex/com.google.android.widevine.nonupdatable.apex
 vendor/lib64/liboemcrypto.so

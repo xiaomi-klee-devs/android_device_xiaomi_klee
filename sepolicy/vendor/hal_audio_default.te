@@ -1,3 +1,5 @@
+hal_client_domain(hal_audio_default, hal_aidl_dms)
+
 binder_call(hal_audio_default, hal_sensors_default)
 
 r_dir_file(hal_audio_default, persist_data_file)
