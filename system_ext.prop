@@ -4,3 +4,8 @@ ro.audio.flinger_standbytime_ms=2000
 ro.audio.ihaladaptervendorextension_enabled=true
 ro.audio.usb.period_us=16000
 ro.camera.sound.forced=0
+
+# Wifi
+wifi.direct.interface=p2p0
+wifi.interface=wlan0
+wifi.tethering.interface=ap0
