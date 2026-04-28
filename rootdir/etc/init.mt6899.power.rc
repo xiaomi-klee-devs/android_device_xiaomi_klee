@@ -170,6 +170,9 @@ on property:sys.boot_completed=1
     write /dev/sys/block/by-name/rootdisk/queue/nr_requests 128
     write /dev/sys/block/by-name/rootdisk/queue/rq_affinity 2
 
+    # Thermal
+    write /sys/class/thermal/thermal_message/sconfig 0
+
 on charger
     # F2FS
     write /dev/sys/fs/by-name/userdata/data_io_flag 8

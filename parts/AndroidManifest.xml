@@ -39,27 +39,6 @@
             android:exported="false">
         </service>
 
-        <service
-            android:name=".thermal.ThermalService"
-            android:permission="ThermalService">
-        </service>
-
-        <activity
-            android:name=".thermal.ThermalSettingsActivity"
-            android:label="@string/thermal_title"
-            android:theme="@style/Theme.SubSettingsBase.Thermal"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.settings.action.IA_SETTINGS" />
-            </intent-filter>
-            <meta-data
-                android:name="com.android.settings.category"
-                android:value="com.android.settings.category.ia.battery" />
-            <meta-data
-                android:name="com.android.settings.summary"
-                android:resource="@string/thermal_summary" />
-        </activity>
-
         <!-- GameBar Overlay -->
         <activity
             android:name=".gamebar.GameBarSettingsActivity"
