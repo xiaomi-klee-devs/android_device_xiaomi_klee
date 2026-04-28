@@ -20,12 +20,25 @@ vendor/lib64/vendor.mediatek.hardware.apuware.utils-V1-ndk.so;MODULE_SUFFIX=-ven
 vendor/lib64/vendor.mediatek.hardware.apuware.utils@2.0.so;MODULE_SUFFIX=-vendor
 
 # Audio
-odm/lib64/libbarrage.so
+odm/lib64/vendor.xiaomi.hardware.mediaeventgatherservice-V1-ndk.so
+system/lib64/av-audio-types-aidl-V1-ndk.so
+system_ext/bin/hw/android.hardware.audio.parameter_parser.service
+system_ext/etc/init/android.hardware.audio.parameter_parser.service.rc
+vendor/bin/hw/android.hardware.audio.service-aidl.mediatek
+vendor/etc/AudioDump_dynamic.ds
+vendor/etc/AudioLog_dynamic.ds
+vendor/etc/init/android.hardware.audio.service-aidl.mediatek.rc
+vendor/etc/vintf/manifest/android.hardware.audio.effect.service-aidl.xml
+vendor/etc/vintf/manifest/android.hardware.audio.service-aidl.xml:vendor/etc/vintf/manifest/android.hardware.audio.service-aidl.mediatek.xml
+vendor/lib64/android.hardware.audio.core-impl-mediatek.so
+vendor/lib64/hw/android.hardware.audio.effect.aidl-impl-mediatek.so
+vendor/lib64/hw/android.hardware.soundtrigger3-impl.so
 vendor/lib64/hw/audio.primary.mediatek.so;SYMLINK=vendor/lib64/hw/audio.primary.mt6899.so
 vendor/lib64/hw/sound_trigger.primary.default.so
+vendor/lib64/hw/vendor.mediatek.hardware.audio-impl.so
 vendor/lib64/libMtkSpeechEnh.so
 vendor/lib64/lib_iir.so
-vendor/lib64/libalsautils.so:vendor/lib64/libalsautils-v34.so;FIX_SONAME
+vendor/lib64/libaudio_aidl_conversion_common_ndk.so:vendor/lib64/libaudio_aidl_conversion_common_ndk_prebuilt.so;DISABLE_DEPS;FIX_SONAME
 vendor/lib64/libaudio_param_parser-vnd.so
 vendor/lib64/libaudiocloudctrl.so
 vendor/lib64/libaudiocompensationfilter_vendor.so
@@ -37,6 +50,8 @@ vendor/lib64/libaudiodatabase.so
 vendor/lib64/libaudiodcrflt_vendor.so
 vendor/lib64/libaudiofmtconv.so
 vendor/lib64/libaudioloudc.so
+vendor/lib64/libmispowerop.so
+vendor/lib64/libaudiopolicyconfigxml_mtk_vendor.so
 vendor/lib64/libaudioprimarydevicehalifclient.so
 vendor/lib64/libaudiosmartpamtk.so
 vendor/lib64/libaudiotoolkit_vendor.so
@@ -44,15 +59,15 @@ vendor/lib64/libaurisysdemo.so
 vendor/lib64/libawinicsmartpaparse.so
 vendor/lib64/libbessound_hd_mtk_vendor.so
 vendor/lib64/libblisrc32_vendor.so
-vendor/lib64/libbluetooth_audio_session_aidl_mtk.so
 vendor/lib64/libcvsd_mtk.so
 vendor/lib64/libfsmsmartpaparse.so
 vendor/lib64/libfvaudio.so
-vendor/lib64/libmispowerop.so
 vendor/lib64/libmsbc_mtk.so
 vendor/lib64/libmtklimiter_vendor.so
 vendor/lib64/libmtkshifter_vendor.so
 vendor/lib64/libmtkspparser.so
+vendor/lib64/libnotifyaudiohal.so;FIX_SONAME
+vendor/lib64/libnxp_extamp_intf.so
 vendor/lib64/librt_extamp_intf.so
 vendor/lib64/libspeech_enh_lib.so;FIX_SONAME
 vendor/lib64/libspeechparser_vendor.so
@@ -72,37 +87,39 @@ vendor/lib64/libvow_ap_test_vaca_ha.so
 vendor/lib64/libvow_ap_test_vaca_hh.so
 vendor/lib64/libvow_ap_test_vaca_nn.so
 vendor/lib64/libvow_comp_test.so
-vendor/lib64/vendor.mediatek.hardware.audio@6.1.so
-vendor/lib64/vendor.mediatek.hardware.bluetooth.audio-V1-ndk.so
+vendor/lib64/libxlog.so
+vendor/lib64/vendor.mediatek.hardware.audio-V1-ndk.so
 
 # Audio (calibration)
-system_ext/bin/spkcal_88263s
-system_ext/bin/spkcal_88263s_n12a
-system_ext/bin/spkcal_88263s_m9
-system_ext/bin/spkcal
-system_ext/bin/spkcal_tfa
-system_ext/bin/spkcal_88263s_m16
-system_ext/bin/spkcal_88263s_n12
-system_ext/bin/spkcal_88263s_o10
-system_ext/lib64/libtfa98xx_cal.so
-vendor/etc/spk_cal_silence.wav
-odm/etc/spk_cal_whitenoise.wav
 odm/etc/1khz.wav
-odm/etc/spk_hp.wav
-odm/etc/coverVibrationTest.wav
-odm/etc/rcv_pink.wav
 odm/etc/RES1K.wav
-odm/etc/spk.wav
 odm/etc/bottom_spk.wav
-odm/etc/stereo.wav
+odm/etc/bottom_spk_hp.wav
+odm/etc/coverVibrationTest.wav
+odm/etc/rcv.wav
+odm/etc/rcv_pink.wav
+odm/etc/spk.wav
 odm/etc/spk_cal_silence.wav
 odm/etc/spk_cal_sweep.wav
+odm/etc/spk_cal_whitenoise.wav
+odm/etc/spk_hp.wav
+odm/etc/stereo.wav
 odm/etc/top_spk.wav
-odm/etc/rcv.wav
 odm/etc/ultrasound.wav
-odm/etc/bottom_spk_hp.wav
+system_ext/bin/spkcal
+system_ext/bin/spkcal_88263s
+system_ext/bin/spkcal_88263s_m16
+system_ext/bin/spkcal_88263s_m9
+system_ext/bin/spkcal_88263s_n12
+system_ext/bin/spkcal_88263s_n12a
+system_ext/bin/spkcal_88263s_o10
+system_ext/bin/spkcal_tfa
+system_ext/lib64/libtfa98xx_cal.so
+vendor/etc/spk_cal_silence.wav
 
 # Audio Configs
+vendor/etc/audio_device.xml
+vendor/etc/audio_device_fs.xml
 vendor/etc/audio_param/AudioParamOptions_mgvi.xml
 vendor/etc/audio_param/AudioParamOptions_vext.xml
 vendor/etc/audio_param/BtInfo_AudioParam.xml
@@ -234,6 +251,8 @@ vendor/etc/audio_param/mis_head.bin
 vendor/etc/audio_param/mis_spk.bin
 vendor/etc/audio_param/mis_spk_alt1.bin
 vendor/etc/audiodata.db
+vendor/etc/aurisys_config.xml
+vendor/etc/aurisys_config_rv.xml
 vendor/etc/smartpa_param/AW_DSP.bin
 vendor/etc/smartpa_param/AW_SINEWAVE_DSP.bin
 vendor/etc/smartpa_param_fs/fsmsdg_params.bin
@@ -246,11 +265,22 @@ vendor/etc/smartpa_param_fs/preset_voip.bin
 # Batterysecret
 vendor/bin/batterysecret
 
+# Bluetooth
+vendor/lib64/libbluetooth_mtk.so
+vendor/lib64/libbluetooth_mtk_pure.so
+vendor/lib64/libbt-vendor.so
+
+# Bluetooth - A2DP
+vendor/etc/vintf/manifest/bluetooth_audio.xml:vendor/etc/vintf/manifest/bluetooth_audio_mtk.xml
+vendor/lib64/android.hardware.bluetooth.audio-impl-mediatek.so
+vendor/lib64/libbluetooth_audio_session_aidl_mtk.so
+vendor/lib64/vendor.mediatek.hardware.bluetooth.audio-V1-ndk.so
+vendor/lib64/vendor.mediatek.hardware.bluetooth.audio@2.1.so
+vendor/lib64/vendor.mediatek.hardware.bluetooth.audio@2.2.so
+
 # Bluetooth (Driver)
 vendor/etc/init/init.bt_drv.rc
 vendor/firmware/BT_FW.cfg
-vendor/lib64/libbluetooth_mtk.so
-vendor/lib64/libbt-vendor.so
 
 # Camera
 odm/bin/crossbuild/DataSet/SQLiteModule/db/ae/mt6899/ParameterDB_ae.db;SYMLINK=odm/bin/crossbuild/DataSet/SQLiteModule/db/ae/ParameterDB_ae.db;MAKE_COPY_RULE_ONLY
@@ -1087,8 +1117,8 @@ vendor/bin/chipinfo
 vendor/etc/init/chipinfo_init.rc
 
 # CIT
-product/app/MiuiCit/MiuiCit.apk
 odm/etc/cit_param_config.json
+product/app/MiuiCit/MiuiCit.apk
 
 # Connectivity
 vendor/bin/conninfra_loader
@@ -1175,6 +1205,7 @@ odm/lib64/libdither.so
 odm/lib64/libeyecare.so
 odm/lib64/libfcmintf.so
 odm/lib64/libflatmode.so
+odm/lib64/libbarrage.so
 odm/lib64/libframecapturemanager.so
 odm/lib64/libhistprocess.so
 odm/lib64/libmiBrightness.so
@@ -1215,10 +1246,10 @@ vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service|f456fd256d6adc69dc15cbfe2bba
 vendor/etc/dolby/dax-default.xml|3f6b68bdc3421d85ec20e44822840659498d63fc
 vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc|29296ebfe89b2697fec573be73cc3757fd97bed6
 vendor/etc/vintf/manifest/manifest_vendor.dolby.hardware.dms.xml|c8095f649de19b80271fb429b4b6b439297a0678
-vendor/lib64/soundfx/libswdap.so|02a18b9e31988a2b00ae04b8c6a8f156fc5627f8
 vendor/lib64/libdapparamstorage.so|82c8a048c3c1efebb6e9a8bde1b5dab0a21a44f0
 vendor/lib64/libdeccfg.so|7e489f73c8edf514ec2ffd7a7cc4aae5dc95632c
 vendor/lib64/libdlbdsservice.so|c5aac3610291b22906fb3089ce1e0b80ae94a6f1|e3a7973b4cf36ce98998ecb4cb7a049d60de32e5
+vendor/lib64/soundfx/libswdap.so|02a18b9e31988a2b00ae04b8c6a8f156fc5627f8
 vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so|d0cf6b19fdcdbb1015a68ef90e3e32d40cf7253e
 vendor/lib64/vendor.dolby.hardware.dms@2.0.so|c97a8e87354a36f7fbacd783d403a8e8a89e5c38
 
@@ -1450,8 +1481,8 @@ vendor/lib64/vendor.mediatek.hardware.composer_ext-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.composer_ext@1.0.so
 
 # HotwordEnrollment
-product/priv-app/HotwordEnrollmentYGoogleRISCV_WIDEBAND/HotwordEnrollmentYGoogleRISCV_WIDEBAND.apk
 product/priv-app/HotwordEnrollmentXGoogleRISCV_WIDEBAND/HotwordEnrollmentXGoogleRISCV_WIDEBAND.apk
+product/priv-app/HotwordEnrollmentYGoogleRISCV_WIDEBAND/HotwordEnrollmentYGoogleRISCV_WIDEBAND.apk
 system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
 system_ext/framework/com.android.hotwordenrollment.common.util.jar
 
@@ -1796,9 +1827,6 @@ vendor/lib64/hw/sensors.mediatek.V2.0.so:vendor/lib64/hw/sensors.mt6899.so;FIX_S
 vendor/lib64/libhfmanager.so
 vendor/lib64/libhfmanagerwrapper.so
 vendor/lib64/libhidparser.so
-
-# Sensor (Proximity) - from rothko OS2.0.16.0.VNNEUXM
-vendor/lib64/libnotifyaudiohal.so;FIX_SONAME|a02f3e44bb5e84760925722ae3e9c66957e94c9d|fe4ea475de5a45ee1c1ebb0f4c05c2a6827b53f8
 
 # Sensors (Configs)
 odm/etc/sensors/lightSensorCali.json

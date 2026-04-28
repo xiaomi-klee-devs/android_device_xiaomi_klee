@@ -1,3 +1,10 @@
+# Audio
+audio.spatializer.pose_predictor_type=2
+audio.spatializer.prediction_duration_ms=50
+persist.vendor.audio.ultrasoundmute.support=true
+ro.vendor.audio.onetrack.audio_track_message.level=1
+ro.vendor.soundtrigger.dfs.support=1
+
 # Display Feature
 persist.vendor.dc_backlight.enable=false
 ro.vendor.cabc.enable=false

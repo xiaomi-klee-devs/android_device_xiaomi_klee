@@ -187,15 +187,8 @@ blob_fixups: blob_fixups_user_type = {
     ('odm/lib64/camera/plugins/capture/com.xiaomi.plugin.gainmap.so',
      'odm/lib64/camera/plugins/capture/com.xiaomi.plugin.jpegrAggr.so'): blob_fixup()
         .replace_needed('libultrahdr.so', 'libultrahdr_rodin.so'),
-    'vendor/lib64/libmisoundfx_mtk_aidl_ext.so': blob_fixup()
-        .replace_needed('android.media.audio.common.types-V3-ndk.so', 'android.media.audio.common.types-V4-ndk.so')
-        .replace_needed('android.hardware.audio.effect-V2-ndk.so', 'android.hardware.audio.effect-V3-ndk.so'),
     'vendor/lib64/hw/audio.primary.mediatek.so': blob_fixup()
-        .replace_needed('libalsautils.so', 'libalsautils-v34.so')
-        .replace_needed('libxlog.so', 'libxlog_stub.so')
-        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so')
-        .binary_regex_replace(b'A2dpsuspendonly', b'A2dpSuspended\x00\x00')
-        .binary_regex_replace(b'BTAudiosuspend', b'A2dpSuspended\x00'),
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     'vendor/lib64/libdlbdsservice.so': blob_fixup()
         .replace_needed("libstagefright_foundation.so", "libstagefright_foundation-v33.so"),
     'vendor/bin/hw/mtkfusionrild': blob_fixup()
@@ -216,6 +209,22 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     'odm/etc/init/vendor.xiaomi.sensor.citsensorservice.aidl.rc': blob_fixup()
         .add_line_if_missing('    task_profiles ServiceCapacityLow'),
+    'vendor/bin/hw/android.hardware.audio.service-aidl.mediatek': blob_fixup()
+        .replace_needed('android.media.audio.common.types-V5-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
+        .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so'),
+    'vendor/lib64/hw/android.hardware.audio.effect.aidl-impl-mediatek.so': blob_fixup()
+        .replace_needed('android.media.audio.common.types-V5-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+    'vendor/lib64/android.hardware.audio.core-impl-mediatek.so': blob_fixup()
+        .add_needed('libaudioutils_shim.so')
+        .replace_needed('android.media.audio.common.types-V5-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
+        .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so'),
+    'vendor/lib64/libaudio_aidl_conversion_common_ndk_prebuilt.so': blob_fixup()
+        .replace_needed('android.media.audio.common.types-V5-ndk.so', 'android.media.audio.common.types-V3-ndk.so'),
+    'vendor/lib64/hw/android.hardware.soundtrigger3-impl.so': blob_fixup()
+        .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so'),
+    'vendor/lib64/libaudio_aidl_conversion_common_ndk_prebuilt.so': blob_fixup()
+        .replace_needed('android.media.audio.common.types-V5-ndk.so', 'android.media.audio.common.types-V3-ndk.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
