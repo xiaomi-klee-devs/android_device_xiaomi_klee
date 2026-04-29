@@ -187,7 +187,11 @@ blob_fixups: blob_fixups_user_type = {
     ('odm/lib64/camera/plugins/capture/com.xiaomi.plugin.gainmap.so',
      'odm/lib64/camera/plugins/capture/com.xiaomi.plugin.jpegrAggr.so'): blob_fixup()
         .replace_needed('libultrahdr.so', 'libultrahdr_rodin.so'),
-    'vendor/lib64/hw/audio.primary.mediatek.so': blob_fixup()
+    (
+        'vendor/lib64/hw/audio.primary.mediatek.so',
+        'vendor/lib64/libmicamera_aidl_provider.so',
+        'odm/lib64/libmiXmlParser.so',
+    ): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     'vendor/lib64/libdlbdsservice.so': blob_fixup()
         .replace_needed("libstagefright_foundation.so", "libstagefright_foundation-v33.so"),
