@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_rodin.mk
+    $(LOCAL_DIR)/lineage_klee.mk

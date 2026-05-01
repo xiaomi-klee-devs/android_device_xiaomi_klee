@@ -5,7 +5,7 @@
 //
 
 runtime_resource_overlay {
-    name: "FrameworksResOverlayRodin",
+    name: "FrameworksResOverlayKlee",
     vendor: true,
     resource_dirs: ["res"]
 }

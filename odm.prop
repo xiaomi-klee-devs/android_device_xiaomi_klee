@@ -12,15 +12,35 @@ ro.vendor.display.all_modes_support_WCG.enable=true
 ro.vendor.display.update_gray_by_temperature=true
 ro.vendor.histogram.enable=1
 ro.vendor.localhbm.enable=true
-ro.vendor.mi_sf.hdr_enable_flatmode=true
-ro.vendor.mtk.pq.aidl=true
-ro.vendor.mtk.pq.odm=true
 ro.vendor.sre.enable=false
 ro.vendor.xiaomi.bl.poll=true
 sys.displayfeature_hidl=false
 vendor.displayfeature.entry.enable=true
 
+# Lights
+persist.vendor.dc_backlight.enable=false
+ro.vendor.display.RemapBrightness.MaxRemapSilkybrightness=16379
+ro.vendor.display.RemapBrightness.MaxTolerancefac=1.01
+ro.vendor.display.RemapBrightness.MinTolerancefac=1
+ro.vendor.display.RemapBrightness.ToleranceEnable=1
+ro.vendor.display.RemapBrightness.ToleranceNit=600
+ro.vendor.display.hwc_set_backlight=1
+ro.vendor.hbm_backlight.enable=true
+
+# Picture Quality
+ro.vendor.display.uiservice_pqsr.enable=true
+ro.vendor.mtk.pq.aidl=true
+ro.vendor.mtk.pq.odm=true
+ro.vendor.pq.disp_game_HDR_support.support_all_version=true
+ro.vendor.pq.disp_game_HDR_support=true
+ro.vendor.pq.disp_super_resolution_support=true
+ro.vendor.regionpq.by.layer.support=true
+
+# Sensors
+persist.vendor.sensor.maxbrightness=9800
+persist.vendor.sensor.powbrightness=15
+
 # SKU
 ro.product.property_source_order=odm,product,vendor,system_ext,system
-import /odm/etc/rodin_${ro.boot.ptcountrycode}_build.prop
+import /odm/etc/klee_${ro.boot.ptcountrycode}_build.prop
 import /odm/etc/${ro.boot.product.hardware.sku}_${ro.boot.hwversion}.prop

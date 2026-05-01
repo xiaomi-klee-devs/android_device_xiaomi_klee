@@ -132,6 +132,9 @@
 /dev/camera-dpe  0660 camera system
 /dev/camera-pda  0660 camera system
 
+#mtk_ccd
+/dev/mtk_ccd     0660 camera system
+
 #fmt mode
 /dev/vdec-fmt    0660 media system
 /dev/fmt_sync    0660 system system
@@ -141,6 +144,9 @@
 
 #aov camera
 /dev/mtk_aov     0660 camera system
+
+#flashlight
+/dev/flashlight  0660 camera system
 
 # DRM node
 /dev/dri/card0            0660   system     system
@@ -155,6 +161,9 @@
 # gzvm for AVF
 /dev/gzvm 0666 root root
 
+# gz ffa device
+/dev/gz_ffa_dev 0660 system system
+
 # add the read write right of ttyUSB*
 /dev/bus/usb/*     	  0660   root       usb
 /dev/ttyUSB0              0660   radio      radio
@@ -167,6 +176,10 @@
 # group, then they'll only see log entries for their UID.
 /dev/log/ksystem          0600   root       log
 
+/dev/adsp                 0660   root       media
+/dev/adsp_0               0440   system     media
+/dev/adsp_1               0440   system     media
+/dev/audio_ipi            0640   media      media
 /dev/ccci*                0660   radio      radio
 /dev/ttyC*                0660   radio      radio
 /sys/kernel/ccci          modem_info   0644   radio       radio
@@ -201,6 +214,7 @@
 
 # Camera
 /dev/camera_eeprom*       0660   system     camera
+/dev/dio_dma_mapper_misc  0660   system     camera
 
 #FOR VIA MODEM
 /dev/ttySDIO*             0660   radio      sdcard_rw
@@ -259,6 +273,9 @@
 
 #dynamic sensor
 /dev/hidraw*   0660 system system
+
+#widevine driver node
+/dev/drm_wv    0660    media    system
 
 #elliptic sensor
 /dev/elliptic0            0644   system     system

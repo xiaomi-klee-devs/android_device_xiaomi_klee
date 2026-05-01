@@ -5,6 +5,6 @@
 //
 
 runtime_resource_overlay {
-    name: "LineageApertureOverlayRodin",
+    name: "LineageApertureOverlayKlee",
     product_specific: true,
 }

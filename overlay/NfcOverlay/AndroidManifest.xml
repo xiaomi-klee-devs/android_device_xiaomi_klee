@@ -3,7 +3,7 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.nfc.overlay.rodin">
+    package="com.android.nfc.overlay.klee">
 
     <overlay
         android:targetPackage="com.android.nfc"

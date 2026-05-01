@@ -31,7 +31,7 @@ from extract_utils.utils import (
 )
 
 namespace_imports = [
-    'device/xiaomi/rodin',
+    'device/xiaomi/klee',
     'hardware/mediatek',
     'hardware/mediatek/libaedv',
     'hardware/mediatek/libmtkperf_client',
@@ -69,9 +69,6 @@ lib_fixups: lib_fixups_user_type = {
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}-{partition}' if partition == 'vendor' else None
 
-def lib_fixup_odm_suffix(lib: str, partition: str, *args, **kwargs):
-    return f'{lib}-{partition}' if partition == 'odm' else None
-
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
     ('vendor.xiaomi.hw.touchfeature-V1-ndk'): lib_fixup_vendor_suffix,
@@ -84,16 +81,13 @@ lib_fixups: lib_fixups_user_type = {
         'vendor.mediatek.hardware.apuware.hmp@1.0',
         'vendor.mediatek.hardware.apuware.utils@2.0',
         'vendor.mediatek.hardware.videotelephony@1.0',
+        'libXMFaceFocus',
     ): lib_fixup_vendor_suffix,
-    ('odm/lib64/libMiVideoFilter.so'): lib_fixup_odm_suffix,
 }
 
 blob_fixups: blob_fixups_user_type = {
-    ('odm/lib64/libmt_mitee.so', 'vendor/bin/hw/android.hardware.security.keymint@3.0-service.mitee'): blob_fixup()
+    ('odm/lib64/libmt_mitee.so', 'vendor/bin/hw/android.hardware.security.keymint@3.0-service.mitee', 'odm/lib64/libgoogleid.so'): blob_fixup()
         .replace_needed('android.hardware.security.keymint-V3-ndk.so', 'android.hardware.security.keymint-V3-ndk-v34.so'),
-    'odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl': blob_fixup()
-        .add_needed('libui_shim.so')
-        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     (
         'vendor/bin/mnld',
         'vendor/lib64/mt6899/libpqconfig.so',
@@ -111,6 +105,7 @@ blob_fixups: blob_fixups_user_type = {
         'odm/lib64/librhytheyecare.so',
         'odm/lib64/libflatmode.so',
         'odm/lib64/libvideomode.so',
+        'odm/lib64/libdynamicelvss.so',
     ): blob_fixup()
         .replace_needed('android.hardware.sensors-V2-ndk.so', 'android.hardware.sensors-V3-ndk.so'),
     ('odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl', 'odm/lib64/hw/displayfeature.default.so'): blob_fixup()
@@ -151,27 +146,22 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/vendor.xiaomi.hardware.camera.injection-service.so'
     ): blob_fixup()
         .replace_needed('android.hardware.camera.device-V1-ndk.so', 'android.hardware.camera.device-V2-ndk.so'),
-    ('vendor/lib64/libcameraopt.so',
-     'vendor/lib64/mt6899/libcam.hal3a.so',
-     'vendor/lib64/mt6899/libcam.hal3a.ctrl.so',
-     'vendor/lib64/mt6899/libmtkcam_taskmgr.so',
-     'vendor/lib64/hw/hwcomposer.mtk_common.so'): blob_fixup()
-        .add_needed('libprocessgroup_shim.so'),
     ('vendor/lib64/libmialgoengine.so',
      'vendor/lib64/libcom.xiaomi.grallocutils.so'): blob_fixup()
-        .add_needed('libprocessgroup_shim.so')
         .call(blob_fixup_graphic_buffer_size),
     'vendor/lib64/libmicamera_hal_core.so': blob_fixup()
-        .add_needed('libprocessgroup_shim.so')
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so')
         .call(blob_fixup_graphic_buffer_size),
     ('vendor/lib64/mt6899/libneuralnetworks_sl_driver_mtk_prebuilt.so',
+     'vendor/lib64/libmcve.so',
      'odm/lib64/libwa_widelens_undistort.so',
      'odm/lib64/libarcsoft_beautyshot.so',
      'vendor/lib64/libMiPhotoFilter.so',
      'odm/lib64/libMiEmojiEffect.so',
      'vendor/lib64/mt6899/libneuron_adapter_mgvi.so',
-     'odm/lib64/libMiVideoFilter.so'): blob_fixup()
+     'odm/lib64/libMiVideoFilter.so',
+     'odm/lib64/libAncHumanPreviewBokeh.so',
+     ): blob_fixup()
         .clear_symbol_version('AHardwareBuffer_allocate')
         .clear_symbol_version('AHardwareBuffer_createFromHandle')
         .clear_symbol_version('AHardwareBuffer_describe')
@@ -181,18 +171,12 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('AHardwareBuffer_lockPlanes')
         .clear_symbol_version('AHardwareBuffer_release')
         .clear_symbol_version('AHardwareBuffer_unlock'),
-    'vendor/lib64/libultrahdr_rodin.so': blob_fixup()
-        .replace_needed('libjpegencoder.so', 'libjpegencoder_rodin.so')
-        .replace_needed('libjpegdecoder.so', 'libjpegdecoder_rodin.so'),
-    ('odm/lib64/camera/plugins/capture/com.xiaomi.plugin.gainmap.so',
-     'odm/lib64/camera/plugins/capture/com.xiaomi.plugin.jpegrAggr.so'): blob_fixup()
-        .replace_needed('libultrahdr.so', 'libultrahdr_rodin.so'),
-    (
-        'vendor/lib64/hw/audio.primary.mediatek.so',
-        'vendor/lib64/libmicamera_aidl_provider.so',
-        'odm/lib64/libmiXmlParser.so',
-    ): blob_fixup()
-        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+    'vendor/lib64/libultrahdr_klee.so': blob_fixup()
+        .replace_needed('libjpegencoder.so', 'libjpegencoder_klee.so')
+        .replace_needed('libjpegdecoder.so', 'libjpegdecoder_klee.so'),
+    ('odm/lib64/camera/dynamicplugins/com.xiaomi.plugin.gainmap.so',
+     'odm/lib64/camera/dynamicplugins/com.xiaomi.plugin.jpegrAggr.so'): blob_fixup()
+        .replace_needed('libultrahdr.so', 'libultrahdr_klee.so'),
     'vendor/lib64/libdlbdsservice.so': blob_fixup()
         .replace_needed("libstagefright_foundation.so", "libstagefright_foundation-v33.so"),
     'vendor/bin/hw/mtkfusionrild': blob_fixup()
@@ -201,18 +185,29 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.hardware.sensors-V2-ndk.so', 'android.hardware.sensors-V3-ndk.so')
         .replace_needed('vendor.xiaomi.hw.touchfeature-V1-ndk.so', 'vendor.xiaomi.hw.touchfeature-V1-ndk-prebuilt.so'),
     (
+        'odm/lib64/libmiXmlParser.so',
         'vendor/lib64/hw/mt6899/vendor.mediatek.hardware.pq_aidl-impl.so',
-        'vendor/lib64/hw/hwcomposer.mtk_common.so',
+        'vendor/lib64/hw/audio.primary.mediatek.so',
+        'vendor/lib64/mt6899/lib3a.custom.ae.flow.so',
         'vendor/lib64/mt6899/libmmlpqImpl.so',
         'vendor/lib64/libaudiocloudctrl.so',
         'vendor/lib64/libpqxmlflagparser.so',
         'vendor/lib64/libpqxmlparser.so',
         'vendor/lib64/librt_extamp_intf.so',
         'vendor/lib64/libsilkybrightnesscore.so',
+        'vendor/lib64/libmicamera_aidl_provider.so',
+        'vendor/lib64/libxlog.so',
+        'vendor/lib64/libHardwareBacklightcore.so'
     ): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
-    'odm/etc/init/vendor.xiaomi.sensor.citsensorservice.aidl.rc': blob_fixup()
-        .add_line_if_missing('    task_profiles ServiceCapacityLow'),
+    (
+        'vendor/lib64/mt6899/libmtkcam_taskmgr.so',
+        'vendor/lib64/libcameraopt.so'
+    ): blob_fixup()
+        .add_needed('libprocessgroup_shim.so'),
+    'vendor/lib64/hw/hwcomposer.mtk_common.so': blob_fixup()
+        .add_needed('libprocessgroup_shim.so')
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     'vendor/bin/hw/android.hardware.audio.service-aidl.mediatek': blob_fixup()
         .replace_needed('android.media.audio.common.types-V5-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
         .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so'),
@@ -238,10 +233,25 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so'),
     'vendor/lib64/soundfx/libdlbvolaidl.so': blob_fixup()
         .replace_needed('android.media.audio.common.types-V5-ndk.so', 'android.media.audio.common.types-V3-ndk.so'),
+    'system_ext/bin/hw/android.hardware.audio.parameter_parser.service': blob_fixup()
+        .replace_needed('av-audio-types-aidl-ndk.so', 'av-audio-types-aidl-V3-ndk.so'),
+    (
+        'odm/lib64/libmituning_datacenter_base.so',
+        'odm/lib64/libmituning_utils.so',
+        'odm/lib64/libmituning_datacenter.so',
+        'vendor/lib64/libcom.xiaomi.dsac.so',
+        'vendor/lib64/com.xiaomi.immunesystem.client.so',
+        'vendor/lib64/com.xiaomi.immunesystem.core.so',
+        'odm/lib64/camera/components/libawbcore.so',
+        'odm/lib64/camera/components/liblsccore.so',
+        'odm/lib64/camera/components/libstats.afalgo.so',
+        'odm/lib64/camera/components/libmiaec.so',
+    ): blob_fixup()
+        .replace_needed('libprotobuf-cpp-full-21.12.so', 'libprotobuf-cpp-full-21.7.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
-    'rodin',
+    'klee',
     'xiaomi',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,

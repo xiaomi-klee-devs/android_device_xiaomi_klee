@@ -176,6 +176,39 @@
     </interface>
   </hal>
   <hal format="aidl" optional="true">
+    <name>vendor.xiaomi.hardware.camera.mivimessage</name>
+    <interface>
+        <name>IService</name>
+        <instance>default</instance>
+    </interface>
+  </hal>
+  <hal format="aidl" optional="true">
+    <name>vendor.xiaomi.hardware.idmanager</name>
+    <interface>
+        <name>IIdManagerService</name>
+        <instance>default</instance>
+    </interface>
+    <interface>
+        <name>ISecidService</name>
+        <instance>default</instance>
+    </interface>
+  </hal>
+  <hal format="aidl">
+    <name>vendor.mediatek.hardware.camera.aovservice</name>
+    <version>1-3</version>
+    <interface>
+        <name>IAovService</name>
+        <instance>default</instance>
+    </interface>
+  </hal>
+  <hal format="aidl" optional="true">
+    <name>vendor.xiaomi.hardware.postprocservice</name>
+    <interface>
+        <name>IPostProcService</name>
+        <instance>default</instance>
+    </interface>
+  </hal>
+  <hal format="aidl" optional="true">
       <name>android.hardware.media.c2</name>
       <interface>
           <name>IComponentStore</name>

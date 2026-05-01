@@ -11,23 +11,23 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Inherit from rodin device
-$(call inherit-product, device/xiaomi/rodin/device.mk)
+# Inherit from klee device
+$(call inherit-product, device/xiaomi/klee/device.mk)
 
-PRODUCT_DEVICE := rodin
-PRODUCT_NAME := lineage_rodin
+PRODUCT_DEVICE := klee
+PRODUCT_NAME := lineage_klee
 PRODUCT_BRAND := POCO
-PRODUCT_MODEL := 2412DPC0AG
+PRODUCT_MODEL := 2511FPC34G
 PRODUCT_MANUFACTURER := xiaomi
 
-PRODUCT_SYSTEM_NAME := rodin_global
-PRODUCT_SYSTEM_DEVICE := rodin
+PRODUCT_SYSTEM_NAME := klee_global
+PRODUCT_SYSTEM_DEVICE := klee
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildDesc="missi-user 15 AP3A.240905.015.A2 OS2.0.204.0.VOJMIXM release-keys" \
-    BuildFingerprint=POCO/rodin_global/rodin:15/AP3A.240905.015.A2/OS2.0.204.0.VOJMIXM:user/release-keys \
+    BuildDesc="missi-user 16 BP2A.250605.031.A3 OS3.0.5.0.WPJMIXM release-keys" \
+    BuildFingerprint=POCO/klee_global/klee:15/AP3A.240905.015.A2/OS3.0.5.0.WPJMIXM:user/release-keys \
     DeviceName=$(PRODUCT_SYSTEM_DEVICE) \
     DeviceProduct=$(PRODUCT_SYSTEM_NAME)
 

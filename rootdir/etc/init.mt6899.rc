@@ -47,7 +47,6 @@ on init
 
 on late-init
     write /proc/bootprof "INIT:late-init"
-
 # enable rcu_expedited
     write /sys/kernel/rcu_expedited 1
 
@@ -108,9 +107,6 @@ on fs
     write /sys/kernel/tracing/trace_marker "E"
     write /proc/bootprof "INIT:Mount_END"
 
-    chown system system /dev/graphics/fb0
-    chown system system /dev/dri/card0
-
 on fs
    # mount rescue
     mount ext4 /dev/block/by-name/rescue /mnt/rescue noatime
@@ -127,6 +123,9 @@ on late-fs
 
 on post-fs
     write /proc/bootprof "INIT:post-fs"
+# dfx misight miev
+    chmod 0662 /dev/miev
+    restorecon /dev/miev
 
     #change permissions for mediaserver
     chown root media /proc/clkmgr/mipi_test
@@ -183,7 +182,6 @@ on post-fs-data
     write /sys/block/dm-3/queue/read_ahead_kb 2048
     write /sys/block/dm-4/queue/read_ahead_kb 2048
     write /sys/block/dm-5/queue/read_ahead_kb 2048
-    write /sys/block/sdc/queue/iostats 0
 
     chown system system /mnt/vendor/nvcfg
     chmod 0771 /mnt/vendor/nvcfg
@@ -200,7 +198,7 @@ on post-fs-data
     # We chown/chmod /mnt/vendor/md_sec again so because mount is run as root + defaults
     chown root system /mnt/vendor/md_sec
     chmod 0771 /mnt/vendor/md_sec
-	
+
     # Create Audio HAL data directory
     mkdir /data/vendor/audiohal 0771 system audio
 
@@ -232,7 +230,7 @@ on post-fs-data
     #XIAOMI: Create camera directory for mivifwk file --start
     mkdir /data/vendor/camera
     chown root system /data/vendor/camera
-    chmod 0771 /data/vendor/camera
+    chmod 0777 /data/vendor/camera
 
     mkdir /data/vendor/camera/offlinelog 0777 cameraserver audio
     # for skynet
@@ -245,7 +243,7 @@ on post-fs-data
     chmod 755 mnt/vendor/persist/camera
     mkdir /data/vendor/camera
     chown root system /data/vendor/camera
-    chmod 0771 /data/vendor/camera
+    chmod 0777 /data/vendor/camera
     #XIAOMI: Create camera directory for calibration file --end
 
     #XIAOMI: add for ois --start
@@ -291,13 +289,82 @@ on post-fs-data
     chmod 0660 /dev/spm
     chown system system /dev/spm
 
+# metis
+    chmod 0666 /dev/metis
+    restorecon /dev/metis
+    chown 0666 /sys/module/metis/parameters
+    chmod 0664 /sys/module/metis/parameters/add_rebind_task_lit
+    chmod 0664 /sys/module/metis/parameters/add_rebind_task_mid
+    chmod 0664 /sys/module/metis/parameters/add_rebind_task_big
+    chmod 0664 /sys/module/metis/parameters/del_rebind_task_lit
+    chmod 0664 /sys/module/metis/parameters/del_rebind_task_mid
+    chmod 0664 /sys/module/metis/parameters/del_rebind_task_big
+    chmod 0664 /sys/module/metis/parameters/add_lclus_affinity_uidlist
+    chmod 0664 /sys/module/metis/parameters/del_lclus_affinity_uidlist
+    chmod 0664 /sys/module/metis/parameters/add_mclus_affinity_uidlist
+    chmod 0664 /sys/module/metis/parameters/del_mclus_affinity_uidlist
+    chmod 0664 /sys/module/metis/parameters/add_bclus_affinity_uidlist
+    chmod 0664 /sys/module/metis/parameters/del_bclus_affinity_uidlist
+    chmod 0664 /sys/module/metis/parameters/reset_clus_affinity_uidlist
+    chown root system /sys/module/metis/parameters
+    chown root system /sys/module/metis/parameters/add_rebind_task_lit
+    chown root system /sys/module/metis/parameters/add_rebind_task_mid
+    chown root system /sys/module/metis/parameters/add_rebind_task_big
+    chown root system /sys/module/metis/parameters/del_rebind_task_lit
+    chown root system /sys/module/metis/parameters/del_rebind_task_mid
+    chown root system /sys/module/metis/parameters/del_rebind_task_big
+    chown root system /sys/module/metis/parameters/add_lclus_affinity_uidlist
+    chown root system /sys/module/metis/parameters/del_lclus_affinity_uidlist
+    chown root system /sys/module/metis/parameters/add_mclus_affinity_uidlist
+    chown root system /sys/module/metis/parameters/del_mclus_affinity_uidlist
+    chown root system /sys/module/metis/parameters/add_bclus_affinity_uidlist
+    chown root system /sys/module/metis/parameters/del_bclus_affinity_uidlist
+    chown root system /sys/module/metis/parameters/reset_clus_affinity_uidlist
+    chmod 0666 /dev/metis
+    restorecon /dev/metis
+    chmod 0666 /sys/module/metis/parameters/mi_viptask
+    restorecon /sys/module/metis/parameters/mi_viptask
+    chmod 0666 /sys/module/metis/parameters/mi_viptask_balance
+    restorecon /sys/module/metis/parameters/mi_viptask_balance
+    chmod 0666 /sys/module/metis/parameters/mi_boost_duration
+    restorecon /sys/module/metis/parameters/mi_boost_duration
+    chmod 0666 /sys/class/thermal/thermal_message/boost
+    restorecon /sys/class/thermal/thermal_message/boost
+    chmod 0666 /sys/module/metis/parameters/vip_link_enable
+    restorecon /sys/module/metis/parameters/vip_link_enable
+    chmod 0666 /sys/module/metis/parameters/vip_link_async_binder
+    restorecon /sys/module/metis/parameters/vip_link_async_binder
+    chmod 0666 /sys/module/metis/parameters/mi_fboost_enable
+    restorecon /sys/module/metis/parameters/mi_fboost_enable
+    chmod 0666 /sys/module/metis/parameters/add_mi_viptask_enqueue_boost
+    restorecon /sys/module/metis/parameters/add_mi_viptask_enqueue_boost
+    chmod 0666 /sys/module/metis/parameters/del_mi_viptask_enqueue_boost
+    restorecon /sys/module/metis/parameters/del_mi_viptask_enqueue_boost
+    chmod 0666 /sys/module/metis/parameters/add_mi_viptask_sched_priority
+    restorecon /sys/module/metis/parameters/add_mi_viptask_sched_priority
+    chmod 0666 /sys/module/metis/parameters/del_mi_viptask_sched_priority
+    restorecon /sys/module/metis/parameters/del_mi_viptask_sched_priority
+    chmod 0666 /sys/module/metis/parameters/add_mi_viptask_sched_lit_core
+    restorecon /sys/module/metis/parameters/add_mi_viptask_sched_lit_core
+    chmod 0666 /sys/module/metis/parameters/del_mi_viptask_sched_lit_core
+    restorecon /sys/module/metis/parameters/del_mi_viptask_sched_lit_core
+    chmod 0666 /sys/module/metis/parameters/is_break_enable
+    restorecon /sys/module/metis/parameters/is_break_enable
+    chmod 0666 /sys/module/metis/parameters/trace_motion_event
+    restorecon /sys/module/metis/parameters/trace_motion_event
+    chown root system /sys/module/metis/parameters/trace_motion_event
+    chmod 0666 /sys/module/metis/parameters/cold_start_app_tgid
+    restorecon /sys/module/metis/parameters/cold_start_app_tgid
+    chmod 0666 /sys/module/metis/parameters/metis_wakeup_task
+    restorecon /sys/module/metis/parameters/metis_wakeup_task
+    chmod 0666 /sys/module/metis/parameters/protect_cs
+    restorecon /sys/module/metis/parameters/protect_cs
+    chmod 0666 /sys/module/metis/parameters/set_static_vip
+    restorecon /sys/module/metis/parameters/set_static_vip
+
 # GPS
     chmod 0775 /vendor/xbin/MPED
     chmod 0666 /dev/gps_emi
-
-# dfx misight miev
-    chmod 0662 /dev/miev
-    restorecon /dev/miev
 
 # metis
     chmod 0666 /dev/metis
@@ -395,12 +462,6 @@ on post-fs-data
     chown root system /sys/class/misc/adsp_0/log_enable
     chmod 0660 /sys/class/misc/adsp_1/log_enable
     chown root system /sys/class/misc/adsp_1/log_enable
-    chmod 0660 /dev/adsp
-    chown root media /dev/adsp
-    chmod 0440 /dev/adsp_0
-    chown system media /dev/adsp_0
-    chmod 0440 /dev/adsp_1
-    chown system media /dev/adsp_1
 
     # SSPM log
     chmod 0620 /sys/class/misc/sspm/sspm_mobile_log
@@ -634,6 +695,7 @@ on post-fs-data
     chown media system /dev/hdmitx
     chmod 0664 /dev/hdmitx
 
+
     # JPEG
     chmod 0666 /proc/mtk_jpeg
 
@@ -743,7 +805,8 @@ on post-fs-data
     chown system graphics /dev/mtk_dfrc
 
 
-    #change partition permission
+   #change partition permission
+
     chmod 0640 /mtd@sec_ro
     chown root system /mtd@sec_ro
 
@@ -794,6 +857,7 @@ on post-fs-data
 
     chmod 0666 /dev/exm0
 
+
 	#Thermal
 	mkdir /data/vendor/.tp/ 0775 system system
 	mkdir /data/vendor/thermal/ 0775 system system
@@ -814,10 +878,6 @@ on post-fs-data
     chmod 0664 sys/kernel/debug/rt-regmap/mt6360_ldo.5-0064/reg_addr
     chmod 0664 sys/kernel/debug/rt-regmap/mt6360-4e/reg_addr
 
-    #widevine driver node
-    chmod 0660 /dev/drm_wv
-    chown media system /dev/drm_wv
-
     #Create dir for dolby
     mkdir /data/vendor/dolby 0770 media media
 
@@ -836,6 +896,7 @@ on early-boot
     chown root log /proc/ccci_sib
     chown root system /proc/ccci_dump
     chown root system /proc/ccci_lp_mem
+    chmod 0774 /proc/ccci_lp_mem
 
     chmod 0664 /sys/class/leds/lcd-backlight/brightness
     chown system system /sys/class/leds/lcd-backlight/brightness
@@ -1088,7 +1149,7 @@ on property:sys.boot_completed=1
     write /sys/block/dm-5/queue/read_ahead_kb 128
 
 on property:sys.boot_completed=1
-
+    restart android-hardware-media-c2-hal
     write /proc/bootprof "boot_completed"
     # stop bootprof
     write /proc/bootprof 0
@@ -1126,6 +1187,9 @@ on property:persist.vendor.mediatek.charger.log.enable=1
 on property:ro.boot.crash_reason=*
   setprop vendor.minidump.crash_reason ${ro.boot.crash_reason}
 
+on property:persist.sys.turbosched.enable.coreApp.optimizer=true
+    write  /sys/module/metis/parameters/mi_fboost_enable 1
+
 # MSYNC Game
 on boot
     insmod /vendor/lib/modules/msync2_dms.ko
@@ -1148,5 +1212,5 @@ on property:sys.boot_completed=1 && property:ro.build.type=user && property:ro.d
     chmod 0755 /sys/kernel/tracing
     setprop persist.dbg.keep_debugfs_mounted true
 
-on property:sys.boot_completed=1
-    restart android-hardware-media-c2-hal
+on property:persist.sys.turbosched.enable.coreApp.optimizer=true
+    write  /sys/module/metis/parameters/mi_fboost_enable 1

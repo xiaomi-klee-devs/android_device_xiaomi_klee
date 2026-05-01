@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/xiaomi/rodin
+DEVICE_PATH := device/xiaomi/klee
 BUILD_BROKEN_DUP_RULES := true
 IGNORE_PREFER32_ON_DEVICE := true
 
@@ -36,7 +36,7 @@ BOARD_BOOTCONFIG += \
     androidboot.serialconsole=0
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := rodin
+TARGET_BOOTLOADER_BOARD_NAME := klee
 TARGET_NO_BOOTLOADER := true
 
 # Display
@@ -249,5 +249,5 @@ BOARD_AVB_VENDOR_DLKM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
 BOARD_AVB_VENDOR_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
 
 # Inherit the proprietary files
-include vendor/xiaomi/rodin/BoardConfigVendor.mk
--include device/xiaomi/rodin-miuicamera/BoardConfig.mk
+include vendor/xiaomi/klee/BoardConfigVendor.mk
+-include device/xiaomi/klee-miuicamera/BoardConfig.mk

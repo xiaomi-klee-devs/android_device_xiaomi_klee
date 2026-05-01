@@ -1,0 +1,6 @@
+# only customized property
+ro.product.odm.brand=Redmi
+ro.product.odm.name=kleer_in
+ro.product.odm.marketname=REDMI Turbo 5
+ro.product.name_for_attestation=kleer_in
+ro.product.brand_for_attestation=Redmi
