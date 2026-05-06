@@ -44,11 +44,11 @@
     <dimen name="status_bar_clock_end_padding">6dp</dimen>
 
     <!-- Don't need the left side padding due to being inset from the cutout -->
-    <dimen name="status_bar_padding_start">8.0px</dimen>
+    <dimen name="status_bar_padding_start">12dp</dimen>
     <dimen name="status_bar_icons_padding_start">0dp</dimen>
 
     <!-- Remove the padding on the right side too, to even things out. -->
-    <dimen name="status_bar_padding_end">8.0px</dimen>
+    <dimen name="status_bar_padding_end">12dp</dimen>
     <dimen name="status_bar_icons_padding_end">0dp</dimen>
  
     <!-- The padding on the top of the statusbar (usually 0) -->
