@@ -1579,34 +1579,41 @@ vendor/etc/vintf/manifest/gnss-default.xml:vendor/etc/vintf/manifest/gnss-mtk-de
 vendor/etc/vintf/manifest/gnss-mtk.xml
 vendor/lib64/hw/android.hardware.gnss-impl-mediatek.so
 vendor/lib64/hw/gps.default.so
+vendor/lib64/hw/mtkflp.default.so
 vendor/lib64/hw/mtkgeofence.default.so
 vendor/lib64/hw/vendor.mediatek.hardware.gnss-impl.so
+vendor/lib64/hw/vendor.mediatek.hardware.gnss.batching-impl.so
+vendor/lib64/libapmonitor_vendor.so
 vendor/lib64/mt6899/libDR.so;SYMLINK=vendor/lib64/libDR.so
 vendor/lib64/mt6899/libmnl.so;SYMLINK=vendor/lib64/libmnl.so
+vendor/lib64/mtk_lbs_service-impl.so
+vendor/lib64/vendor.mediatek.hardware.apmonitor-V1-ndk.so
+vendor/lib64/vendor.mediatek.hardware.apmonitor@2.0.so
 vendor/lib64/vendor.mediatek.hardware.gnss-V3-ndk.so
+vendor/lib64/vendor.mediatek.hardware.gnss.batching-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.lbs-V1-ndk.so
+vendor/lib64/vendor.mediatek.hardware.lbs@1.0.so
 
 # GNSS (Configs)
 vendor/etc/MNL_Config.xml
 vendor/etc/gnss/agps_profiles_conf2.xml
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_ATT_NEXTEL_Mexico.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Claro_Chile.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Claro_Columbia.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Claro_Ecuador.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Movistar_Chile.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Movistar_Ecuador.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Movistar_Peru.xml
-
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_ATnT_Mexico.xml
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_ATnT_US.xml
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_CBN.xml
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_CMCC.xml
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_CT.xml
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_CU.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Claro_Chile.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Claro_Columbia.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Claro_Ecuador.xml
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Claro_Peru.xml
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_DoCoMo.xml
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Entel_Peru.xml
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_KDDI.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Movistar_Chile.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Movistar_Ecuador.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Movistar_Peru.xml
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Rakuten.xml
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_SK_Telecom.xml
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_SoftBank.xml
@@ -1688,7 +1695,6 @@ odm/lib64/libsecid.so
 odm/lib64/vendor.xiaomi.hardware.idmanager-V1-ndk.so
 vendor/lib64/vendor.xiaomi.hardware.misys.core-V1-ndk.so
 
-# IMS
 # IMS
 system_ext/bin/vtservice
 system_ext/etc/init/init.vtservice.rc
@@ -2064,8 +2070,10 @@ vendor/etc/init/mtkrild.rc
 vendor/etc/init/muxreport.rc
 vendor/lib64/libcarrierconfig.so
 vendor/lib64/libccci_util.so
+vendor/lib64/libforkexecwrap.so
 vendor/lib64/libgwsdv2-ril.so
 vendor/lib64/libgwsdv3-ril.so
+vendor/lib64/libifcutils_mtk.so
 vendor/lib64/libipsec_ims_shr.so
 vendor/lib64/libmipc.so
 vendor/lib64/libmmprofile.so
