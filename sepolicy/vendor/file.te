@@ -24,6 +24,12 @@ type vendor_display_data_file, data_file_type, file_type;
 # Fingerprint
 type vendor_fingerprint_sysfs, sysfs_type, fs_type;
 
+# MIEV
+type miev_dev, dev_type, mlstrustedobject;
+
+# MIGT
+type migt_dev, dev_type, mlstrustedobject;
+
 # Power
 type vendor_touchfeature_device, dev_type;
 

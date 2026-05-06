@@ -2,3 +2,6 @@ set_prop(vendor_init, vendor_sensors_prop)
 set_prop(vendor_init, vendor_batterysecret_prop)
 set_prop(vendor_init, vendor_displayfeature_prop)
 set_prop(vendor_init, vendor_fingerprint_prop)
+
+allow vendor_init miev_dev:chr_file getattr;
+allow vendor_init migt_dev:chr_file getattr;

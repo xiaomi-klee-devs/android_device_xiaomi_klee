@@ -106,6 +106,12 @@
 /(vendor|system/vendor)/bin/hw/android.hardware.identity-service.mitee@5.0                             u:object_r:hal_identity_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android.hardware.security.keymint@3.0-service.mitee                     u:object_r:hal_keymint_default_exec:s0
 
+# MIEV
+/dev/miev    u:object_r:miev_dev:s0
+
+# MIGT
+/dev/migt    u:object_r:migt_dev:s0
+
 # Mlipay
 /(odm|vendor/odm|system/vendor)/bin/mlipayd_mitee                                                      u:object_r:hal_mlipay_default_exec:s0
 
