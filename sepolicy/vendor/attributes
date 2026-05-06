@@ -13,6 +13,11 @@ attribute hal_aidl_dms;
 attribute hal_aidl_dms_client;
 attribute hal_aidl_dms_server;
 
+# ID manager
+attribute hal_idmanager;
+attribute hal_idmanager_client;
+attribute hal_idmanager_server;
+
 # Mlipay
 attribute hal_mlipay;
 attribute hal_mlipay_client;

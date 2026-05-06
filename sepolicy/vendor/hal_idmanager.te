@@ -1,0 +1,4 @@
+binder_call(hal_idmanager_client, hal_idmanager_server)
+binder_call(hal_idmanager_server, hal_idmanager_client)
+
+hal_attribute_service(hal_idmanager, hal_idmanager_service)

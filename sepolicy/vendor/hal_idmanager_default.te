@@ -1,0 +1,29 @@
+type hal_idmanager_default, domain;
+type hal_idmanager_default_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(hal_idmanager_default)
+
+binder_use(hal_idmanager_default)
+
+hal_client_domain(hal_idmanager_default, hal_keymint)
+hal_client_domain(hal_idmanager_default, hal_secure_element)
+hal_client_domain(hal_idmanager_default, hal_idmanager)
+hal_server_domain(hal_idmanager_default, hal_idmanager)
+
+allow hal_idmanager_default tee_device:chr_file rw_file_perms;
+allow hal_idmanager_default ion_device:chr_file r_file_perms;
+allow hal_idmanager_default teei_client_device:chr_file rw_file_perms;
+allow hal_idmanager_default nfc_device:chr_file rw_file_perms;
+allow hal_idmanager_default widevine_drv_device:chr_file rw_file_perms;
+
+allow hal_idmanager_default block_device:dir r_dir_perms;
+
+# Allow idmanager to read/write Widevine keybox
+allow hal_idmanager_default mnt_vendor_file:dir search;
+rw_dir_file(hal_idmanager_default, persist_data_file)
+
+allow hal_idmanager_default mediadrm_vendor_data_file:dir create_dir_perms;
+allow hal_idmanager_default mediadrm_vendor_data_file:file create_file_perms;
+
+get_prop(hal_idmanager_default, boot_status_prop)
+set_prop(hal_idmanager_default, vendor_idmanager_prop)

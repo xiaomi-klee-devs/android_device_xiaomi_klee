@@ -99,6 +99,9 @@
 # Gatekeeper
 /(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper-service\.mitee                            u:object_r:hal_gatekeeper_default_exec:s0
 
+# ID manager
+/odm/bin/idmanager    u:object_r:hal_idmanager_default_exec:s0
+
 # Keymint
 /(vendor|system/vendor)/bin/hw/android.hardware.identity-service.mitee@5.0                             u:object_r:hal_identity_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android.hardware.security.keymint@3.0-service.mitee                     u:object_r:hal_keymint_default_exec:s0
