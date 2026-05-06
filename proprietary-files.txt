@@ -1689,10 +1689,41 @@ odm/lib64/vendor.xiaomi.hardware.idmanager-V1-ndk.so
 vendor/lib64/vendor.xiaomi.hardware.misys.core-V1-ndk.so
 
 # IMS
+# IMS
+system_ext/bin/vtservice
+system_ext/etc/init/init.vtservice.rc
+system_ext/etc/sysconfig/com.mediatek.ims.config.xml
+system_ext/framework/mediatek-ims-base.jar:system/framework/mediatek-ims-base.jar;BOOT_JAR
+system_ext/framework/mediatek-ims-common.jar:system/framework/mediatek-ims-common.jar;BOOT_JAR
+system_ext/framework/mediatek-ims-extension-plugin.jar
+system_ext/framework/mediatek-telecom-common.jar:system/framework/mediatek-telecom-common.jar;BOOT_JAR
+system_ext/framework/mediatek-telephony-base.jar:system/framework/mediatek-telephony-base.jar;BOOT_JAR
+system_ext/framework/mediatek-telephony-common.jar:system/framework/mediatek-telephony-common.jar;BOOT_JAR
+system_ext/lib64/libcomutils.so
+system_ext/lib64/libimsma.so
+system_ext/lib64/libimsma_adapt.so
+system_ext/lib64/libimsma_rtp.so
+system_ext/lib64/libimsma_socketwrapper.so
+system_ext/lib64/libmtk_vt_service.so
+system_ext/lib64/libmtk_vt_wrapper.so
+system_ext/lib64/libsignal.so
+system_ext/lib64/libsink.so:system_ext/lib64/libsink-mtk.so;FIX_SONAME
+system_ext/lib64/libsource.so
+system_ext/lib64/libvcodec_cap.so
+system_ext/lib64/libvcodec_capenc.so
+system_ext/lib64/libvt_avsync.so
+system_ext/lib64/vendor.mediatek.hardware.videotelephony-V1-ndk.so
+system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
+system_ext/priv-app/ImsService/ImsService.apk
+system_ext/priv-app/MtkGbaService/MtkGbaService.apk
+system_ext/priv-app/MtkTelephonyAssist/MtkTelephonyAssist.apk
 vendor/bin/hw/vtservice_aidl
+vendor/bin/volte_clientapi_ua
 vendor/etc/init/init.vtservice_aidl.rc
+vendor/etc/init/volte_clientapi_ua.rc
 vendor/lib64/hw/vendor.mediatek.hardware.videotelephony-impl.so
-vendor/lib64/vendor.mediatek.hardware.videotelephony-V1-ndk.so
+vendor/lib64/vendor.mediatek.hardware.clientapi-V1-ndk.so
+vendor/lib64/vendor.mediatek.hardware.videotelephony-V1-ndk.so;MODULE_SUFFIX=_vendor
 
 # Init modules
 vendor/bin/init.insmod.sh
@@ -2026,13 +2057,11 @@ vendor/bin/ccci_rpcd
 vendor/bin/hw/mtkfusionrild
 vendor/bin/muxreport
 vendor/bin/rcs_volte_stack
-vendor/bin/volte_clientapi_ua
 vendor/bin/volte_rcs_ua
 vendor/etc/init/init.cccimdinit.rc
 vendor/etc/init/init.cccirpcd.rc
 vendor/etc/init/mtkrild.rc
 vendor/etc/init/muxreport.rc
-vendor/etc/init/volte_clientapi_ua.rc
 vendor/lib64/libcarrierconfig.so
 vendor/lib64/libccci_util.so
 vendor/lib64/libgwsdv2-ril.so
@@ -2069,7 +2098,6 @@ vendor/lib64/libtrm.so
 vendor/lib64/libvia-ril.so
 vendor/lib64/libviamipc-ril.so
 vendor/lib64/libwpfa.so
-vendor/lib64/vendor.mediatek.hardware.clientapi-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.mdmonitor-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.mdmonitor@1.0.so
 vendor/lib64/vendor.mediatek.hardware.mtkradioex.assist-V2-ndk.so
