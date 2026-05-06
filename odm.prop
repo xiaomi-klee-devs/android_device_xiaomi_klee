@@ -36,6 +36,9 @@ ro.vendor.pq.disp_game_HDR_support=true
 ro.vendor.pq.disp_super_resolution_support=true
 ro.vendor.regionpq.by.layer.support=true
 
+# Radio
+persist.vendor.radio.dynamic_sar=1
+
 # Sensors
 persist.vendor.sensor.maxbrightness=9800
 persist.vendor.sensor.powbrightness=15
