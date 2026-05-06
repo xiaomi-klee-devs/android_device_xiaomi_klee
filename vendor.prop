@@ -318,6 +318,10 @@ vendor.mtk_thumbnail_optimization=true
 vendor.video.framework.thumbnail.SurfaceMode=1
 
 # Radio
+persist.dbg.ims_volte_enable=1
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+persist.dbg.wfc_avail_ovr=1
 persist.radio.multisim.config=dsds
 persist.vendor.ims_support=1
 persist.vendor.md_c2k_cap_dep_check=0

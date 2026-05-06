@@ -5,6 +5,16 @@ ro.audio.ihaladaptervendorextension_enabled=true
 ro.audio.usb.period_us=16000
 ro.camera.sound.forced=0
 
+# Radio
+ro.fota.oem=Xiaomi
+ro.radio.device_type=1
+ro.vendor.imeisv=03
+ro.vendor.mtk_gwsd_support=1
+ro.vendor.mtk_telephony_add_on_policy=0
+ro.vendor.vodata_support=1
+vendor.rild.libargs=-d /dev/ttyC0
+vendor.rild.libpath=mtk-ril.so
+
 # Versioning
 ro.mi.os.version.code=3
 ro.mi.os.version.incremental=OS3.0.5.0.WPJMIXM
