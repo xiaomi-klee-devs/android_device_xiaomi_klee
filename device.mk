@@ -304,6 +304,7 @@ PRODUCT_COPY_FILES += \
 # Overlays
 $(call inherit-product, hardware/mediatek/overlay/mssi.mk)
 PRODUCT_PACKAGES += \
+    CarrierConfigOverlayKlee \
     FrameworksResOverlayKlee \
     NfcOverlayKlee \
     SettingsResOverlayKlee \
