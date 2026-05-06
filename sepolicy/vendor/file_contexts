@@ -106,6 +106,9 @@
 /(vendor|system/vendor)/bin/hw/android.hardware.identity-service.mitee@5.0                             u:object_r:hal_identity_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android.hardware.security.keymint@3.0-service.mitee                     u:object_r:hal_keymint_default_exec:s0
 
+# Lights (LED)
+/sys/devices/platform/soc/11281000.i2c/i2c-11/11-0030/leds/aw21024_led(/.*)?      u:object_r:vendor_sysfs_led_file:s0
+
 # MIEV
 /dev/miev    u:object_r:miev_dev:s0
 

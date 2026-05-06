@@ -24,6 +24,9 @@ type vendor_display_data_file, data_file_type, file_type;
 # Fingerprint
 type vendor_fingerprint_sysfs, sysfs_type, fs_type;
 
+# Lights (LED)
+type vendor_sysfs_led_file, fs_type, sysfs_type;
+
 # MIEV
 type miev_dev, dev_type, mlstrustedobject;
 

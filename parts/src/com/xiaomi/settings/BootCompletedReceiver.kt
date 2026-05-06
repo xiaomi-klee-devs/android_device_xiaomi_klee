@@ -41,5 +41,11 @@ class BootCompletedReceiver : BroadcastReceiver() {
 
         // Touch Sampling
         context.startServiceAsUser(Intent(context, TouchSamplingService::class.java), UserHandle.CURRENT)
+
+        // Light Service
+        val sharedPreferences = androidx.preference.PreferenceManager.getDefaultSharedPreferences(context)
+        if (sharedPreferences.getBoolean("light_enable", false)) {
+            context.startServiceAsUser(Intent(context, com.xiaomi.settings.light.LightService::class.java), UserHandle.CURRENT)
+        }
     }
 }

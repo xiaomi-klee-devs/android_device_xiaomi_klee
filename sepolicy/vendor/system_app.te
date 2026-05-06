@@ -12,6 +12,12 @@ get_prop(system_app, vendor_fingerprint_prop)
 hal_client_domain(system_app, vendor_hal_displayfeature)
 binder_call(system_app, vendor_hal_displayfeature)
 
+# Lights
+allow system_app vendor_sysfs_led_file:file rw_file_perms;
+allow system_app vendor_sysfs_led_file:lnk_file rw_file_perms;
+allow system_app vendor_sysfs_led_file:dir search;
+allow system_app sysfs_leds:dir search;
+
 # TouchFeature
 hal_client_domain(system_app, hal_touchfeature_xiaomi)
 binder_call(system_app, hal_touchfeature_xiaomi)

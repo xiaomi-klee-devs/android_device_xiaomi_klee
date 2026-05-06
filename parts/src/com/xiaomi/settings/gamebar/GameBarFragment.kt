@@ -106,12 +106,6 @@ class GameBarFragment : PreferenceFragmentCompat() {
             startActivity(intent)
             true
         }
-        val appRemoverPref = findPreference<Preference>("game_bar_app_remover")
-        appRemoverPref?.setOnPreferenceClickListener {
-            val intent = Intent(context, GameBarAppRemoverActivity::class.java)
-            startActivity(intent)
-            true
-        }
 
         mMasterSwitch?.setOnPreferenceChangeListener { _, newValue ->
             val enabled = newValue as Boolean

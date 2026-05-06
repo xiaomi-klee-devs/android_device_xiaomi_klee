@@ -22,6 +22,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Switch
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.xiaomi.settings.R
@@ -29,11 +30,12 @@ import com.xiaomi.settings.R
 class GameBarAppsAdapter(
     private val packageManager: PackageManager,
     private val apps: List<ApplicationInfo>,
-    private val listener: OnAppClickListener?
+    private val selectedApps: Set<String>,
+    private val listener: OnAppToggledListener?
 ) : RecyclerView.Adapter<GameBarAppsAdapter.ViewHolder>() {
 
-    interface OnAppClickListener {
-        fun onAppClick(appInfo: ApplicationInfo)
+    interface OnAppToggledListener {
+        fun onAppToggled(appInfo: ApplicationInfo, isChecked: Boolean)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -47,8 +49,16 @@ class GameBarAppsAdapter(
         holder.appName.text = appInfo.loadLabel(packageManager)
         holder.appPackage.text = appInfo.packageName
         holder.appIcon.setImageDrawable(appInfo.loadIcon(packageManager))
+        
+        holder.appSwitch.setOnCheckedChangeListener(null)
+        holder.appSwitch.isChecked = selectedApps.contains(appInfo.packageName)
+        
+        holder.appSwitch.setOnCheckedChangeListener { _, isChecked ->
+            listener?.onAppToggled(appInfo, isChecked)
+        }
+        
         holder.itemView.setOnClickListener {
-            listener?.onAppClick(appInfo)
+            holder.appSwitch.isChecked = !holder.appSwitch.isChecked
         }
     }
 
@@ -60,5 +70,6 @@ class GameBarAppsAdapter(
         val appName: TextView = itemView.findViewById(R.id.app_name)
         val appPackage: TextView = itemView.findViewById(R.id.app_package)
         val appIcon: ImageView = itemView.findViewById(R.id.app_icon)
+        val appSwitch: Switch = itemView.findViewById(R.id.app_switch)
     }
 }

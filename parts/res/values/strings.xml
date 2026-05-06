@@ -38,4 +38,43 @@
     <string name="overlay_permission_denied">Overlay permission denied</string>
     <string name="game_bar_tile_label">GameBar</string>
     <string name="game_bar_tile_description">Toggle the game overlay</string>
+
+    <!-- RGB Light Settings -->
+    <string name="light_settings_title">Backlight effects</string>
+    <string name="light_settings_summary">Configure RGB LED on the back</string>
+    <string name="light_enable_title">Enable backlight effects</string>
+    
+    <string name="light_incoming_call_title">Incoming calls</string>
+    <string name="light_incoming_call_summary">Pulse LED during incoming calls</string>
+    <string name="light_incoming_call_color_title">Incoming call color</string>
+    
+    <string name="light_notifications_title">Notifications</string>
+    <string name="light_notifications_summary">Pulse LED for app notifications</string>
+    <string name="light_notifications_color_title">Notification color</string>
+    <string name="light_notifications_apps_title">Select apps for notifications</string>
+
+    <string name="light_music_title">Rhythmic light effects</string>
+    <string name="light_music_summary">Follow up beat, rhythm and bass of music</string>
+    <string name="light_music_apps_title">Select music apps</string>
+
+    <string name="light_standalone_title">Standalone colors</string>
+    <string name="light_standalone_summary">Keep LED on with a specific color</string>
+    <string name="light_standalone_enable_title">Enable standalone LEDs</string>
+    <string name="light_standalone_color_title">Standalone color</string>
+
+    <string name="light_game_mode_title">Game mode</string>
+    <string name="light_game_mode_summary">Enable breathing LED while playing games</string>
+    <string name="light_game_mode_apps_title">Select games</string>
+
+    <string name="light_charging_title">Charging state</string>
+    <string name="light_charging_summary">Pulse LED colors based on battery level</string>
+
+    <string name="color_red">Red</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_yellow">Yellow</string>
+    <string name="color_green">Green</string>
+    <string name="color_cyan">Cyan</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_purple">Purple</string>
+    <string name="color_gradient">Gradient</string>
 </resources>

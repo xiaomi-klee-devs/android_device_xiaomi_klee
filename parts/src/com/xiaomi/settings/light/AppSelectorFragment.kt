@@ -1,20 +1,4 @@
-/*
- * Copyright (C) 2025 kenway214
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.xiaomi.settings.gamebar
+package com.xiaomi.settings.light
 
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
@@ -28,8 +12,9 @@ import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.xiaomi.settings.R
+import com.xiaomi.settings.gamebar.GameBarAppsAdapter
 
-class GameBarAppSelectorFragment : Fragment() {
+class AppSelectorFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private var adapter: GameBarAppsAdapter? = null
@@ -75,24 +60,29 @@ class GameBarAppSelectorFragment : Fragment() {
     }
 
     private val savedAutoApps: Set<String>
-        get() = PreferenceManager.getDefaultSharedPreferences(requireContext())
-            .getStringSet(PREF_AUTO_APPS, HashSet())!!
+        get() {
+            val prefKey = arguments?.getString("prefKey") ?: PREF_AUTO_APPS
+            return PreferenceManager.getDefaultSharedPreferences(requireContext())
+                .getStringSet(prefKey, HashSet())!!
+        }
 
     private fun addAppToAutoList(packageName: String) {
         val autoApps = HashSet(savedAutoApps)
         autoApps.add(packageName)
+        val prefKey = arguments?.getString("prefKey") ?: PREF_AUTO_APPS
         PreferenceManager.getDefaultSharedPreferences(requireContext())
-            .edit().putStringSet(PREF_AUTO_APPS, autoApps).apply()
+            .edit().putStringSet(prefKey, autoApps).apply()
     }
 
     private fun removeAppFromAutoList(packageName: String) {
         val autoApps = HashSet(savedAutoApps)
         autoApps.remove(packageName)
+        val prefKey = arguments?.getString("prefKey") ?: PREF_AUTO_APPS
         PreferenceManager.getDefaultSharedPreferences(requireContext())
-            .edit().putStringSet(PREF_AUTO_APPS, autoApps).apply()
+            .edit().putStringSet(prefKey, autoApps).apply()
     }
 
     companion object {
-        const val PREF_AUTO_APPS = "game_bar_auto_apps"
+        const val PREF_AUTO_APPS = "light_notifications_apps"
     }
 }
