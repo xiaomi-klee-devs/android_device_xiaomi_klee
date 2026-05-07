@@ -33,7 +33,9 @@ BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
 
 # Bootconfig
 BOARD_BOOTCONFIG += \
-    androidboot.serialconsole=0
+    androidboot.serialconsole=0 \
+    androidboot.hypervisor.version=GenieZone \
+    androidboot.hypervisor.vm.supported=1
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := klee
