@@ -110,6 +110,7 @@ ro.hardware.consumerir=common
 ro.crypto.volume.filenames_mode=aes-256-cts
 
 # Display
+debug.mediatek.disp_decompress=1
 persist.vendor.EnableP3ColorSpace=1
 ro.vendor.hdr10plus.enable=1
 ro.vendor.mtk_cuva_hdr_support=1
