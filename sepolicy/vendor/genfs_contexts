@@ -37,9 +37,11 @@ genfscon sysfs /devices/platform/11b72000.i2c/i2c-10/10-006f/power_supply/cp_mas
 genfscon sysfs /devices/platform/11f01000.i2c/i2c-5/5-0034/11f01000.i2c:mt6375@34:chg/power_supply/primary_chg u:object_r:sysfs_power_supply:s0
 genfscon sysfs /devices/platform/11f01000.i2c/i2c-5/5-0034/11f01000.i2c:mt6375@34:mtk-gauge/power_supply  u:object_r:sysfs_power_supply:s0
 genfscon sysfs /devices/platform/soc/11280000.i2c/i2c-10/10-0055/verify_digest                            u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/soc/11d01000.i2c/i2c-1/1-0055/power_supply/bms/type                       u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/soc/11d01000.i2c/i2c-1/1-0055/power_supply/bms/authentic               u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/soc/11d01000.i2c/i2c-1/1-0055/verify_digest                            u:object_r:sysfs_power_supply:s0
 genfscon sysfs /devices/platform/soc/11280000.i2c/i2c-10/10-006e/power_supply/cp_master/type              u:object_r:sysfs_power_supply:s0
 genfscon sysfs /devices/platform/soc/11280000.i2c/i2c-10/10-0055/power_supply/bms/type                    u:object_r:sysfs_power_supply:s0
-genfscon sysfs /devices/platform/soc/11d01000.i2c/i2c-1/1-0055/power_supply/bms/authentic               u:object_r:sysfs_power_supply:s0
 genfscon sysfs /devices/platform/soc/11f01000.i2c/i2c-5/5-0034/11f01000.i2c:mt6375@34:mtk-gauge/power_supply/mt6375-gauge/type u:object_r:sysfs_power_supply:s0
 genfscon sysfs /devices/platform/charger_gl/power_supply/mtk-master-charger                               u:object_r:sysfs_power_supply:s0
 genfscon sysfs /devices/platform/charger_gl/power_supply/mtk-mst-div-chg                                  u:object_r:sysfs_power_supply:s0
@@ -49,7 +51,6 @@ genfscon sysfs /devices/platform/charger_gl/power_supply/mtk-slv-hvdiv-chg      
 genfscon sysfs /devices/platform/charger_gl/power_supply/usb                                              u:object_r:sysfs_power_supply:s0
 genfscon sysfs /devices/platform/pd-adapter/Charging_Adapter/pd_adapter/                                  u:object_r:sysfs_power_supply:s0
 genfscon sysfs /devices/platform/soc/11f01000.i2c/i2c-5/5-0034/11f01000.i2c:mt6375@34:chg/power_supply/primary_chg u:object_r:sysfs_power_supply:s0
-genfscon sysfs /devices/platform/soc/11d01000.i2c/i2c-1/1-0055/power_supply/bms/type                       u:object_r:sysfs_power_supply:s0
 
 # Trusted Execution Environment (TEE)
 genfscon proc /mitee_log 									 u:object_r:proc_mitee_log:s0
@@ -88,6 +89,7 @@ genfscon sysfs /devices/platform/soc/11f01000.i2c/i2c-5/5-0034/wakeup u:object_r
 genfscon sysfs /devices/platform/soc/1e000000.adspsys/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/1f800000.mmlsys-config/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/odm/odm:mi_t1_chip/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/11b70000.i2c/i2c-2/2-0010/wakeup u:object_r:sysfs_wakeup:s0
 
 # Touch
 genfscon sysfs /devices/virtual/touch/touch_dev/touch_thp_disconnect_detect u:object_r:sysfs_touch_hostprocess:s0
