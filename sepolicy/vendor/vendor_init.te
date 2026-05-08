@@ -5,3 +5,4 @@ set_prop(vendor_init, vendor_fingerprint_prop)
 
 allow vendor_init miev_dev:chr_file getattr;
 allow vendor_init migt_dev:chr_file getattr;
+allow vendor_init vendor_touchfeature_device:chr_file getattr;
