@@ -2220,7 +2220,6 @@ vendor/lib64/vendor.xiaomi.hardware.aidl.tidaservice-V1-ndk.so
 
 # Thermal
 vendor/bin/mi_thermald
-vendor/etc/thermal-map.conf
 vendor/etc/thermald-devices.conf
 
 # Tether Offload

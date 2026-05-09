@@ -385,7 +385,8 @@ PRODUCT_PACKAGES += \
     thermal_symlinks
 
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*.conf,$(DEVICE_PATH)/configs/thermal/,$(TARGET_COPY_OUT_ODM)/etc) \
+    $(DEVICE_PATH)/configs/thermal/thermal-map.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-map.conf \
+    $(DEVICE_PATH)/configs/thermal/thermal-normal.conf:$(TARGET_COPY_OUT_ODM)/etc/thermal-normal.conf \
     $(DEVICE_PATH)/configs/thermal/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
 
 # USB
