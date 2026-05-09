@@ -1,4 +1,4 @@
-# Unpinned blobs from missi-user 15 AP3A.240905.015.A2 OS2.0.204.0.VOJMIXM release-keys
+# Unpinned blobs from missi-user 16 BP2A.250605.031.A3 OS3.0.5.0.WPJMIXM release-keys
 apusys.img;AB
 audio_dsp.img;AB
 ccu.img;AB
@@ -8,6 +8,7 @@ connsys_wifi.img;AB
 dpm.img;AB
 gpueb.img;AB
 gz.img;AB
+logo.img;AB
 lk.img;AB
 mcf_ota.img;AB
 mcupm.img;AB
