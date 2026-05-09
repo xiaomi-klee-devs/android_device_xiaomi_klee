@@ -36,6 +36,9 @@ type migt_dev, dev_type, mlstrustedobject;
 # Power
 type vendor_touchfeature_device, dev_type;
 
+# Secure element
+type sysfs_chip_name, fs_type, sysfs_type;
+
 # Trusted Execution Environment (TEE)
 type mitee_data_file, data_file_type, file_type;
 type proc_mitee_log, fs_type, proc_type;

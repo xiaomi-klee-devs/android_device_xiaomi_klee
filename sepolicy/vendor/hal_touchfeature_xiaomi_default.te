@@ -15,3 +15,4 @@ allow hal_touchfeature_xiaomi_default fwk_sensor_service:service_manager find;
 allow hal_touchfeature_xiaomi_default self:capability sys_nice;
 allow hal_touchfeature_xiaomi_default init:unix_stream_socket connectto;
 allow hal_touchfeature_xiaomi_default proc_tp_file:file { read write open };
+allow hal_touchfeature_xiaomi_default property_socket:sock_file write;
