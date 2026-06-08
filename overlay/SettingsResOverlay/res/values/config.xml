@@ -56,4 +56,7 @@
          should be either LOW (1) or HIGH (3).
     -->
     <integer name="config_vibration_supported_intensity_levels">3</integer>
+
+    <!-- Uses the legacy UDFPS enrollment UI with side text instead of a footer button. -->
+    <bool name="config_useLegacyUdfpsUi">true</bool>
 </resources>
