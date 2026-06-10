@@ -75,6 +75,10 @@ public:
     ndk::ScopedAStatus getSupportedAlwaysOnEffects(std::vector<Effect>* _aidl_return) override;
     ndk::ScopedAStatus alwaysOnEnable(int32_t id, Effect effect, EffectStrength strength) override;
     ndk::ScopedAStatus alwaysOnDisable(int32_t id) override;
+    ndk::ScopedAStatus getResonantFrequency(float* resonantFreqHz);
+    ndk::ScopedAStatus getFrequencyResolution(float* freqResolutionHz);
+    ndk::ScopedAStatus getFrequencyMinimum(float* freqMinimumHz);
+    ndk::ScopedAStatus getBandwidthAmplitudeMap(std::vector<float>* _aidl_return);
 };
 
 }  // namespace vibrator

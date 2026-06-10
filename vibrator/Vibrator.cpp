@@ -29,11 +29,13 @@
 
 #define LOG_TAG "vendor.qti.vibrator"
 
+#include <android-base/file.h>
 #include <cutils/properties.h>
 #include <dirent.h>
 #include <inttypes.h>
 #include <linux/input.h>
 #include <log/log.h>
+#include <string>
 #include <string.h>
 #include <sys/ioctl.h>
 #include <thread>
@@ -415,6 +417,40 @@ ndk::ScopedAStatus Vibrator::alwaysOnEnable(int32_t id __unused, Effect effect _
 }
 
 ndk::ScopedAStatus Vibrator::alwaysOnDisable(int32_t id __unused) {
+    return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+}
+
+#define F0_SYSFS_PATH "/sys/devices/platform/soc/11d00000.i2c/i2c-0/0-005a/f0_value"
+#define F0_PRE_HZ 170.0f  // aw86927 f0_pre = 0x6A4 (1700 = 170.0 Hz)
+
+ndk::ScopedAStatus Vibrator::getResonantFrequency(float* resonantFreqHz) {
+    std::string f0_val;
+    if (::android::base::ReadFileToString(F0_SYSFS_PATH, &f0_val)) {
+        char* end;
+        long val = strtol(f0_val.c_str(), &end, 10);
+        if (end != f0_val.c_str() && val > 0) {
+            // f0 value is in 0.1 Hz units, convert to Hz
+            *resonantFreqHz = static_cast<float>(val) / 10.0f;
+            return ndk::ScopedAStatus::ok();
+        }
+        ALOGW("Failed to parse f0 value '%s'", f0_val.c_str());
+    }
+    ALOGW("Failed to read f0 from sysfs, falling back to f0_pre = %.1f Hz", F0_PRE_HZ);
+    *resonantFreqHz = F0_PRE_HZ;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Vibrator::getFrequencyResolution(float* freqResolutionHz) {
+    *freqResolutionHz = 1.0f;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Vibrator::getFrequencyMinimum(float* freqMinimumHz) {
+    *freqMinimumHz = 50.0f;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Vibrator::getBandwidthAmplitudeMap(std::vector<float>* _aidl_return __unused) {
     return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
 }
 
