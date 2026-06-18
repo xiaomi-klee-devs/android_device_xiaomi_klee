@@ -315,9 +315,9 @@
                 <route type="mix" sink="Wired Headphones"
                        sources="primary output,deep_buffer,mmap_no_irq_out,fast,compress_offload,FM Tuner In,voip_rx,Voice Call In,spatializer output"/>
                 <route type="mix" sink="USB Device Out"
-                       sources="primary output,deep_buffer,fast,compress_offload,FM Tuner In,voip_rx,Voice Call In,hifi_playback,spatializer output"/>
+                       sources="primary output,deep_buffer,fast,FM Tuner In,voip_rx,Voice Call In,hifi_playback"/>
                 <route type="mix" sink="USB Headset Out"
-                       sources="primary output,deep_buffer,fast,compress_offload,FM Tuner In,voip_rx,Voice Call In,hifi_playback,spatializer output"/>
+                       sources="primary output,deep_buffer,fast,FM Tuner In,voip_rx,Voice Call In,hifi_playback"/>
                 <route type="mix" sink="BT SCO"
                        sources="primary output,deep_buffer,fast,compress_offload,voip_rx,Voice Call In"/>
                 <route type="mix" sink="BT SCO Headset"
@@ -373,7 +373,7 @@
         <xi:include href="a2dp_in_audio_policy_configuration.xml"/>
 
         <!-- Usb Audio HAL -->
-        <xi:include href="usb_audio_accessory_only_policy_configuration.xml"/>
+        <xi:include href="usbv2_audio_accessory_policy_configuration.xml"/>
 
         <!-- Remote Submix Audio HAL -->
         <xi:include href="r_submix_audio_policy_configuration.xml"/>

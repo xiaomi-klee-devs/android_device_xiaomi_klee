@@ -93,7 +93,7 @@ PRODUCT_PACKAGES += \
     audio.bluetooth.default \
     audio_policy.stub \
     audio.r_submix.default \
-    audio.usb.default
+    audio.usbv2.default
 
 PRODUCT_PACKAGES += \
     libaecsw \
@@ -128,7 +128,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/aurisys_config_hifi3_fs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/aurisys_config_hifi3_fs.xml \
     $(LOCAL_PATH)/configs/audio/le_audio_codec_capabilities.xml:$(TARGET_COPY_OUT_VENDOR)/etc/le_audio_codec_capabilities.xml \
     $(LOCAL_PATH)/configs/audio/bluetooth_a2dp_offload_ums_offload_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_a2dp_offload_ums_offload_audio_policy_configuration.xml \
-    $(LOCAL_PATH)/configs/audio/usb_audio_accessory_only_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_accessory_only_policy_configuration.xml
+    $(LOCAL_PATH)/configs/audio/usbv2_audio_accessory_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usbv2_audio_accessory_policy_configuration.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration.xml \
