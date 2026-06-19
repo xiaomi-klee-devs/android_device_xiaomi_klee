@@ -1386,6 +1386,7 @@ vendor/lib64/libdisplayfeatureservice.so
 vendor/lib64/libheichal.so
 vendor/lib64/libmisight.so
 vendor/lib64/mt6899/libhdrvideo.so;SYMLINK=vendor/lib64/libhdrvideo.so
+vendor/lib64/android.frameworks.displayservice@1.0.so
 
 # Dolby
 vendor/bin/hw/vendor.dolby.dms.service
