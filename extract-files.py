@@ -147,7 +147,10 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup()
         .replace_needed('android.hardware.camera.device-V1-ndk.so', 'android.hardware.camera.device-V2-ndk.so'),
     ('vendor/lib64/libmialgoengine.so',
-     'vendor/lib64/libcom.xiaomi.grallocutils.so'): blob_fixup()
+     'vendor/lib64/libcom.xiaomi.grallocutils.so',
+     'vendor/lib64/libmicamera_adapter.so',
+     'vendor/lib64/mt6899/libmtkcam_hal_core_device.so',
+     'odm/lib64/camera/dynamicplugins/com.xiaomi.plugin.filter.so'): blob_fixup()
         .call(blob_fixup_graphic_buffer_size),
     'vendor/lib64/libmicamera_hal_core.so': blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so')
