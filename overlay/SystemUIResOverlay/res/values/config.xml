@@ -38,7 +38,7 @@
         <item>0</item>
     </integer-array>
     <!-- Default paddings for content around the corners. -->
-    <dimen name="rounded_corner_content_padding">56.0px</dimen>
+    <dimen name="rounded_corner_content_padding">80.0px</dimen>
 
     <!-- The end padding for the clock in the status bar. -->
     <dimen name="status_bar_clock_end_padding">6dp</dimen>
