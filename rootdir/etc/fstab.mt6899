@@ -106,6 +106,3 @@ system_dlkm /system_dlkm erofs ro wait,slotselect,avb,logical,first_stage_mount
 /dev/block/by-name/connsys_bt /connsys_bt emmc defaults defaults
 /dev/block/by-name/otp /otp emmc defaults defaults
 /dev/block/by-name/vbmeta /vbmeta emmc defaults defaults
-
-# zram
-/dev/block/zram0                                   none   swap   defaults   zramsize=50%

@@ -279,7 +279,7 @@ PRODUCT_PACKAGES += \
     init.zram.rc
 
 PRODUCT_COPY_FILES += \
-    hardware/google/pixel/mm/fstab.zram.50p-1g:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.zram
+    $(LOCAL_PATH)/rootdir/etc/fstab.zram:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.zram
 
 # NFC
 PRODUCT_PACKAGES += \
