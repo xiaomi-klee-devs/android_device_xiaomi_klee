@@ -1,0 +1,14 @@
+# /class/typec was reclassified from sysfs_usb_nonplat to sysfs_typec
+# (AOSP versioned genfs policy, API 202604+). The MediaTek base
+# genfscon rule for this path was removed to avoid a genfscon
+# conflict during sepolicy compilation; the domains below are given
+# equivalent access to sysfs_typec to preserve prior behavior.
+
+allow em_app sysfs_typec:dir search;
+allow em_app sysfs_typec:file rw_file_perms;
+
+allow factory sysfs_typec:file r_file_perms;
+allow factory sysfs_typec:dir r_dir_perms;
+
+allow meta_tst sysfs_typec:file rw_file_perms;
+allow meta_tst sysfs_typec:dir search;

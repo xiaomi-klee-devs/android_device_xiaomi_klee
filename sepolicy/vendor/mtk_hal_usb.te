@@ -1,2 +1,7 @@
 allow mtk_hal_usb sysfs_udc:dir search;
 allow mtk_hal_usb sysfs_udc:file r_file_perms;
+
+# /class/typec is now labeled sysfs_typec by AOSP's versioned genfs
+# policy (previously sysfs_usb_nonplat via device/mediatek/sepolicy_vndr).
+allow mtk_hal_usb sysfs_typec:dir r_dir_perms;
+allow mtk_hal_usb sysfs_typec:file r_file_perms;
