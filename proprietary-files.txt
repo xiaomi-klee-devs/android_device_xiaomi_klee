@@ -107,11 +107,11 @@ odm/etc/spk_hp.wav
 odm/etc/stereo.wav
 odm/etc/top_spk.wav
 odm/etc/ultrasound.wav
-system/bin/spkcal
-system_ext/bin/spkcal_88263s_m9
-system_ext/bin/spkcal_p10
-system_ext/bin/spkcal_si_o12u
-system_ext/bin/spkcal_tfa98xx
+system/bin/spkcal;DISABLE_CHECKELF
+system_ext/bin/spkcal_88263s_m9;DISABLE_CHECKELF
+system_ext/bin/spkcal_p10;DISABLE_CHECKELF
+system_ext/bin/spkcal_si_o12u;DISABLE_CHECKELF
+system_ext/bin/spkcal_tfa98xx;DISABLE_CHECKELF
 vendor/etc/spk_cal_silence.wav
 
 # Audio Configs
@@ -1737,7 +1737,7 @@ system_ext/lib64/libimsma_socketwrapper.so
 system_ext/lib64/libmtk_vt_service.so
 system_ext/lib64/libmtk_vt_wrapper.so
 system_ext/lib64/libsignal.so
-system_ext/lib64/libsink.so:system_ext/lib64/libsink-mtk.so;FIX_SONAME
+system_ext/lib64/libsink.so:system_ext/lib64/libsink-mtk.so;FIX_SONAME;DISABLE_CHECKELF
 system_ext/lib64/libsource.so
 system_ext/lib64/libvcodec_cap.so
 system_ext/lib64/libvcodec_capenc.so
