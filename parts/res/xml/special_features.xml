@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/special_settings_category_title">
+
+        <Preference
+            android:key="special_backlight"
+            android:title="@string/light_settings_title"
+            android:summary="@string/light_settings_summary"
+            android:icon="@drawable/ic_backlight" />
+
+        <Preference
+            android:key="special_game_bar"
+            android:title="@string/game_bar_title"
+            android:summary="@string/game_bar_summary"
+            android:icon="@drawable/ic_gamebar" />
+
+        <Preference
+            android:key="special_touch_sampling"
+            android:title="@string/htsr_title"
+            android:summary="@string/htsr_enable_summary"
+            android:icon="@drawable/ic_touch_sampling_tile" />
+
+        <Preference
+            android:key="special_core_control"
+            android:title="@string/core_control_title"
+            android:summary="@string/core_control_summary"
+            android:icon="@drawable/ic_thermal_settings" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

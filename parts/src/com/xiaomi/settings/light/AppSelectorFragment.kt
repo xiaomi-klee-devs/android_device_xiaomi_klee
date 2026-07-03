@@ -3,82 +3,69 @@ package com.xiaomi.settings.light
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.xiaomi.settings.R
+import androidx.preference.PreferenceScreen
+import androidx.preference.SwitchPreferenceCompat
+import com.android.settingslib.widget.SettingsBasePreferenceFragment
+import java.util.HashSet
 
-class AppSelectorFragment : Fragment() {
+class AppSelectorFragment : SettingsBasePreferenceFragment() {
 
-    private lateinit var recyclerView: RecyclerView
-    private var adapter: LightAppsAdapter? = null
-    private lateinit var packageManager: PackageManager
-    private var allApps: MutableList<ApplicationInfo>? = null
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.game_bar_app_selector, container, false)
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        val screen = preferenceManager.createPreferenceScreen(requireContext())
+        preferenceScreen = screen
+        loadApps(screen)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        recyclerView = view.findViewById(R.id.app_list)
-        packageManager = requireContext().packageManager
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        loadApps()
-    }
-
-    private fun loadApps() {
-        allApps = ArrayList()
+    private fun loadApps(screen: PreferenceScreen) {
+        val packageManager = requireContext().packageManager
         val installedApps = packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
-        for (appInfo in installedApps) {
-            if (appInfo.flags and ApplicationInfo.FLAG_SYSTEM == 0 &&
-                appInfo.packageName != requireContext().packageName
-            ) {
-                allApps!!.add(appInfo)
-            }
-        }
-        val listener = object : LightAppsAdapter.OnAppToggledListener {
-            override fun onAppToggled(appInfo: ApplicationInfo, isChecked: Boolean) {
-                if (isChecked) {
-                    addAppToAutoList(appInfo.packageName)
-                } else {
-                    removeAppFromAutoList(appInfo.packageName)
+        val autoApps = savedAutoApps
+
+        val sortedApps = installedApps.filter { appInfo ->
+            appInfo.flags and ApplicationInfo.FLAG_SYSTEM == 0 &&
+            appInfo.packageName != requireContext().packageName
+        }.sortedWith(
+            compareByDescending<ApplicationInfo> { autoApps.contains(it.packageName) }
+            .thenBy { it.loadLabel(packageManager).toString().lowercase() }
+        )
+
+        for (appInfo in sortedApps) {
+            val pref = SwitchPreferenceCompat(requireContext()).apply {
+                title = appInfo.loadLabel(packageManager)
+                summary = appInfo.packageName
+                icon = appInfo.loadIcon(packageManager)
+                isChecked = autoApps.contains(appInfo.packageName)
+                isPersistent = false
+                setOnPreferenceChangeListener { _, newValue ->
+                    val isEnabled = newValue as Boolean
+                    updateAutoApp(appInfo.packageName, isEnabled)
+                    true
                 }
             }
+            screen.addPreference(pref)
         }
-        adapter = LightAppsAdapter(packageManager, allApps!!, savedAutoApps, listener)
-        recyclerView.adapter = adapter
     }
 
     private val savedAutoApps: Set<String>
         get() {
             val prefKey = arguments?.getString("prefKey") ?: PREF_AUTO_APPS
             return PreferenceManager.getDefaultSharedPreferences(requireContext())
-                .getStringSet(prefKey, HashSet())!!
+                .getStringSet(prefKey, HashSet()) ?: HashSet()
         }
 
-    private fun addAppToAutoList(packageName: String) {
-        val autoApps = HashSet(savedAutoApps)
-        autoApps.add(packageName)
+    private fun updateAutoApp(packageName: String, add: Boolean) {
         val prefKey = arguments?.getString("prefKey") ?: PREF_AUTO_APPS
-        PreferenceManager.getDefaultSharedPreferences(requireContext())
-            .edit().putStringSet(prefKey, autoApps).apply()
-    }
+        val prefs = PreferenceManager.getDefaultSharedPreferences(requireContext())
+        val currentSet = prefs.getStringSet(prefKey, HashSet()) ?: HashSet()
 
-    private fun removeAppFromAutoList(packageName: String) {
-        val autoApps = HashSet(savedAutoApps)
-        autoApps.remove(packageName)
-        val prefKey = arguments?.getString("prefKey") ?: PREF_AUTO_APPS
-        PreferenceManager.getDefaultSharedPreferences(requireContext())
-            .edit().putStringSet(prefKey, autoApps).apply()
+        val newSet = HashSet(currentSet)
+        if (add) {
+            newSet.add(packageName)
+        } else {
+            newSet.remove(packageName)
+        }
+        prefs.edit().putStringSet(prefKey, newSet).apply()
     }
 
     companion object {

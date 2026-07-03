@@ -20,10 +20,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.MenuItem
 import androidx.preference.Preference
-import com.android.settingslib.widget.SettingsBasePreferenceFragment
 import androidx.preference.SwitchPreferenceCompat
+import com.android.settingslib.widget.SettingsBasePreferenceFragment
 import com.xiaomi.settings.R
 
 class TouchSamplingSettingsFragment : SettingsBasePreferenceFragment(), Preference.OnPreferenceChangeListener {
@@ -35,42 +34,32 @@ class TouchSamplingSettingsFragment : SettingsBasePreferenceFragment(), Preferen
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.htsr_settings, rootKey)
-        activity?.actionBar?.setDisplayHomeAsUpEnabled(true)
 
-        mHTSRPreference = findPreference<SwitchPreferenceCompat>(HTSR_ENABLE_KEY)
-        mAutoEnablePreference = findPreference<SwitchPreferenceCompat>(HTSR_AUTO_ENABLE_KEY)
+        mPrefs = requireActivity().getSharedPreferences(SHAREDHTSR, Context.MODE_PRIVATE)
+
+        mHTSRPreference = findPreference(HTSR_ENABLE_KEY)
+        mAutoEnablePreference = findPreference(HTSR_AUTO_ENABLE_KEY)
         mChooseAppsPreference = findPreference(HTSR_APP_SELECTOR_KEY)
-        mPrefs = activity?.getSharedPreferences(SHAREDHTSR, Context.MODE_PRIVATE)
 
-        // Set the initial state of the switch
         val htsrEnabled = mPrefs!!.getBoolean(HTSR_STATE, false)
         mHTSRPreference?.isChecked = htsrEnabled
+        mHTSRPreference?.onPreferenceChangeListener = this
 
-        // Enable the switch and set its listener
-        mHTSRPreference?.setOnPreferenceChangeListener(this)
-
-        // Start the service if the toggle is enabled
         if (htsrEnabled) {
             startTouchSamplingService(true)
         }
 
-        mChooseAppsPreference?.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+        mChooseAppsPreference?.setOnPreferenceClickListener {
             val intent = Intent(activity, TouchSamplingAppSelectorActivity::class.java)
             startActivity(intent)
             true
         }
-
-
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
         if (HTSR_ENABLE_KEY == preference.key) {
             val isEnabled = newValue as Boolean
-
-            // Save the state in shared preferences
             mPrefs!!.edit().putBoolean(HTSR_STATE, isEnabled).apply()
-
-            // Start or stop the service based on the toggle state
             startTouchSamplingService(isEnabled)
         }
         return true
@@ -83,14 +72,6 @@ class TouchSamplingSettingsFragment : SettingsBasePreferenceFragment(), Preferen
         } else {
             activity?.stopService(serviceIntent)
         }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) {
-            activity?.onBackPressed()
-            return true
-        }
-        return false
     }
 
     companion object {

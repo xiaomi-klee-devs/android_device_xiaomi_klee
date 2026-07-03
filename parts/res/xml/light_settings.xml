@@ -4,7 +4,7 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/light_settings_title">
 
-    <SwitchPreference
+    <com.android.settingslib.widget.MainSwitchPreference
         android:key="light_enable"
         android:title="@string/light_enable_title"
         android:defaultValue="false" />
@@ -13,7 +13,7 @@
         android:key="light_category_standalone"
         android:title="@string/light_standalone_title"
         android:dependency="light_enable">
-        <SwitchPreference
+        <androidx.preference.SwitchPreferenceCompat
             android:key="light_standalone_enable"
             android:title="@string/light_standalone_enable_title"
             android:defaultValue="false" />
@@ -30,7 +30,7 @@
         android:key="light_category_charging"
         android:title="@string/light_charging_title"
         android:dependency="light_enable">
-        <SwitchPreference
+        <androidx.preference.SwitchPreferenceCompat
             android:key="light_charging_enable"
             android:title="@string/light_charging_title"
             android:summary="@string/light_charging_summary"
@@ -41,7 +41,7 @@
         android:key="light_category_incoming_call"
         android:title="@string/light_incoming_call_title"
         android:dependency="light_enable">
-        <SwitchPreference
+        <androidx.preference.SwitchPreferenceCompat
             android:key="light_incoming_call_enable"
             android:title="@string/light_incoming_call_title"
             android:summary="@string/light_incoming_call_summary"
@@ -59,7 +59,7 @@
         android:key="light_category_notifications"
         android:title="@string/light_notifications_title"
         android:dependency="light_enable">
-        <SwitchPreference
+        <androidx.preference.SwitchPreferenceCompat
             android:key="light_notifications_enable"
             android:title="@string/light_notifications_title"
             android:summary="@string/light_notifications_summary"
@@ -81,7 +81,7 @@
         android:key="light_category_music"
         android:title="@string/light_music_title"
         android:dependency="light_enable">
-        <SwitchPreference
+        <androidx.preference.SwitchPreferenceCompat
             android:key="light_music_enable"
             android:title="@string/light_music_title"
             android:summary="@string/light_music_summary"
@@ -96,7 +96,7 @@
         android:key="light_category_game_mode"
         android:title="@string/light_game_mode_title"
         android:dependency="light_enable">
-        <SwitchPreference
+        <androidx.preference.SwitchPreferenceCompat
             android:key="light_game_mode_enable"
             android:title="@string/light_game_mode_title"
             android:summary="@string/light_game_mode_summary"

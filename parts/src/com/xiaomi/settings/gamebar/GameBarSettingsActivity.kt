@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2025 kenway214
+ * Copyright (C) 2025 kenrow214
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,8 +28,6 @@ class GameBarSettingsActivity : CollapsingToolbarBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_game_bar)
-        title = getString(R.string.game_bar_title)
 
         if (!Settings.canDrawOverlays(this)) {
             val intent = Intent(
@@ -37,6 +35,17 @@ class GameBarSettingsActivity : CollapsingToolbarBaseActivity() {
                 Uri.parse("package:$packageName")
             )
             startActivityForResult(intent, OVERLAY_PERMISSION_REQUEST_CODE)
+        }
+
+        if (savedInstanceState == null) {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(
+                    com.android.settingslib.collapsingtoolbar.R.id.content_frame,
+                    GameBarFragment(),
+                    TAG_GAME_BAR
+                )
+                .commit()
         }
     }
 
@@ -52,6 +61,7 @@ class GameBarSettingsActivity : CollapsingToolbarBaseActivity() {
     }
 
     companion object {
+        private const val TAG_GAME_BAR = "gamebar"
         private const val OVERLAY_PERMISSION_REQUEST_CODE = 1234
     }
 }

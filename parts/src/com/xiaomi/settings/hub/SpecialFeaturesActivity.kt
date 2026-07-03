@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.xiaomi.settings.touchsampling
+package com.xiaomi.settings.hub
 
 import android.os.Bundle
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity
 
-class TouchSamplingSettingsActivity : CollapsingToolbarBaseActivity() {
+class SpecialFeaturesActivity : CollapsingToolbarBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,14 +29,14 @@ class TouchSamplingSettingsActivity : CollapsingToolbarBaseActivity() {
                 .beginTransaction()
                 .replace(
                     com.android.settingslib.collapsingtoolbar.R.id.content_frame,
-                    TouchSamplingSettingsFragment(),
-                    TAG_HTSR
+                    SpecialFeaturesFragment(),
+                    TAG_SPECIAL_FEATURES
                 )
                 .commit()
         }
     }
 
     companion object {
-        private const val TAG_HTSR = "touchsampling"
+        private const val TAG_SPECIAL_FEATURES = "special_features"
     }
 }
