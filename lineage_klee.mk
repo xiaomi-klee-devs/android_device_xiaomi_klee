@@ -14,6 +14,10 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # Inherit from klee device
 $(call inherit-product, device/xiaomi/klee/device.mk)
 
+# Lineage build flags
+TARGET_SHIPS_MIUICAMERA := true
+
+# Device manufacturer
 PRODUCT_DEVICE := klee
 PRODUCT_NAME := lineage_klee
 PRODUCT_BRAND := POCO
@@ -22,7 +26,6 @@ PRODUCT_MANUFACTURER := xiaomi
 
 PRODUCT_SYSTEM_NAME := klee_global
 PRODUCT_SYSTEM_DEVICE := klee
-
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
@@ -30,4 +33,3 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildFingerprint=POCO/klee_global/klee:15/AP3A.240905.015.A2/OS3.0.5.0.WPJMIXM:user/release-keys \
     DeviceName=$(PRODUCT_SYSTEM_DEVICE) \
     DeviceProduct=$(PRODUCT_SYSTEM_NAME)
-
