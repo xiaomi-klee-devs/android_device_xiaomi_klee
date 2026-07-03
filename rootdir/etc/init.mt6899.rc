@@ -440,6 +440,24 @@ on post-fs-data
 # mirror
     chmod 0666 /dev/uhid
 
+# Core Control
+    chown system system /sys/devices/system/cpu/cpu0/online
+    chown system system /sys/devices/system/cpu/cpu1/online
+    chown system system /sys/devices/system/cpu/cpu2/online
+    chown system system /sys/devices/system/cpu/cpu3/online
+    chown system system /sys/devices/system/cpu/cpu4/online
+    chown system system /sys/devices/system/cpu/cpu5/online
+    chown system system /sys/devices/system/cpu/cpu6/online
+    chown system system /sys/devices/system/cpu/cpu7/online
+    chmod 0660 /sys/devices/system/cpu/cpu0/online
+    chmod 0660 /sys/devices/system/cpu/cpu1/online
+    chmod 0660 /sys/devices/system/cpu/cpu2/online
+    chmod 0660 /sys/devices/system/cpu/cpu3/online
+    chmod 0660 /sys/devices/system/cpu/cpu4/online
+    chmod 0660 /sys/devices/system/cpu/cpu5/online
+    chmod 0660 /sys/devices/system/cpu/cpu6/online
+    chmod 0660 /sys/devices/system/cpu/cpu7/online
+
 # -----------------------
 # Add by MTK
     # Mount mdota

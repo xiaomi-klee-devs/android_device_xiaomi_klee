@@ -1,20 +1,4 @@
-/*
- * Copyright (C) 2025 kenway214
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.xiaomi.settings.gamebar
+package com.xiaomi.settings.touchsampling
 
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
@@ -23,9 +7,10 @@ import androidx.preference.PreferenceManager
 import androidx.preference.PreferenceScreen
 import androidx.preference.SwitchPreferenceCompat
 import com.android.settingslib.widget.SettingsBasePreferenceFragment
+import com.xiaomi.settings.R
 import java.util.HashSet
 
-class GameBarAppSelectorFragment : SettingsBasePreferenceFragment() {
+class TouchSamplingAppSelectorFragment : SettingsBasePreferenceFragment() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         val screen = preferenceManager.createPreferenceScreen(requireContext())
@@ -65,11 +50,11 @@ class GameBarAppSelectorFragment : SettingsBasePreferenceFragment() {
 
     private val savedAutoApps: Set<String>
         get() = PreferenceManager.getDefaultSharedPreferences(requireContext())
-            .getStringSet(PREF_AUTO_APPS, HashSet()) ?: HashSet()
+            .getStringSet(TouchSamplingSettingsFragment.HTSR_APPS_PREF, HashSet()) ?: HashSet()
 
     private fun updateAutoApp(packageName: String, add: Boolean) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(requireContext())
-        val currentSet = prefs.getStringSet(PREF_AUTO_APPS, HashSet()) ?: HashSet()
+        val currentSet = prefs.getStringSet(TouchSamplingSettingsFragment.HTSR_APPS_PREF, HashSet()) ?: HashSet()
 
         val newSet = HashSet(currentSet)
         if (add) {
@@ -77,10 +62,6 @@ class GameBarAppSelectorFragment : SettingsBasePreferenceFragment() {
         } else {
             newSet.remove(packageName)
         }
-        prefs.edit().putStringSet(PREF_AUTO_APPS, newSet).apply()
-    }
-
-    companion object {
-        const val PREF_AUTO_APPS = "game_bar_auto_apps"
+        prefs.edit().putStringSet(TouchSamplingSettingsFragment.HTSR_APPS_PREF, newSet).apply()
     }
 }

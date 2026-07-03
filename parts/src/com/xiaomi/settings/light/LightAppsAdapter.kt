@@ -1,20 +1,8 @@
 /*
- * Copyright (C) 2025 kenway214
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.xiaomi.settings.gamebar
+package com.xiaomi.settings.light
 
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
@@ -22,23 +10,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Switch
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.xiaomi.settings.R
 
-class GameBarAppsAdapter(
+class LightAppsAdapter(
     private val packageManager: PackageManager,
     private val apps: List<ApplicationInfo>,
-    private val listener: OnAppClickListener?
-) : RecyclerView.Adapter<GameBarAppsAdapter.ViewHolder>() {
+    private val selectedApps: Set<String>,
+    private val listener: OnAppToggledListener?
+) : RecyclerView.Adapter<LightAppsAdapter.ViewHolder>() {
 
-    interface OnAppClickListener {
-        fun onAppClick(appInfo: ApplicationInfo)
+    interface OnAppToggledListener {
+        fun onAppToggled(appInfo: ApplicationInfo, isChecked: Boolean)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.game_bar_app_selector_item, parent, false)
+            .inflate(R.layout.light_app_selector_item, parent, false)
         return ViewHolder(view)
     }
 
@@ -47,8 +37,16 @@ class GameBarAppsAdapter(
         holder.appName.text = appInfo.loadLabel(packageManager)
         holder.appPackage.text = appInfo.packageName
         holder.appIcon.setImageDrawable(appInfo.loadIcon(packageManager))
+
+        holder.appSwitch.setOnCheckedChangeListener(null)
+        holder.appSwitch.isChecked = selectedApps.contains(appInfo.packageName)
+
+        holder.appSwitch.setOnCheckedChangeListener { _, isChecked ->
+            listener?.onAppToggled(appInfo, isChecked)
+        }
+
         holder.itemView.setOnClickListener {
-            listener?.onAppClick(appInfo)
+            holder.appSwitch.isChecked = !holder.appSwitch.isChecked
         }
     }
 
@@ -60,5 +58,6 @@ class GameBarAppsAdapter(
         val appName: TextView = itemView.findViewById(R.id.app_name)
         val appPackage: TextView = itemView.findViewById(R.id.app_package)
         val appIcon: ImageView = itemView.findViewById(R.id.app_icon)
+        val appSwitch: Switch = itemView.findViewById(R.id.app_switch)
     }
 }

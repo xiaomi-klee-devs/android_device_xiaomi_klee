@@ -13,8 +13,10 @@ import android.hardware.display.DisplayManager
 import android.os.UserHandle
 import android.util.Log
 import android.view.Display
+import android.view.Display.HdrCapabilities
 import com.xiaomi.settings.display.ColorService
-import com.xiaomi.settings.touchsampling.TouchSamplingService;
+import com.xiaomi.settings.touchsampling.TouchSamplingService
+import com.xiaomi.settings.touchsampling.TouchSamplingTileService
 
 /** Everything begins at boot. */
 class BootCompletedReceiver : BroadcastReceiver() {
@@ -41,6 +43,21 @@ class BootCompletedReceiver : BroadcastReceiver() {
 
         // Touch Sampling
         context.startServiceAsUser(Intent(context, TouchSamplingService::class.java), UserHandle.CURRENT)
+
+        // Touch Sampling qs
+        context.startServiceAsUser(
+            Intent(context, TouchSamplingTileService::class.java),
+            UserHandle.CURRENT
+        )
+
+        // Override HDR types to enable Dolby Vision
+        val displayManager = context.getSystemService(DisplayManager::class.java)
+        displayManager?.overrideHdrTypes(Display.DEFAULT_DISPLAY, intArrayOf(
+            HdrCapabilities.HDR_TYPE_DOLBY_VISION,
+            HdrCapabilities.HDR_TYPE_HDR10,
+            HdrCapabilities.HDR_TYPE_HLG,
+            HdrCapabilities.HDR_TYPE_HDR10_PLUS
+        ))
 
         // Light Service
         val sharedPreferences = androidx.preference.PreferenceManager.getDefaultSharedPreferences(context)

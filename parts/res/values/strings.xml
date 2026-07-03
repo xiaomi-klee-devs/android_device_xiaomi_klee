@@ -30,13 +30,36 @@
         Boosts the touch polling rate to reduce input latency, delivering a smoother and more responsive user experience.
     </string>
 
+    <!-- Per-app touch boost -->
+    <string name="htsr_auto_enable_title">Auto-enable for selected apps</string>
+    <string name="htsr_auto_enable_summary">Automatically enable touch boost for selected foreground apps</string>
+    <string name="htsr_choose_apps_title">Choose boosted apps</string>
+    <string name="htsr_choose_apps_summary">Select apps that should use high touch polling rate</string>
+    <string name="htsr_app_added">%1$s added.</string>
+    <string name="touch_sampling_tile_label">Touch Boost</string>
+    <string name="touch_sampling_mode_title">High Touch Polling Mode</string>
+    <string name="touch_sampling_mode_notification">High Touch Polling Rate is now active. This reduces touch input latency but may increase battery consumption</string>
+
+    <!-- Core Control -->
+    <string name="core_control_title">Core Control</string>
+    <string name="core_control_summary">Manually enable or disable individual CPU cores</string>
+    <string name="core_control_description">Advanced CPU control. Turning off cores may save battery or thermal load, but may affect performance and stability.\n\nAt least two little cores must remain online at all times.</string>
+    <string name="core_0">Core 0 (Little)</string>
+    <string name="core_1">Core 1 (Little)</string>
+    <string name="core_2">Core 2 (Little)</string>
+    <string name="core_3">Core 3 (Little)</string>
+    <string name="core_4">Core 4 (Big)</string>
+    <string name="core_5">Core 5 (Big)</string>
+    <string name="core_6">Core 6 (Big)</string>
+    <string name="core_7">Core 7 (Prime)</string>
+
     <!-- GameBar Overlay -->
-    <string name="game_bar_title">GameBar</string>
+    <string name="game_bar_title">Game Bar</string>
     <string name="game_bar_summary">Enable the system overlay (FPS, Temp, etc.)</string>
     <string name="overlay_permission_required">Overlay permission is required</string>
     <string name="overlay_permission_granted">Overlay permission granted</string>
     <string name="overlay_permission_denied">Overlay permission denied</string>
-    <string name="game_bar_tile_label">GameBar</string>
+    <string name="game_bar_tile_label">Game Bar</string>
     <string name="game_bar_tile_description">Toggle the game overlay</string>
 
     <!-- RGB Light Settings -->

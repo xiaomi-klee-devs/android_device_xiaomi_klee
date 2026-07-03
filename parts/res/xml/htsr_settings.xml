@@ -12,10 +12,27 @@
      limitations under the License.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <SwitchPreference
-        android:defaultValue="false"
-        android:key="htsr_enable"
-        android:summary="@string/htsr_enable_summary"
-        android:title="@string/htsr_enable_title"
-        android:showDefault="false" />
+     <androidx.preference.SwitchPreferenceCompat
+          android:defaultValue="false"
+          android:key="htsr_enable"
+          android:summary="@string/htsr_enable_summary"
+          android:title="@string/htsr_enable_title"
+          android:showDefault="false" />
+
+     <PreferenceCategory
+          android:title="Per-app touch boost">
+
+          <androidx.preference.SwitchPreferenceCompat
+               android:key="htsr_auto_enable"
+               android:title="@string/htsr_auto_enable_title"
+               android:summary="@string/htsr_auto_enable_summary"
+               android:defaultValue="false" />
+
+          <Preference
+               android:key="htsr_app_selector"
+               android:title="@string/htsr_choose_apps_title"
+               android:summary="@string/htsr_choose_apps_summary"
+               android:dependency="htsr_auto_enable" />
+
+     </PreferenceCategory>
 </PreferenceScreen>

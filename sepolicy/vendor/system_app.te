@@ -28,3 +28,12 @@ rw_dir_file(system_app, sysfs_therm)
 
 # CPU
 allow system_app proc_stat:file { read open getattr };
+
+# Tile
+allow system_app sysfs_therm:file { write };
+allow system_app sysfs_therm:file { getattr open read };
+
+# Core Control
+allow system_app vendor_sysfs_corecontrol:dir search;
+allow system_app vendor_sysfs_corecontrol:file { getattr open read write };
+allow system_app vendor_sysfs_corecontrol:file rw_file_perms;

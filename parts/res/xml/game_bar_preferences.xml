@@ -5,7 +5,7 @@
 
     <com.android.settingslib.widget.MainSwitchPreference
         android:key="game_bar_enable"
-        android:title="Enable GameBar Overlay"
+        android:title="Enable Game Bar Overlay"
         android:summary="@string/game_bar_summary"
         android:defaultValue="false" />
 
@@ -72,7 +72,7 @@
         android:title="Customization"
         android:dependency="game_bar_enable">
 
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             android:key="game_bar_text_size"
             android:title="Text Size"
             android:summary="Adjust the size of overlay text"
@@ -80,7 +80,7 @@
             android:max="32"
             android:min="12" />
 
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             android:key="game_bar_background_alpha"
             android:title="Background Transparency"
             android:summary="Adjust the transparency of the background"
@@ -88,7 +88,7 @@
             android:max="255"
             android:min="0" />
 
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             android:key="game_bar_corner_radius"
             android:title="Overlay Corner Radius"
             android:summary="Adjust how rounded the overlay corners should be"
@@ -96,7 +96,7 @@
             android:max="100"
             android:min="0" />
 
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             android:key="game_bar_padding"
             android:title="Overlay Padding"
             android:summary="Adjust the space around the stats"
@@ -104,7 +104,7 @@
             android:max="64"
             android:min="0" />
 
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             android:key="game_bar_item_spacing"
             android:title="Item Spacing"
             android:summary="Adjust spacing between overlay lines"
@@ -185,7 +185,7 @@
         <SwitchPreferenceCompat
             android:key="game_bar_longpress_enable"
             android:title="Enable Long Press"
-            android:summary="Long-press overlay to access GameBar settings"
+            android:summary="Long-press overlay to access Game Bar settings"
             android:defaultValue="false" />
 
         <ListPreference
@@ -214,23 +214,22 @@
 
         <Preference
             android:key="game_bar_capture_export"
-            android:title="Export GameBar Log Data"
+            android:title="Export Game Bar Log Data"
             android:summary="Save the captured FPS and performance data as a CSV file" />
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="Auto Enable GameBar">
+        android:title="Auto Enable Game Bar">
         <SwitchPreferenceCompat
             android:key="game_bar_auto_enable"
-            android:title="Auto-Enable GameBar for Selected Apps"
-            android:summary="If turned on, selected apps will auto-enable GameBar even if the main switch is off"
+            android:title="Auto-Enable Game Bar for Selected Apps"
+            android:summary="If turned on, selected apps will auto-enable Game Bar even if the main switch is off"
             android:defaultValue="false" />
 
         <Preference
             android:key="game_bar_app_selector"
             android:title="Select Apps"
-            android:summary="Add apps that should auto-enable GameBar" />
-
+            android:summary="Add apps that should auto-enable Game Bar" />
     </PreferenceCategory>
 
 </PreferenceScreen>

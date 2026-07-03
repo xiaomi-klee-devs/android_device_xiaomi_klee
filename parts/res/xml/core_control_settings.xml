@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/core_control_title">
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:key="core_0"
+        android:title="@string/core_0" />
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:key="core_1"
+        android:title="@string/core_1" />
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:key="core_2"
+        android:title="@string/core_2" />
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:key="core_3"
+        android:title="@string/core_3" />
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:key="core_4"
+        android:title="@string/core_4" />
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:key="core_5"
+        android:title="@string/core_5" />
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:key="core_6"
+        android:title="@string/core_6" />
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:key="core_7"
+        android:title="@string/core_7" />
+
+    <com.android.settingslib.widget.FooterPreference
+        android:key="footer"
+        android:title="@string/core_control_description"
+        android:selectable="false" />
+</PreferenceScreen>

@@ -12,12 +12,11 @@ import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.xiaomi.settings.R
-import com.xiaomi.settings.gamebar.GameBarAppsAdapter
 
 class AppSelectorFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
-    private var adapter: GameBarAppsAdapter? = null
+    private var adapter: LightAppsAdapter? = null
     private lateinit var packageManager: PackageManager
     private var allApps: MutableList<ApplicationInfo>? = null
 
@@ -46,7 +45,7 @@ class AppSelectorFragment : Fragment() {
                 allApps!!.add(appInfo)
             }
         }
-        val listener = object : GameBarAppsAdapter.OnAppToggledListener {
+        val listener = object : LightAppsAdapter.OnAppToggledListener {
             override fun onAppToggled(appInfo: ApplicationInfo, isChecked: Boolean) {
                 if (isChecked) {
                     addAppToAutoList(appInfo.packageName)
@@ -55,7 +54,7 @@ class AppSelectorFragment : Fragment() {
                 }
             }
         }
-        adapter = GameBarAppsAdapter(packageManager, allApps!!, savedAutoApps, listener)
+        adapter = LightAppsAdapter(packageManager, allApps!!, savedAutoApps, listener)
         recyclerView.adapter = adapter
     }
 

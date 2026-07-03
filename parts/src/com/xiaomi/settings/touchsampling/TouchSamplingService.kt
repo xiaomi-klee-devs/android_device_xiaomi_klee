@@ -24,6 +24,10 @@ import android.content.IntentFilter
 import android.content.SharedPreferences
 import android.os.IBinder
 import android.util.Log
+import android.os.Handler
+import android.os.Looper
+import androidx.preference.PreferenceManager
+import com.xiaomi.settings.gamebar.ForegroundAppDetector
 import vendor.xiaomi.hw.touchfeature.ITouchFeature
 
 class TouchSamplingService : Service() {
@@ -31,6 +35,8 @@ class TouchSamplingService : Service() {
     private var mTouchFeature: ITouchFeature? = null
     private var mScreenUnlockReceiver: BroadcastReceiver? = null
     private var mPreferenceChangeListener: SharedPreferences.OnSharedPreferenceChangeListener? = null
+    private var mHandler: Handler? = null
+    private var mLastAppliedState = -1
 
     override fun onCreate() {
         super.onCreate()
@@ -47,6 +53,9 @@ class TouchSamplingService : Service() {
 
         // Apply the touch sampling rate initially
         applyTouchSamplingRateFromPreferences()
+
+        // Start foreground app polling to support per-app auto-enable
+        startForegroundPolling()
     }
 
     override fun onStartCommand(
@@ -73,6 +82,11 @@ class TouchSamplingService : Service() {
         )
         if (mPreferenceChangeListener != null) {
             sharedPref.unregisterOnSharedPreferenceChangeListener(mPreferenceChangeListener)
+        }
+
+        // Stop the polling handler
+        if (mHandler != null) {
+            mHandler!!.removeCallbacksAndMessages(null)
         }
     }
 
@@ -150,6 +164,9 @@ class TouchSamplingService : Service() {
      */
     private fun applyTouchSamplingRate(state: Int) {
         try {
+            // Avoid reapplying the same state repeatedly
+            if (mLastAppliedState == state) return
+
             if (mTouchFeature != null) {
                 mTouchFeature!!.setTouchMode(0, TOUCH_GAME_MODE, state)
                 mTouchFeature!!.setTouchMode(0, 202, state)
@@ -158,9 +175,50 @@ class TouchSamplingService : Service() {
                 mTouchFeature!!.setTouchMode(0, 2, if (state == 1) 99 else 0)
                 mTouchFeature!!.setTouchMode(0, 7, if (state == 1) 0 else 1)
             }
+            mLastAppliedState = state
         } catch (e: Exception) {
             Log.e(TAG, "Failed to set touch sampling state", e)
         }
+    }
+
+    private fun startForegroundPolling() {
+        mHandler = Handler(Looper.getMainLooper())
+        val runnable = object : Runnable {
+            override fun run() {
+                try {
+                    checkAndApplyPerAppState()
+                } catch (e: Exception) {
+                    Log.e(TAG, "Error during per-app check", e)
+                }
+                mHandler?.postDelayed(this, 1000)
+            }
+        }
+        mHandler?.post(runnable)
+    }
+
+    private fun checkAndApplyPerAppState() {
+        // Global setting takes precedence
+        val sharedGlobal = getSharedPreferences(
+            TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE
+        )
+        val globalEnabled = sharedGlobal.getBoolean(TouchSamplingSettingsFragment.HTSR_STATE, false)
+        if (globalEnabled) {
+            applyTouchSamplingRate(1)
+            return
+        }
+
+        // Check per-app auto-enable
+        val defaultPref = PreferenceManager.getDefaultSharedPreferences(this)
+        val autoEnable = defaultPref.getBoolean(TouchSamplingSettingsFragment.HTSR_AUTO_ENABLE_KEY, false)
+        if (!autoEnable) {
+            applyTouchSamplingRate(0)
+            return
+        }
+
+        val autoApps = defaultPref.getStringSet(TouchSamplingSettingsFragment.HTSR_APPS_PREF, HashSet()) ?: HashSet()
+        val foreground = ForegroundAppDetector.getForegroundPackageName(this)
+        val enable = autoApps.contains(foreground)
+        applyTouchSamplingRate(if (enable) 1 else 0)
     }
 
     companion object {
