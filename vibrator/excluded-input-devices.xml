@@ -31,4 +31,6 @@
     <device name="aw8697_haptic"/>
     <device name="awinic_haptic"/>
     <device name="si_haptic"/>
+    <device name="ics_haptic"/>
+    <device name="aac_haptic"/>
 </devices>
