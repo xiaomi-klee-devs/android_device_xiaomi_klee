@@ -29,7 +29,7 @@ PRODUCT_SYSTEM_DEVICE := klee
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildDesc="missi-user 16 BP2A.250605.031.A3 OS3.0.5.0.WPJMIXM release-keys" \
-    BuildFingerprint=POCO/klee_global/klee:15/AP3A.240905.015.A2/OS3.0.5.0.WPJMIXM:user/release-keys \
+    BuildDesc="missi-user 16 BP2A.250605.031.A3 OS3.0.304.0.WPJMIXM release-keys" \
+    BuildFingerprint=POCO/klee_global/klee:15/AP3A.240905.015.A2/OS3.0.304.0.WPJMIXM:user/release-keys \
     DeviceName=$(PRODUCT_SYSTEM_DEVICE) \
     DeviceProduct=$(PRODUCT_SYSTEM_NAME)
