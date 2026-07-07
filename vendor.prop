@@ -46,6 +46,9 @@ vendor.streamin.pcm.dump=0
 # APK Verity
 ro.apk_verity.mode=2
 
+# AVF
+avf.remote_attestation.enabled=0
+
 # Bluetooth
 persist.bluetooth.a2dp_offload.coex_buf_count=3
 persist.bluetooth.a2dp_offload.disabled=false
