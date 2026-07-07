@@ -14,9 +14,6 @@ $(call inherit-product, vendor/halcyon/config/common.mk)
 # Inherit from klee device
 $(call inherit-product, device/xiaomi/klee/device.mk)
 
-# Device build flags
-TARGET_SHIPS_MIUICAMERA := true
-
 # Halcyon build flags
 TARGET_SUPPORTS_GOOGLE_RECORDER := true
 

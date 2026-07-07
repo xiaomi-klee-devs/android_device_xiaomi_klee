@@ -15,11 +15,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_ven
 # Project ID Quota
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
-# Keys
-ifeq ($(TARGET_SHIPS_SIGNED_KEYS), true)
-    include vendor/private/keys/keys.mk
-endif
-
 # Rootdir
 PRODUCT_PACKAGES += \
     init.connectivity.rc \
@@ -270,14 +265,9 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/media,$(TARGET_COPY_OUT_VENDOR)/etc)
 
 # MiuiCamera
-ifeq ($(TARGET_SHIPS_MIUICAMERA), true)
-    $(call inherit-product, device/xiaomi/klee-miuicamera/device.mk)
-    PRODUCT_VENDOR_PROPERTIES += \
-        vendor.camera.aux.packagelist=com.android.camera
-else
-    PRODUCT_VENDOR_PROPERTIES += \
-        vendor.camera.aux.packagelist=org.lineageos.aperture
-endif
+$(call inherit-product, device/xiaomi/klee-miuicamera/device.mk)
+PRODUCT_VENDOR_PROPERTIES += \
+    vendor.camera.aux.packagelist=com.android.camera
 
 # MM
 PRODUCT_PACKAGES += \
