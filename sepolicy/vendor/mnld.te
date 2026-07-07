@@ -1,2 +1,0 @@
-# Allow mnld to write on character devices
-allow mnld ccci_device:chr_file rw_file_perms;

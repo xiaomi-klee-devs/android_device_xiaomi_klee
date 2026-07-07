@@ -14,4 +14,3 @@ allow hal_audio_default sysfs_re25_calib:file rw_file_perms;
 allow hal_audio_default sysfs_fsm_re25:file rw_file_perms;
 allow hal_audio_default sysfs_fsm_f0:file rw_file_perms;
 
-set_prop(hal_audio_default, vendor_mtk_audio_prop)

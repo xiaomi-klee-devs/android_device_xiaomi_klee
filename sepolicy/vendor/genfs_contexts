@@ -25,7 +25,6 @@ genfscon sysfs /devices/platform/soc/11e10000.dp-tx/extcon/dp_audio/cable.0/name
 genfscon sysfs /devices/virtual/touch/touch_dev/fod_press_status u:object_r:vendor_fingerprint_sysfs:s0
 
 # Light
-genfscon sysfs /devices/platform/mtk-leds/leds/lcd-backlight u:object_r:sysfs_leds:s0
 
 # Gpu Boost
 genfscon sysfs /sys/class/devfreq/13000000.mali/available_frequencies                   u:object_r:sysfs_gpu:s0
@@ -56,7 +55,6 @@ genfscon sysfs /devices/platform/soc/11f01000.i2c/i2c-5/5-0034/11f01000.i2c:mt63
 genfscon sysfs /devices/platform/soc/11f00000.i2c/i2c-3/3-0028/chip_name u:object_r:sysfs_chip_name:s0
 
 # Trusted Execution Environment (TEE)
-genfscon proc /mitee_log 									 u:object_r:proc_mitee_log:s0
 
 # Wakeup (https://lkml.org/lkml/2019/8/6/1275)
 genfscon sysfs /devices/platform/18000000.consys/wakeup u:object_r:sysfs_wakeup:s0

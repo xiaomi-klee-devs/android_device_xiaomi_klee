@@ -98,7 +98,6 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.xiaomi              u:object_r:hal_fingerprint_default_exec:s0
 
 # Gatekeeper
-/(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper-service\.mitee                            u:object_r:hal_gatekeeper_default_exec:s0
 
 # ID manager
 /odm/bin/idmanager    u:object_r:hal_idmanager_default_exec:s0
@@ -123,8 +122,6 @@
 /(odm|vendor/odm|system/vendor)/bin/mtd_mitee                                                          u:object_r:hal_mtdservice_default_exec:s0
 
 # NFC
-/dev/nq-nci                                                                                            u:object_r:nfc_device:s0
-/dev/p73                                                                                               u:object_r:nfc_device:s0
 
 # Power
 /dev/xiaomi-touch                                                                                      u:object_r:vendor_touchfeature_device:s0
@@ -137,7 +134,6 @@
 /(odm|vendor/odm|system/vendor)/bin/hw/vendor\.xiaomi\.hw\.touchfeature-service                        u:object_r:hal_touchfeature_xiaomi_default_exec:s0
 
 # Secure Element
-/(vendor|system/vendor)/bin/hw/vendor\.xiaomi\.hardware\.secure_element-service                        u:object_r:hal_secure_element_default_exec:s0
 
 # Thermal
 /(vendor|system/vendor)/bin/mi_thermald                                                                u:object_r:vendor_mi_thermald_exec:s0
@@ -145,13 +141,6 @@
 /(vendor|system/vendor)/bin/thermal_symlinks                                                           u:object_r:init-thermal-symlinks-sh_exec:s0
 
 # Trusted Execution Environment (TEE)
-/(vendor|system/vendor)/bin/tee-supplicant                                                             u:object_r:tee_exec:s0
-/(vendor|system/vendor)/bin/miteelog                                                                   u:object_r:tee_exec:s0
-/dev/0:0:0:49476                                                                                       u:object_r:teei_rpmb_device:s0
-/dev/tee0                                                                                              u:object_r:teei_client_device:s0
-/dev/teepriv0                                                                                          u:object_r:teei_client_device:s0
-/dev/ufs-bsg0                                                                                          u:object_r:teei_client_device:s0
-/data/vendor/mitee(/.*)?                                                                               u:object_r:mitee_data_file:s0
 
 # Vibrator
 /(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.klee u:object_r:hal_vibrator_default_exec:s0
