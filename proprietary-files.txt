@@ -1254,6 +1254,11 @@ vendor/bin/wmt_launcher
 vendor/bin/wmt_loader
 vendor/lib64/libconnfem.so
 
+# Context Hub
+vendor/etc/chre/nearby.napp_header
+vendor/etc/chre/nearby.so
+vendor/etc/chre/preloaded_nanoapps.json
+
 # ConsumerIR
 vendor/lib64/hw/consumerir.common.so
 
