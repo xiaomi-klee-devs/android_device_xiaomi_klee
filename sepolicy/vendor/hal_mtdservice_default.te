@@ -8,6 +8,7 @@ binder_use(hal_mtdservice_default)
 hal_client_domain(hal_mtdservice_default, hal_keymint)
 hal_client_domain(hal_mtdservice_default, hal_mtdservice)
 hal_server_domain(hal_mtdservice_default, hal_mtdservice)
+hal_client_domain(hal_mtdservice_default, hal_secure_element)
 
 allow hal_mtdservice_default tee_device:chr_file rw_file_perms;
 allow hal_mtdservice_default ion_device:chr_file r_file_perms;
@@ -23,4 +24,5 @@ allow hal_mtdservice_default mediadrm_vendor_data_file:file create_file_perms;
 
 allow hal_mtdservice_default miev_dev:chr_file { write };
 
+get_prop(hal_mtdservice_default, vendor_mtk_mitee_prop)
 set_prop(hal_mtdservice_default, vendor_mlipay_prop)
