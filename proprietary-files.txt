@@ -1683,12 +1683,6 @@ vendor/lib64/mt6899/libdpframework.so;SYMLINK=vendor/lib64/libdpframework.so
 vendor/lib64/vendor.mediatek.hardware.composer_ext-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.composer_ext@1.0.so
 
-# HotwordEnrollment
-product/priv-app/HotwordEnrollmentXGoogleRISCV_WIDEBAND/HotwordEnrollmentXGoogleRISCV_WIDEBAND.apk
-product/priv-app/HotwordEnrollmentYGoogleRISCV_WIDEBAND/HotwordEnrollmentYGoogleRISCV_WIDEBAND.apk
-system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
-system_ext/framework/com.android.hotwordenrollment.common.util.jar
-
 # ID manager
 odm/bin/idmanager
 odm/etc/init/vendor.xiaomi.hardware.idmanager.rc
