@@ -9,7 +9,7 @@ dpm.img;AB
 gpueb.img;AB
 gz.img;AB
 logo.img;AB
-lk_fenrir.img:lk.img;AB
+lk.img;AB|8daa12bb697144e3e08e5af9cb29f94e66b174af
 mcf_ota.img;AB
 mcupm.img;AB
 modem.img;AB
