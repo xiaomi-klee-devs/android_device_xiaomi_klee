@@ -1692,6 +1692,12 @@ odm/lib64/libsecid.so
 odm/lib64/vendor.xiaomi.hardware.idmanager-V1-ndk.so
 vendor/lib64/vendor.xiaomi.hardware.misys.core-V1-ndk.so
 
+# Identity
+vendor/bin/hw/android.hardware.identity-service.mitee@5.0
+vendor/etc/init/android.hardware.identity@5.0-service.mitee.rc
+vendor/etc/permissions/android.hardware.identity_credential.mitee.xml
+vendor/etc/vintf/manifest/android.hardware.identity@5.0-service.mitee.xml
+
 # IMS
 system_ext/bin/vtservice
 system_ext/etc/init/init.vtservice.rc
@@ -1734,17 +1740,12 @@ vendor/etc/init.insmod.mt6899.cfg
 vendor/etc/init/hw/init.mtkgki.rc
 
 # Keymint
-vendor/bin/hw/android.hardware.identity-service.mitee@5.0
 vendor/bin/hw/android.hardware.security.keymint@3.0-service.mitee
-vendor/etc/init/android.hardware.identity@5.0-service.mitee.rc
 vendor/etc/init/android.hardware.security.keymint.mitee@3.0-service.rc
-vendor/etc/permissions/android.hardware.hardware_keystore.xml:vendor/etc/permissions/android.hardware.hardware_keystore.mitee.xml
-vendor/etc/permissions/android.hardware.identity_credential.mitee.xml
-vendor/etc/vintf/manifest/android.hardware.identity@5.0-service.mitee.xml
 vendor/etc/vintf/manifest/android.hardware.security.keymint-service.mitee.xml
 vendor/etc/vintf/manifest/android.hardware.security.secureclock-service.mitee.xml
 vendor/etc/vintf/manifest/android.hardware.security.sharedsecret-service.mitee.xml
-vendor/lib64/android.hardware.security.keymint-V3-ndk.so:vendor/lib64/android.hardware.security.keymint-V3-ndk-v34.so;FIX_SONAME
+vendor/lib64/android.hardware.security.keymint-V3-ndk.so:vendor/lib64/android.hardware.security.keymint-V3-ndk-v36.so;FIX_SONAME
 
 # MBrain
 vendor/lib64/libmbrainSDKv.so
