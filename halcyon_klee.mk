@@ -16,6 +16,7 @@ $(call inherit-product, device/xiaomi/klee/device.mk)
 
 # Halcyon build flags
 TARGET_SUPPORTS_GOOGLE_RECORDER := true
+PRODUCT_CHECK_PREBUILT_MAX_PAGE_SIZE := false
 
 # Device manufacturer
 PRODUCT_DEVICE := klee
