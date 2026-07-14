@@ -23,3 +23,11 @@ ro.mi.os.version.incremental=OS3.0.304.0.WPJMIXM
 wifi.direct.interface=p2p0
 wifi.interface=wlan0
 wifi.tethering.interface=ap0
+
+# RKPD
+remote_provisioning.enable_rkpd=true
+remote_provisioning.hostname=remoteprovisioning.googleapis.com
+remote_provisioning.hostname.default=remoteprovisioning.googleapis.com
+remote_provisioning.hostname.strongbox=remoteprovisioning.googleapis.com
+remote_provisioning.connect_timeout_millis=2000
+remote_provisioning.download_csr_timeout_millis=10000
