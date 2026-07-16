@@ -312,6 +312,7 @@ PRODUCT_PACKAGES += \
     FrameworksResOverlayKlee \
     NfcOverlayKlee \
     SettingsResOverlayKlee \
+    SettingsProviderOverlayKlee \
     SystemUIOverlayKlee \
     TetheringConfigOverlay
 
