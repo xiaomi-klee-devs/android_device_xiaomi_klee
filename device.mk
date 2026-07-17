@@ -15,6 +15,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_ven
 # Project ID Quota
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
+# Sign keys
+ifneq ($(PRODUCT_NAME),halcyon_klee)
+-include vendor/private/keys/keys.mk
+endif
+
 # Rootdir
 PRODUCT_PACKAGES += \
     init.connectivity.rc \
