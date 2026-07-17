@@ -12,6 +12,10 @@ import /vendor/etc/init/hw/init.modem.rc
 on early-init
     write /proc/bootprof "INIT:early-init"
 
+    # logger
+    rm /metadata/boot_log.txt
+    start logger
+
     # initialize vendor.all.modules.ready to 1 here to prevent NOT GKI project blocked
     setprop vendor.all.modules.ready 1
 
@@ -1232,3 +1236,10 @@ on property:sys.boot_completed=1 && property:ro.build.type=user && property:ro.d
 
 on property:persist.sys.turbosched.enable.coreApp.optimizer=true
     write  /sys/module/metis/parameters/mi_fboost_enable 1
+
+service logger /system/bin/logcat -b all -D -f /metadata/boot_log.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
