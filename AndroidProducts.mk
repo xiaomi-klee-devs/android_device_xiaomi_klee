@@ -6,4 +6,5 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/halcyon_klee.mk \
-    $(LOCAL_DIR)/custom_klee.mk
+    $(LOCAL_DIR)/custom_klee.mk \
+    $(LOCAL_DIR)/lineage_klee.mk
