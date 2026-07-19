@@ -14,7 +14,7 @@ mcf_ota.img;AB
 mcupm.img;AB
 modem.img;AB
 mvpu_algo.img;AB
-preloader_raw.img;AB
+preloader_raw.img;AB|58b36a1e257e4e4362b39b825ab673f1c9dd77fd
 pi_img.img;AB
 scp.img;AB
 spmfw.img;AB
