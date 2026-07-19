@@ -1,4 +1,4 @@
-# Unpinned blobs from missi-user 16 BP2A.250605.031.A3 OS3.0.304.0.WPJMIXM release-keys
+# Unpinned blobs from missi-user 16 BP2A.250605.031.A3 OS3.0.306.0.WPJMIXM release-keys
 
 # AAL
 vendor/lib64/libaal_cust.so

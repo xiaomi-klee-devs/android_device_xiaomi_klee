@@ -33,8 +33,8 @@ PRODUCT_MANUFACTURER_FOR_ATTESTATION := $(PRODUCT_MANUFACTURER)
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildDesc="missi-user 16 BP2A.250605.031.A3 16OS3.1.260610.194508675.MTPEGL.S release-keys" \
-    BuildFingerprint=POCO/klee_global/klee:16/BP2A.250605.031.A3/OS3.0.304.0.WPJMIXM:user/release-keys \
+    BuildDesc="missi-user 16 BP2A.250605.031.A3 16OS3.1.260629.234508394.MTPEGL.S release-keys" \
+    BuildFingerprint=POCO/klee_global/klee:16/BP2A.250605.031.A3/OS3.0.306.0.WPJMIXM:user/release-keys \
     DeviceName=$(PRODUCT_SYSTEM_DEVICE) \
     DeviceProduct=$(PRODUCT_SYSTEM_NAME) \
     SystemDevice=$(PRODUCT_SYSTEM_DEVICE) \
