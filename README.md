@@ -24,3 +24,9 @@ Camera  | 50MP wide camera, 8MP ultra wide-angle camera, 20MP front camera
 ## Device picture
 
 ![POCO X8 Pro](https://i.postimg.cc/XYzND55T/c64f433dc38af4c11d04da2b02d78884.webp "POCO X8 Pro in Mint Green, Pure White & Classic Black")
+
+## Patches required before using this tree
+
+These patches below is needed to make IMS and bluetooth audio works fine:
+- https://github.com/halcyonproject/build_soong/commit/592363152191a911961ded314a928c725c283a36
+- https://github.com/halcyonproject/packages_modules_Bluetooth/commit/9a7277fbbf3c9cf4eb8a30d9358c1ada660acf58
