@@ -44,6 +44,7 @@ class LightService : Service() {
     @Volatile private var chargingColorHex: String? = null
     @Volatile private var isServiceRunning = false
     @Volatile private var isNotificationPulsing = false
+    @Volatile private var isDynamicNotification = false
 
     private var visualizer: Visualizer? = null
     private var isVisualizerActive = false
@@ -55,6 +56,7 @@ class LightService : Service() {
     private val notificationTimeoutRunnable = Runnable {
         Log.i(TAG, "Notification pulse timeout reached")
         isNotificationPulsing = false
+        isDynamicNotification = false
         postUpdateLedState()
         if (wakeLock?.isHeld == true) {
             wakeLock?.release()
@@ -81,7 +83,8 @@ class LightService : Service() {
             "light_standalone_enable",
             "light_standalone_color",
             "light_notifications_enable",
-            "light_notifications_color" -> {
+            "light_notifications_color",
+            "light_dynamic_notifications_enable" -> {
                 Log.i(TAG, "Preference changed: $key")
                 if (key == "light_music_enable" || key == "light_music_apps") {
                     checkMusicState()
@@ -242,13 +245,15 @@ class LightService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         if (intent?.action == "ACTION_PULSE_NOTIFICATION") {
             Log.i(TAG, "Received ACTION_PULSE_NOTIFICATION")
+            isDynamicNotification = intent.getBooleanExtra("dynamic", false)
             if (wakeLock?.isHeld == false) {
                 wakeLock?.acquire(6000)
             }
-            if (!isNotificationPulsing) {
-                isNotificationPulsing = true
-                postUpdateLedState()
-            }
+            // Always refresh (not just on the false->true transition) so that
+            // dynamic notifications re-roll a fresh top/bottom color pair on
+            // every new notification, even while still pulsing.
+            isNotificationPulsing = true
+            postUpdateLedState()
             mainHandler.removeCallbacks(notificationTimeoutRunnable)
             mainHandler.postDelayed(notificationTimeoutRunnable, 5000)
         } else {
@@ -421,14 +426,24 @@ class LightService : Service() {
 
         // Priority 2: Notification Pulse
         if (isNotificationPulsing) {
-            val notifEnabled = sharedPreferences.getBoolean("light_notifications_enable", false)
-            if (notifEnabled) {
-                Log.i(TAG, "updateLedState: Notification pulse priority")
-                stopAllEffects()
-                val color = sharedPreferences.getString("light_notifications_color", "ff0000") ?: "ff0000"
-                if (color == "gradient") LedManager.setGradientSweep(true)
-                else LedManager.setBlink(color, 1000, 1000, 1000, 1000, true)
-                return
+            if (isDynamicNotification) {
+                val dynEnabled = sharedPreferences.getBoolean("light_dynamic_notifications_enable", false)
+                if (dynEnabled) {
+                    Log.i(TAG, "updateLedState: Dynamic notification pulse priority")
+                    stopAllEffects()
+                    LedManager.setDynamicBlink(1000, 1000, 1000, 1000, true)
+                    return
+                }
+            } else {
+                val notifEnabled = sharedPreferences.getBoolean("light_notifications_enable", false)
+                if (notifEnabled) {
+                    Log.i(TAG, "updateLedState: Notification pulse priority")
+                    stopAllEffects()
+                    val color = sharedPreferences.getString("light_notifications_color", "ff0000") ?: "ff0000"
+                    if (color == "gradient") LedManager.setGradientSweep(true)
+                    else LedManager.setBlink(color, 1000, 1000, 1000, 1000, true)
+                    return
+                }
             }
         }
 

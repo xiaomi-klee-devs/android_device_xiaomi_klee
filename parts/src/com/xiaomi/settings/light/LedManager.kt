@@ -48,9 +48,17 @@ object LedManager {
         }
     }
 
+    private val dynamicColors = arrayOf("ff0000", "ff7f00", "ffff00", "00ff00", "00ffff", "0000ff", "800080", "ff00ff")
+
     private fun setDeviceColor(colorHex: String) {
         writeLine(RGBCOLOR_NODE, "0x04 0x$colorHex")
         writeLine(RGBCOLOR_NODE, "0x03 0x$colorHex")
+        writeLine(BRIGHTNESS_NODE, "80")
+    }
+
+    private fun setDeviceDualColor(topColorHex: String, bottomColorHex: String) {
+        writeLine(RGBCOLOR_NODE, "0x04 0x$bottomColorHex")
+        writeLine(RGBCOLOR_NODE, "0x03 0x$topColorHex")
         writeLine(BRIGHTNESS_NODE, "80")
     }
 
@@ -100,6 +108,34 @@ object LedManager {
         setDeviceColor(colorHex)
         
         lastColorHex = colorHex
+        lastRiseMs = riseMs
+        lastOnMs = onMs
+        lastFallMs = fallMs
+        lastOffMs = offMs
+        lastRepeat = repeat
+    }
+
+    fun setDynamicBlink(riseMs: Int, onMs: Int, fallMs: Int, offMs: Int, repeat: Boolean) {
+        Log.i(TAG, "setDynamicBlink")
+        powerOnIfNeeded(2) // 2 = blink/breathe
+        if (repeat) {
+            writeLine(REPEAT_NODE, "1")
+        } else {
+            writeLine(REPEAT_NODE, "0")
+        }
+        writeLine(PERIOD_NODE, "$riseMs $onMs $fallMs $offMs")
+
+        val topColor = dynamicColors.random()
+        var bottomColor = dynamicColors.random()
+        while (bottomColor == topColor) {
+            bottomColor = dynamicColors.random()
+        }
+        setDeviceDualColor(topColor, bottomColor)
+
+        // "dynamic" is never a real hex value, so the equality checks in
+        // setBlink/setStaticColor never accidentally short-circuit this mode,
+        // and a fresh random pair is written on every call.
+        lastColorHex = "dynamic"
         lastRiseMs = riseMs
         lastOnMs = onMs
         lastFallMs = fallMs

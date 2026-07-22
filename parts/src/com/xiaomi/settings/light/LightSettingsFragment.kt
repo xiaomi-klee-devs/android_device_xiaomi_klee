@@ -15,6 +15,7 @@ class LightSettingsFragment : SettingsBasePreferenceFragment(), Preference.OnPre
     private var standaloneEnablePref: SwitchPreferenceCompat? = null
     private var standaloneColorPref: ListPreference? = null
     private var notificationsAppsPref: Preference? = null
+    private var dynamicNotificationsAppsPref: Preference? = null
     private var gameModeAppsPref: Preference? = null
     private var musicAppsPref: Preference? = null
 
@@ -35,6 +36,15 @@ class LightSettingsFragment : SettingsBasePreferenceFragment(), Preference.OnPre
             val intent = Intent(context, AppSelectorActivity::class.java)
             intent.putExtra("title", "Select Apps for Notifications")
             intent.putExtra("prefKey", "light_notifications_apps")
+            startActivity(intent)
+            true
+        }
+
+        dynamicNotificationsAppsPref = findPreference("light_dynamic_notifications_apps")
+        dynamicNotificationsAppsPref?.setOnPreferenceClickListener {
+            val intent = Intent(context, AppSelectorActivity::class.java)
+            intent.putExtra("title", "Select Apps for Dynamic Notifications")
+            intent.putExtra("prefKey", "light_dynamic_notifications_apps")
             startActivity(intent)
             true
         }

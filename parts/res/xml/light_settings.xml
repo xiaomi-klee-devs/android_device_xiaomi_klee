@@ -78,6 +78,21 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="light_category_dynamic_notifications"
+        android:title="@string/light_dynamic_notifications_title"
+        android:dependency="light_enable">
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="light_dynamic_notifications_enable"
+            android:title="@string/light_dynamic_notifications_title"
+            android:summary="@string/light_dynamic_notifications_summary"
+            android:defaultValue="false" />
+        <Preference
+            android:key="light_dynamic_notifications_apps"
+            android:title="@string/light_dynamic_notifications_apps_title"
+            android:dependency="light_dynamic_notifications_enable" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="light_category_music"
         android:title="@string/light_music_title"
         android:dependency="light_enable">
