@@ -17,6 +17,7 @@ import android.view.Display.HdrCapabilities
 import com.xiaomi.settings.display.ColorService
 import com.xiaomi.settings.touchsampling.TouchSamplingService
 import com.xiaomi.settings.touchsampling.TouchSamplingTileService
+import com.xiaomi.settings.battery.ChargingLimitService
 
 /** Everything begins at boot. */
 class BootCompletedReceiver : BroadcastReceiver() {
@@ -64,5 +65,8 @@ class BootCompletedReceiver : BroadcastReceiver() {
         if (sharedPreferences.getBoolean("light_enable", false)) {
             context.startServiceAsUser(Intent(context, com.xiaomi.settings.light.LightService::class.java), UserHandle.CURRENT)
         }
+
+        // Battery
+        context.startServiceAsUser(Intent(context, ChargingLimitService::class.java), UserHandle.CURRENT)
     }
 }

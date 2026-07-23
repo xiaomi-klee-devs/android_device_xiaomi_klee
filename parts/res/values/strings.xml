@@ -53,6 +53,12 @@
     <string name="core_6">Core 6 (Big)</string>
     <string name="core_7">Core 7 (Prime)</string>
 
+    <!-- Charging Control -->
+    <string name="charging_control_title">Charging Control</string>
+    <string name="charging_limit_title">Stop at Percentage</string>
+    <string name="charging_limit_summary">Current limit: %1$d%%</string>
+    <string name="charging_control_summary">Improve battery lifespan by limiting Charge Percentage</string>
+
     <!-- GameBar Overlay -->
     <string name="game_bar_title">Game Bar</string>
     <string name="game_bar_summary">Enable the system overlay (FPS, Temp, etc.)</string>
