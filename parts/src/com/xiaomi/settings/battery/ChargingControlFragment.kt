@@ -26,6 +26,8 @@ class ChargingControlFragment : SettingsBasePreferenceFragment(),
         setPreferencesFromResource(R.xml.charging_control_settings, rootKey)
 
         mLimitPref = findPreference<SliderPreference>(BatteryUtils.PREF_CHARGING_LIMIT)?.apply {
+            sliderIncrement = 5
+            setTickVisible(true)
             onPreferenceChangeListener = this@ChargingControlFragment
             updateSummary(value)
         }

@@ -17,8 +17,6 @@
             android:defaultValue="80"
             android:max="100"
             app:min="10"
-            app:setTickVisible="true"
-            app:sliderIncrement="5"
             android:dependency="charging_control" />
 
     </PreferenceCategory>
