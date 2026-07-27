@@ -52,3 +52,6 @@ type haptics_data_file, file_type, data_file_type;
 
 # Core Control
 type vendor_sysfs_corecontrol, fs_type, sysfs_type;
+
+# Charging Control
+type vendor_sysfs_chargecontrol, fs_type, sysfs_type;

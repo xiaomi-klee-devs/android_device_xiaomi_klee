@@ -462,6 +462,10 @@ on post-fs-data
     chmod 0660 /sys/devices/system/cpu/cpu6/online
     chmod 0660 /sys/devices/system/cpu/cpu7/online
 
+# Charging Control
+    chown system system /sys/class/power_supply/battery/input_suspend
+    chmod 0664 /sys/class/power_supply/battery/input_suspend
+
 # -----------------------
 # Add by MTK
     # Mount mdota

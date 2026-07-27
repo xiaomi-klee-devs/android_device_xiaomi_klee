@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.android.settingslib.widget.MainSwitchPreference
+        android:key="charging_control"
+        android:title="Use Charging Limit"
+        android:defaultValue="false" />
+
+    <PreferenceCategory
+        android:title="Settings"
+        app:allowDividerAbove="true">
+
+        <com.android.settingslib.widget.SliderPreference
+            android:key="charging_limit"
+            android:title="@string/charging_limit_title"
+            android:defaultValue="80"
+            android:max="100"
+            app:min="10"
+            android:dependency="charging_control" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

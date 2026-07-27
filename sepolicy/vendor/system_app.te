@@ -37,3 +37,8 @@ allow system_app sysfs_therm:file { getattr open read };
 allow system_app vendor_sysfs_corecontrol:dir search;
 allow system_app vendor_sysfs_corecontrol:file { getattr open read write };
 allow system_app vendor_sysfs_corecontrol:file rw_file_perms;
+
+# Charging Control
+allow system_app sysfs_batteryinfo:dir search;
+allow system_app sysfs_batteryinfo:lnk_file read;
+allow system_app vendor_sysfs_chargecontrol:file rw_file_perms;
