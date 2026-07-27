@@ -49,7 +49,7 @@
         <!-- Services -->
         <service android:name=".battery.ChargingLimitService" />
 
-        <!-- Battery/Charging Activity — Get called by SpecialFeaturesFragment -->
+        <!-- Battery/Charging Activity — Get called by XiaomiPartsFragment -->
         <activity
             android:name=".battery.ChargingControlActivity"
             android:label="@string/charging_control_title"
@@ -57,30 +57,22 @@
             android:exported="false" />
 
         <!-- ====================================================== -->
-        <!-- Special Features Hub — The only one entry on Settings  -->
+        <!-- Xiaomi Parts Hub — Standalone launcher entry point -->
         <!-- ====================================================== -->
         <activity
-            android:name=".hub.SpecialFeaturesActivity"
-            android:label="@string/special_features_title"
+            android:name=".hub.XiaomiPartsActivity"
+            android:label="@string/app_name"
             android:icon="@drawable/ic_xiaomiparts"
             android:theme="@style/Theme.SubSettingsBase"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.android.settings.action.IA_SETTINGS" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <meta-data
-                android:name="com.android.settings.category"
-                android:value="com.android.settings.category.ia.system" />
-            <meta-data
-                android:name="com.android.settings.icon"
-                android:resource="@drawable/ic_xiaomiparts" />
-            <meta-data
-                android:name="com.android.settings.summary"
-                android:resource="@string/special_features_summary" />
         </activity>
 
         <!-- ====================================================== -->
-        <!-- GameBar — Get called by SpecialFeaturesFragment        -->
+        <!-- GameBar — Get called by XiaomiPartsFragment        -->
         <!-- ====================================================== -->
         <activity
             android:name=".gamebar.GameBarSettingsActivity"
@@ -126,7 +118,7 @@
         </receiver>
 
         <!-- ====================================================== -->
-        <!-- Touch Sampling — Get called by SpecialFeaturesFragment -->
+        <!-- Touch Sampling — Get called by XiaomiPartsFragment -->
         <!-- ====================================================== -->
         <activity
             android:name=".touchsampling.TouchSamplingSettingsActivity"
@@ -157,7 +149,7 @@
         </service>
 
         <!-- ====================================================== -->
-        <!-- Core Control — Get called by SpecialFeaturesFragment   -->
+        <!-- Core Control — Get called by XiaomiPartsFragment   -->
         <!-- ====================================================== -->
         <activity
             android:name=".corecontrol.CoreControlActivity"
@@ -166,7 +158,7 @@
             android:exported="true" />
 
         <!-- ====================================================== -->
-        <!-- Backlight — Get called by SpecialFeaturesFragment      -->
+        <!-- Backlight — Get called by XiaomiPartsFragment      -->
         <!-- ====================================================== -->
         <activity
             android:name=".light.LightSettingsActivity"

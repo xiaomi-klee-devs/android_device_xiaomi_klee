@@ -19,7 +19,7 @@ package com.xiaomi.settings.hub
 import android.os.Bundle
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity
 
-class SpecialFeaturesActivity : CollapsingToolbarBaseActivity() {
+class XiaomiPartsActivity : CollapsingToolbarBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,14 +29,14 @@ class SpecialFeaturesActivity : CollapsingToolbarBaseActivity() {
                 .beginTransaction()
                 .replace(
                     com.android.settingslib.collapsingtoolbar.R.id.content_frame,
-                    SpecialFeaturesFragment(),
-                    TAG_SPECIAL_FEATURES
+                    XiaomiPartsFragment(),
+                    TAG_XIAOMI_PARTS
                 )
                 .commit()
         }
     }
 
     companion object {
-        private const val TAG_SPECIAL_FEATURES = "special_features"
+        private const val TAG_XIAOMI_PARTS = "xiaomi_parts"
     }
 }
