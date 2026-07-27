@@ -21,15 +21,16 @@ import android.os.Bundle
 import androidx.preference.Preference
 import com.android.settingslib.widget.SettingsBasePreferenceFragment
 import com.xiaomi.settings.R
+import com.xiaomi.settings.battery.ChargingControlActivity
 import com.xiaomi.settings.corecontrol.CoreControlActivity
 import com.xiaomi.settings.gamebar.GameBarSettingsActivity
 import com.xiaomi.settings.light.LightSettingsActivity
 import com.xiaomi.settings.touchsampling.TouchSamplingSettingsActivity
 
-class SpecialFeaturesFragment : SettingsBasePreferenceFragment() {
+class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.special_features, rootKey)
+        setPreferencesFromResource(R.xml.xiaomi_parts, rootKey)
 
         findPreference<Preference>(KEY_BACKLIGHT)?.setOnPreferenceClickListener {
             startActivity(Intent(context, LightSettingsActivity::class.java))
@@ -50,12 +51,18 @@ class SpecialFeaturesFragment : SettingsBasePreferenceFragment() {
             startActivity(Intent(context, CoreControlActivity::class.java))
             true
         }
+
+        findPreference<Preference>(KEY_CHARGING_CONTROL)?.setOnPreferenceClickListener {
+            startActivity(Intent(context, ChargingControlActivity::class.java))
+            true
+        }
     }
 
     companion object {
-        private const val KEY_BACKLIGHT = "special_backlight"
-        private const val KEY_GAME_BAR = "special_game_bar"
-        private const val KEY_TOUCH_SAMPLING = "special_touch_sampling"
-        private const val KEY_CORE_CONTROL = "special_core_control"
+        private const val KEY_BACKLIGHT = "parts_backlight"
+        private const val KEY_GAME_BAR = "parts_game_bar"
+        private const val KEY_TOUCH_SAMPLING = "parts_touch_sampling"
+        private const val KEY_CORE_CONTROL = "parts_core_control"
+        private const val KEY_CHARGING_CONTROL = "parts_charging_control"
     }
 }

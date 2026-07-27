@@ -134,10 +134,10 @@
     <string name="game_bar_app_selector_title">Select Apps</string>
     <string name="game_bar_app_selector_summary">Add apps that should auto-enable Game Bar</string>
 
-    <!-- Special Features Hub -->
-    <string name="special_features_title">Special features</string>
-    <string name="special_features_summary">Back Light, Game Bar, Touch Sampling and Core Control</string>
-    <string name="special_settings_category_title">Special settings</string>
+    <!-- Xiaomi Parts Hub -->
+    <string name="xiaomi_parts_title">Xiaomi Parts</string>
+    <string name="xiaomi_parts_summary">Back Light, Game Bar, Touch Sampling and Core Control</string>
+    <string name="parts_settings_category_title">Parts settings</string>
 
     <!-- RGB Light Settings -->
     <string name="light_settings_title">Back Light Effects</string>
