@@ -147,6 +147,10 @@
     <string name="light_notifications_color_title">Notification color</string>
     <string name="light_notifications_apps_title">Select apps for notifications</string>
 
+    <string name="light_dynamic_notifications_title">Dynamic notifications</string>
+    <string name="light_dynamic_notifications_summary">Pulse top and bottom LED with different random colors for app notifications</string>
+    <string name="light_dynamic_notifications_apps_title">Select apps for dynamic notifications</string>
+
     <string name="light_music_title">Rhythmic light effects</string>
     <string name="light_music_summary">Follow up beat, rhythm and bass of music</string>
     <string name="light_music_apps_title">Select music apps</string>
