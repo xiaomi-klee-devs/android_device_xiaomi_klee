@@ -21,6 +21,7 @@ import android.os.Bundle
 import androidx.preference.Preference
 import com.android.settingslib.widget.SettingsBasePreferenceFragment
 import com.xiaomi.settings.R
+import com.xiaomi.settings.battery.ChargingControlActivity
 import com.xiaomi.settings.corecontrol.CoreControlActivity
 import com.xiaomi.settings.gamebar.GameBarSettingsActivity
 import com.xiaomi.settings.light.LightSettingsActivity
@@ -50,6 +51,11 @@ class SpecialFeaturesFragment : SettingsBasePreferenceFragment() {
             startActivity(Intent(context, CoreControlActivity::class.java))
             true
         }
+
+        findPreference<Preference>(KEY_CHARGING_CONTROL)?.setOnPreferenceClickListener {
+            startActivity(Intent(context, ChargingControlActivity::class.java))
+            true
+        }
     }
 
     companion object {
@@ -57,5 +63,6 @@ class SpecialFeaturesFragment : SettingsBasePreferenceFragment() {
         private const val KEY_GAME_BAR = "special_game_bar"
         private const val KEY_TOUCH_SAMPLING = "special_touch_sampling"
         private const val KEY_CORE_CONTROL = "special_core_control"
+        private const val KEY_CHARGING_CONTROL = "special_charging_control"
     }
 }

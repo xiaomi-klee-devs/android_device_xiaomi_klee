@@ -29,6 +29,12 @@
             android:summary="@string/core_control_summary"
             android:icon="@drawable/ic_thermal_settings" />
 
+        <Preference
+            android:key="special_charging_control"
+            android:title="@string/charging_control_title"
+            android:summary="@string/charging_control_summary"
+            android:icon="@drawable/ic_charging_control" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
