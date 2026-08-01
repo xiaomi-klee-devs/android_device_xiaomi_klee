@@ -136,8 +136,8 @@
 
     <!-- Xiaomi Parts Hub -->
     <string name="xiaomi_parts_title">Xiaomi Parts</string>
-    <string name="xiaomi_parts_summary">Back Light, Game Bar, Touch Sampling and Core Control</string>
-    <string name="parts_settings_category_title">Parts settings</string>
+    <string name="xiaomi_parts_summary">Back Light, Game Bar, Touch Sampling, Charging Control and Core Control</string>
+    <string name="parts_settings_category_title">ilystack27</string>
 
     <!-- RGB Light Settings -->
     <string name="light_settings_title">Back Light Effects</string>
