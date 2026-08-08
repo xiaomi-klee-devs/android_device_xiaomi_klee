@@ -27,7 +27,7 @@
             android:key="parts_core_control"
             android:title="@string/core_control_title"
             android:summary="@string/core_control_summary"
-            android:icon="@drawable/ic_thermal_settings" />
+            android:icon="@drawable/ic_core_control" />
 
         <Preference
             android:key="parts_charging_control"
