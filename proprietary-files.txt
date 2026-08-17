@@ -1781,6 +1781,12 @@ vendor/lib64/libvcodecdrv_header_stub.so
 # Media (Codec2)
 vendor/etc/TL_settings.json
 vendor/etc/VideoLog_dynamic.ds
+vendor/bin/hw/android.hardware.media.c2-mediatek-64b
+vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b
+vendor/etc/init/android.hardware.media.c2-mediatek-64b.rc
+vendor/etc/seccomp_policy/android.hardware.media.c2@1.2-extended-seccomp-policy
+vendor/etc/seccomp_policy/android.hardware.media.c2@1.2-mediatek-seccomp-policy
+vendor/etc/vintf/manifest/manifest_media_c2_default.xml
 vendor/etc/mtk_platform_codecs_config.xml
 vendor/lib64/libcodec2_fsr.so
 vendor/lib64/libcodec2_hal_common.so:vendor/lib64/libcodec2_hal_common_prebuilt.so;FIX_SONAME
