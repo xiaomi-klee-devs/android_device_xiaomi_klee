@@ -16,6 +16,7 @@ vendor.xiaomi.hardware.framemaster.IFrameMaster/default u:object_r:vendor_hal_di
 
 # Dolby
 android.hardware.media.c2.IComponentStore/default9    u:object_r:hal_codec2_service:s0
+android.hardware.media.c2.IComponentStore/dolby       u:object_r:hal_codec2_service:s0
 vendor.dolby.dms.IDms/default                         u:object_r:hal_aidl_dms_service:s0
 
 # Fido

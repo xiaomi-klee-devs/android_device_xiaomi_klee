@@ -1,0 +1,4 @@
+allow mediacodec hal_aidl_dms_service:service_manager find;
+
+binder_call(mediacodec, hal_aidl_dms_default)
+binder_use(mediacodec)
