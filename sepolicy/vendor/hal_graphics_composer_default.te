@@ -13,3 +13,10 @@ allow hal_graphics_composer_default vendor_displayfeature_device:chr_file r_file
 get_prop(hal_graphics_composer_default, vendor_displayfeature_prop)
 
 allow hal_graphics_composer_default vendor_persist_display_file:file r_file_perms;
+
+# Dolby Vision: HWComposer receives a decoded-frame file descriptor
+# handed off by the Dolby Vision decoder (mediacodec domain) for
+# display compositing.
+# avc: denied { use } for ... scontext=u:r:hal_graphics_composer_default:s0
+#   tcontext=u:r:mediacodec:s0 tclass=fd permissive=0
+allow hal_graphics_composer_default mediacodec:fd use;
