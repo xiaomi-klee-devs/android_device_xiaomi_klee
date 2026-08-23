@@ -29,4 +29,3 @@ allow vendor_hal_displayfeature_default vendor_display_data_file:file create_fil
 allow vendor_hal_displayfeature_default vendor_displayfeature_sysfs:file w_file_perms;
 
 set_prop(vendor_hal_displayfeature_default, vendor_displayfeature_prop)
-get_prop(vendor_hal_displayfeature_default, vendor_displayfeature_prop)
