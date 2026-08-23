@@ -37,9 +37,9 @@ class BootCompletedReceiver : BroadcastReceiver() {
         }
 
         // Override HDR types
-        val displayManager = context.getSystemService(DisplayManager::class.java)
-        displayManager.overrideHdrTypes(
-            Display.DEFAULT_DISPLAY,
+        val displayToken = SurfaceControl.getInternalDisplayToken()
+        SurfaceControl.overrideHdrTypes(
+            displayToken,
             intArrayOf(
                 HdrCapabilities.HDR_TYPE_DOLBY_VISION,
                 HdrCapabilities.HDR_TYPE_HDR10,
