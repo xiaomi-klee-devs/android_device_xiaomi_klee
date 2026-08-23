@@ -87,11 +87,6 @@ lib_fixups: lib_fixups_user_type = {
 
 blob_fixups: blob_fixups_user_type = {
     (
-        'vendor/lib64/c2.dolby.hevc.dec.so',
-        'vendor/lib64/c2.dolby.hevc.sec.dec.so',
-    ): blob_fixup()
-        .binary_regex_replace(b'\x00\x20\x80\x52', b'\x00\xa6\x81\x52'),
-    (
         'odm/lib64/libmt_mitee.so',
         'vendor/bin/hw/android.hardware.security.keymint@3.0-service.mitee',
         'odm/lib64/libgoogleid.so',
