@@ -1,2 +1,0 @@
-allow system_app vendor_hal_displayfeature_xiaomi_service:service_manager find;
-binder_call(system_app, vendor_hal_displayfeature_xiaomi_default)
