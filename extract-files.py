@@ -146,10 +146,6 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libcodec2_fsr.so': blob_fixup()
         .call(blob_fixup_graphic_buffer_size)
         .replace_needed('android.hardware.graphics.common-V5-ndk.so', 'android.hardware.graphics.common-V7-ndk.so'),
-    'vendor/lib64/libcodec2_aidl_prebuilt.so': blob_fixup()
-        .replace_needed('libcodec2_hal_common.so', 'libcodec2_hal_common_prebuilt.so')
-        .replace_needed('libcodec2_vndk.so', 'libcodec2_vndk_prebuilt.so')
-        .replace_needed('libcodec2_hidl_plugin.so', 'libcodec2_hidl_plugin_prebuilt.so'),
     (
         'vendor/bin/hw/android.hardware.media.c2-mediatek-64b',
         'vendor/bin/hw/vendor.dolby.media.c2-default-service-dax',
