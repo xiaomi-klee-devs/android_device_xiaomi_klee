@@ -466,7 +466,6 @@ vendor/lib64/libRecordCNN.so
 vendor/lib64/libSEGModel.so
 vendor/lib64/libXMFaceFocus.so;MODULE_SUFFIX=-vendor
 vendor/lib64/libXMFaceFocus1206.so
-vendor/lib64/libcodec2_aidl.so:vendor/lib64/libcodec2_aidl_prebuilt.so;FIX_SONAME
 vendor/lib64/libaaa_aaautil.so
 vendor/lib64/libaaa_afassist_V2.so
 vendor/lib64/libaaa_afassistctrl.so
@@ -1627,18 +1626,6 @@ vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Test_SIM1.xml
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Test_SIM2.xml
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Verizon_Wireless.xml
 vendor/etc/slp_conf
-
-# Display - Dolby Vision
-vendor/bin/hw/vendor.dolby.media.c2-service-vision
-vendor/etc/init/vendor.dolby.media.c2-service-vision.rc
-vendor/etc/dolby_vision.cfg
-vendor/lib64/c2.dolby.client.so
-vendor/lib64/c2.dolby.hevc.dec.so
-vendor/lib64/c2.dolby.hevc.sec.dec.so
-vendor/lib64/c2.dolby.store.so
-vendor/lib64/libdolbydecoderprocessor.so
-vendor/lib64/libdolbyeglcore.so
-vendor/lib64/libdolbyottcameracontrol.so
 
 # Graphics
 odm/lib64/libframemaster.so

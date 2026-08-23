@@ -147,17 +147,6 @@ blob_fixups: blob_fixups_user_type = {
         .call(blob_fixup_graphic_buffer_size)
         .replace_needed('android.hardware.graphics.common-V5-ndk.so', 'android.hardware.graphics.common-V7-ndk.so'),
     (
-        'vendor/bin/hw/android.hardware.media.c2-mediatek-64b',
-        'vendor/bin/hw/vendor.dolby.media.c2-default-service-dax',
-        'vendor/bin/hw/vendor.dolby.media.c2-service-vision',
-        'vendor/lib64/c2.dolby.client.so',
-        'vendor/lib64/c2.dolby.hevc.dec.so',
-        'vendor/lib64/c2.dolby.hevc.sec.dec.so',
-        'vendor/lib64/libcodec2_mtk_vdec.so',
-        'vendor/lib64/libcodec2_mtk_venc.so'
-    ): blob_fixup()
-        .replace_needed('libcodec2_aidl.so', 'libcodec2_aidl_prebuilt.so'),
-    (
         'vendor/lib64/vendor.xiaomi.hardware.camera.injection-client.so',
         'vendor/lib64/vendor.xiaomi.hardware.camera.injection-V1-ndk.so'
     ): blob_fixup()

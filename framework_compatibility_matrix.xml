@@ -213,7 +213,6 @@
       <interface>
           <name>IComponentStore</name>
           <instance>default9</instance>
-          <instance>dolby</instance>
       </interface>
   </hal>
   <hal format="aidl" optional="true">
