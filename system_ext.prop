@@ -17,7 +17,7 @@ vendor.rild.libpath=mtk-ril.so
 
 # Versioning
 ro.mi.os.version.code=3
-ro.mi.os.version.incremental=OS3.0.306.0.WPJMIXM
+ro.mi.os.version.incremental=OS3.0.307.0.WPJMIXM
 
 # Wifi
 wifi.direct.interface=p2p0
