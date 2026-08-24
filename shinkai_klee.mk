@@ -15,12 +15,12 @@ $(call inherit-product, vendor/custom/config/common_full_phone.mk)
 $(call inherit-product, device/xiaomi/klee/device.mk)
 
 # Pixel build flags
-CUSTOM_MAINTAINER := kylieeXD
+SHINKAI_MAINTAINER := kylieeXD
 PRODUCT_CHECK_PREBUILT_MAX_PAGE_SIZE := false
 
 # Device manufacturer
 PRODUCT_DEVICE := klee
-PRODUCT_NAME := custom_klee
+PRODUCT_NAME := shinkai_klee
 PRODUCT_BRAND := POCO
 PRODUCT_MODEL := 2511FPC34G
 PRODUCT_MANUFACTURER := xiaomi
