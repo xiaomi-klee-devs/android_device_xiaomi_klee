@@ -19,6 +19,7 @@ ro.audio.spatializer_enabled=true
 ro.config.media_vol_default=20
 ro.config.vc_call_vol_default=6
 ro.config.vc_call_vol_steps=7
+ro.miui.build.region=GL
 ro.vendor.audio.camera_gain=true
 ro.vendor.audio.dolby.dax.support=true
 ro.vendor.audio.gain.support=true
