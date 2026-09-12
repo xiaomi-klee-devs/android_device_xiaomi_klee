@@ -6,6 +6,7 @@
 
 DEVICE_PATH := device/xiaomi/klee
 BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
 IGNORE_PREFER32_ON_DEVICE := true
 
 # Architecture
