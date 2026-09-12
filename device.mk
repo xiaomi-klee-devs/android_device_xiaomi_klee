@@ -264,6 +264,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.hardware_keystore_V3.xml
 
+# ODM Mitee/TEE blobs (libmt_mitee.so -> /odm/bin/mtd_mitee) link against
+# keymaster/keymint support libraries that are built for the system partition.
+# ODM processes run in the vendor "default" linker namespace, which cannot see
+# private system libs, so ship vendor variants to /vendor/lib64.
+PRODUCT_PACKAGES += \
+    libkeymaster4support.vendor \
+    libkeymint_support.vendor \
+    libkeymint_remote_prov_support.vendor
+
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.keystore.app_attest_key.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.keystore.app_attest_key.xml \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml \
