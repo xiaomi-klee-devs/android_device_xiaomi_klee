@@ -86,6 +86,8 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
+    'vendor/etc/audio_param/Volume_AudioParam.xml': blob_fixup()
+        .regex_replace('Handset_PGA_GAIN', 'Handset Volume'),
     (
         'odm/lib64/libmt_mitee.so',
         'vendor/bin/hw/android.hardware.security.keymint@3.0-service.mitee',
