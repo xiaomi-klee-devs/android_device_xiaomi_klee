@@ -318,7 +318,8 @@ PRODUCT_PACKAGES += \
     SettingsResOverlayKlee \
     SettingsProviderOverlayKlee \
     SystemUIOverlayKlee \
-    TetheringConfigOverlay
+    TetheringConfigOverlay \
+    WifiResourcesOverlayKlee
 
 # Parts
 PRODUCT_PACKAGES += \
