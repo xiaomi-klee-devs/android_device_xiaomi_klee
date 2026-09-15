@@ -223,7 +223,7 @@ PRODUCT_PACKAGES += \
     libudfpshandler
 
 PRODUCT_PACKAGES += \
-    sensors.xiaomi.v2
+    sensors.mt6899
 
 PRODUCT_PACKAGES += \
     init.mt6899.fingerprint.rc
