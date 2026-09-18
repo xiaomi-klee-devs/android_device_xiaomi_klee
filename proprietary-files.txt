@@ -1750,6 +1750,7 @@ vendor/lib64/lib_android_keymaster_keymint_utils.so:vendor/lib64/lib_android_key
 vendor/lib64/libkeymint.so:vendor/lib64/libkeymint-v36.so;FIX_SONAME
 vendor/lib64/libkeymint_support.so:vendor/lib64/libkeymint_support-v36.so;FIX_SONAME
 vendor/lib64/libkeymint_remote_prov_support.so:vendor/lib64/libkeymint_remote_prov_support-v36.so;FIX_SONAME;DISABLE_CHECKELF
+vendor/lib64/libbase.so:vendor/lib64/libbase-v36.so;FIX_SONAME
 
 # MBrain
 vendor/lib64/libmbrainSDKv.so

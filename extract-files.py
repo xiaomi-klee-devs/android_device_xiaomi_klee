@@ -101,7 +101,8 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('lib_android_keymaster_keymint_utils.so', 'lib_android_keymaster_keymint_utils-v36.so')
         .replace_needed('libkeymint_support.so', 'libkeymint_support-v36.so')
         .replace_needed('libkeymint.so', 'libkeymint-v36.so')
-        .replace_needed('libkeymint_remote_prov_support.so', 'libkeymint_remote_prov_support-v36.so'),
+        .replace_needed('libkeymint_remote_prov_support.so', 'libkeymint_remote_prov_support-v36.so')
+        .replace_needed('libbase.so', 'libbase-v36.so'),
     (
         'vendor/bin/mnld',
         'vendor/lib64/mt6899/libpqconfig.so',
