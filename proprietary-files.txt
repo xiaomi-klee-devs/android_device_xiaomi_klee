@@ -1240,10 +1240,6 @@ vendor/etc/camera/mimotion_f5b.bin
 vendor/etc/camera/mimotion_f5w.bin
 vendor/etc/camera/mt6899/gma_custom.xml:vendor/etc/camera/mt6899/gma_custom.txt;SYMLINK=vendor/etc/camera/mt6899/gma_custom.xml
 
-# Chipinfo
-vendor/bin/chipinfo
-vendor/etc/init/chipinfo_init.rc
-
 # CIT
 odm/etc/cit_param_config.json
 #product/app/MiuiCit/MiuiCit.apk

@@ -181,6 +181,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.raw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.raw.xml \
     frameworks/native/data/etc/android.hardware.camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.xml
 
+# Chipinfo
+PRODUCT_PACKAGES += \
+    chipinfo
+
 # ConsumerIR
 PRODUCT_PACKAGES += \
     android.hardware.ir-service.example
