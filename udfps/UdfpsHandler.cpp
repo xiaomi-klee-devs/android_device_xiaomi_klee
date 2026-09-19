@@ -201,14 +201,7 @@ class XiaomiKleeUdfpsHandler : public UdfpsHandler {
         }
     }
 
-    void onAuthenticationSucceeded() {
-        mAuthSuccess = true;
-        onFingerUp();
-        std::thread([this]() {
-            std::this_thread::sleep_for(std::chrono::milliseconds(500));
-            mAuthSuccess = false;
-        }).detach();
-    }
+    void onAuthenticationSucceeded() { onFingerUp(); }
 
     void onAuthenticationFailed() { onFingerUp(); }
 
